@@ -1,5 +1,11 @@
 # Morning report: overnight run 2026-11-14 (04:20 to 06:20)
 
+> **Update 2026-11-14 afternoon:** Dwayne approved 4-layer.
+> - Branch `overnight-routing` is now JLC 4-layer 0.8 mm, ENIG, with In1 as a solid GND plane.
+> - DRC: 0 errors and 0 unconnected; only the 9 courtyard-overlap warnings remain.
+> - The review package has been regenerated.
+> - Correction: JLC doesn't fill and cap vias in pads on 4-layer (6-layer and up only), so the U1 vias stay open in the pad. Details in QUESTIONS 0 and the decision log.
+
 **Bottom line:** v1 is captured, simulated, placed and routed as a proposal on branch `overnight-routing`. It's not ready to order, for one reason: **the BQ51003 DSBGA needs via-in-pad, which JLC only offers on 4-layer** (QUESTIONS item 0).
 
 ## Done

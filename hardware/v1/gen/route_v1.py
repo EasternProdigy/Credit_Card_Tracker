@@ -13,7 +13,8 @@ assert pcbnew.ExportSpecctraDSN(b, DSN)
 t = open(DSN).read()
 t = re.sub(r'\(net GND\s*\(pins[^)]*\)\s*\)', '', t)           # do not autoroute GND
 t = re.sub(r'(\(class \S+[^()]*?)\bGND\b', r'\1', t)
-t = t.replace('(via "Via[0-1]_500:250_um" "Via[0-1]_250:150_um")', '(via "Via[0-1]_500:250_um")')  # small via: U1 only (pre-placed)
+t = re.sub(r'\(via ("Via\[0-\d\]_500:250_um")(?: "Via[^"]*")+\)', r'(via \1)', t)  # small via: U1 only (pre-placed)
+assert re.search(r'\(via "Via\[0-\d\]_500:250_um"\)', t), 'via filter did not match'
 open(DSN, 'w').write(t)
 extra = sys.argv[2:] if len(sys.argv) > 2 else []
 log = subprocess.run(['java', '-jar', JAR, '-de', DSN, '-do', SES, '-mp', passes, '-mt', '8'] + extra,

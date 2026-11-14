@@ -23,6 +23,6 @@
 | O19 | BQ51003 YFP package height | Height budget | TI YFP0028 drawing |
 | O20 | Würth 760308101309 lead/land geometry | v1 coil lands are generic 1.5 x 2.5 mm pads 4 mm apart | Würth datasheet (blocked to scripts) or measure the sample |
 | O21 | onsemi EFC4615R recommended land (0.30 mm NSMD assumed) | Assembly yield | onsemi SOLDERRM or app note |
-| O22 | v1 board stackup: BQ51003 DSBGA needs via-in-pad (0.15/0.25), which JLC offers on 4-layer only | v1 order | Dwayne decision (QUESTIONS 0); JLC DFM check |
-| O23 | Four hand-fix opens on the routed v1 (U5 pin 36 VDD island, nCHG_MCU at pin 6, NFC1, P0.00) | v1 DRC clean | Dwayne in KiCad (`overnight-routing` branch) |
+| O22 | v1 board stackup: BQ51003 DSBGA needs via-in-pad (0.15/0.25). **Decided 2026-11-14: JLC 4-layer 0.8 mm.** Still open: JLC DFM must accept unfilled via-in-pad (POFV is 6-layer+ only) and the 0.225 mm BGA land (JLC min 0.25) | v1 order | JLC DFM check; fallback 6-layer |
+| O23 | ~~Four hand-fix opens on the routed v1~~ **Closed 2026-11-14:** 4-layer reroute, 0 unconnected, 0 DRC errors (`hardware/v1/review/drc_final.rpt`) | v1 DRC clean | Done |
 | O24 | Grepow cell lead polarity vs J1 pin 1 = VCELL | Reverse polarity kills the protector | Check the cell sample |
