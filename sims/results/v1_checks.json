@@ -1,0 +1,73 @@
+{
+ "power_path_v1": {
+  "nominal | full, warm (4.20 V, R0 0.3)": {
+   "vdd_nrf_min": 3.297,
+   "droop_mV": 3.4,
+   "margin_over_1.7V": 1.597
+  },
+  "nominal | near dropout (3.40 V, R0 0.8)": {
+   "vdd_nrf_min": 3.296,
+   "droop_mV": 4.3,
+   "margin_over_1.7V": 1.596
+  },
+  "nominal | empty (3.30 V, R0 1.0)": {
+   "vdd_nrf_min": 3.253,
+   "droop_mV": 45.6,
+   "margin_over_1.7V": 1.553
+  },
+  "nominal | empty + cold/aged (3.30 V, R0 4.0)": {
+   "vdd_nrf_min": 3.226,
+   "droop_mV": 72.9,
+   "margin_over_1.7V": 1.526
+  },
+  "dc_bias_derated | full, warm (4.20 V, R0 0.3)": {
+   "vdd_nrf_min": 3.297,
+   "droop_mV": 3.4,
+   "margin_over_1.7V": 1.597
+  },
+  "dc_bias_derated | near dropout (3.40 V, R0 0.8)": {
+   "vdd_nrf_min": 3.296,
+   "droop_mV": 4.3,
+   "margin_over_1.7V": 1.596
+  },
+  "dc_bias_derated | empty (3.30 V, R0 1.0)": {
+   "vdd_nrf_min": 3.253,
+   "droop_mV": 45.6,
+   "margin_over_1.7V": 1.553
+  },
+  "dc_bias_derated | empty + cold/aged (3.30 V, R0 4.0)": {
+   "vdd_nrf_min": 3.226,
+   "droop_mV": 73.2,
+   "margin_over_1.7V": 1.526
+  }
+ },
+ "qi_tank_v1": {
+  "C1_nF": 233.0,
+  "C2_nF": 2.53,
+  "Ls=10uH": {
+   "fs_kHz": 104.3,
+   "fd_MHz": 1.006,
+   "fs_in_WPC_90_105kHz": true,
+   "fd_in_WPC_0.9_1.1MHz": true
+  },
+  "Ls=11uH": {
+   "fs_kHz": 99.4,
+   "fd_MHz": 0.96,
+   "fs_in_WPC_90_105kHz": true,
+   "fd_in_WPC_0.9_1.1MHz": true
+  },
+  "stress_from_c1_stress.json": {
+   "vc1_pk_V": 1.488065,
+   "vc2_pk_V": 15.22684,
+   "ic_rms_A": 0.192957,
+   "C1_rating_V": 50,
+   "C2_rating_V": 50,
+   "per_C1_part_rms_A": 0.083
+  }
+ },
+ "divider_v1": {
+  "sampled_V": 2.09992,
+  "error_mV": 0.08,
+  "always_on_uA": 0.21
+ }
+}
