@@ -49,7 +49,7 @@
       (type solid))
     (layer "F.Cu"))
   (fp_rect
-    (start -3.5 -0.5)
+    (start -3.5 0.3)
     (end 20.5 6.5)
     (stroke
       (width 0.05)

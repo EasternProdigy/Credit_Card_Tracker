@@ -227,7 +227,7 @@ for r, n in (('TP16', 'VDD_3V3'), ('TP17', 'VDD_NRF'), ('TP18', 'VBAT_SENSE')):
 S = 'mcu'
 u5 = {'10': 'VDD_NRF', '22': 'VDD_NRF', '36': 'VDD_NRF', '47': 'VDD_NRF', '48': 'VDD_NRF',
       '46': 'DCC', '45': 'DECD', '43': 'DECA', '33': 'DECA', '34': 'XC1', '35': 'XC2',
-      '31': 'RF_NRF', '32': 'VSS_PA', '25': 'SWDIO', '26': 'SWDCLK', '30': 'nRESET_IC',
+      '31': 'RF_NRF', '32': 'GND', '25': 'SWDIO', '26': 'SWDCLK', '30': 'nRESET_IC',
       '44': 'GND', '49': 'GND', '1': 'XL1', '2': 'XL2', '3': 'NFC1', '4': 'NFC2',
       '5': 'VBAT_SENSE_MCU', '6': 'nCHG_MCU', '7': 'P1_06', '18': 'SWO', '23': 'P0_00', '24': 'P0_01'}
 for p in ('8', '9', '37', '38', '39', '40', '41', '42', '11', '12', '13', '14', '15', '16', '17',
@@ -253,14 +253,14 @@ add('Y2', S, 'Device:Crystal', '32.768kHz CL9pF', 'X2012', {'1': 'XL1', '2': 'XL
     src=NORD + ' X1 (2012, CL 9 pF, +/-20 ppm)')
 R('R7', S, '1k 1%', 'nRESET_IC', 'nRESET', 'R0201', src=NORD + ' R1')
 Cap('C31', S, '3.9pF C0G', 'nRESET_IC', 'GND', 'C0201', src=NORD + ' C13')
-add('NT1', S, 'Device:NetTie_2', 'VSS_PA tie', 'NETTIE', {'1': 'VSS_PA', '2': 'GND'},
-    src=NORD + ': pin 32 joins pin 49 only, under the IC')
+# NT1 removed (rev 0.6): pin 32 (VSS_PA) is GND in the netlist; the Fig. 180 topology (C25 -> pin 32 only on top,
+# pin 32 -> pin 49 only under the IC) is enforced in the PCB by copper keepouts + a scripted trace (gen_pcb.py).
 R('JP6', S, '0R', 'nCHG', 'nCHG_MCU', dev=True, src='v1: charger status link')
 
 # ---- F: RF ---------------------------------------------------------------
 S = 'rf_antenna'
 Ind('L3', S, '2.7nH', 'RF_NRF', 'RF_A', mpn='Murata LQP03HQ2N7B02', src=NORD + ' L2')
-Cap('C25', S, '1.5pF', 'RF_A', 'VSS_PA', 'C0201', mpn='Murata GJM0335C1E1R5WB01', src=NORD + ' C6')
+Cap('C25', S, '1.5pF', 'RF_A', 'GND', 'C0201', mpn='Murata GJM0335C1E1R5WB01', src=NORD + ' C6')
 Ind('L4', S, '3.5nH', 'RF_A', 'RF_B', mpn='Murata LQP03TN3N5B02', src=NORD + ' L3')
 Cap('C26', S, '2.0pF', 'RF_B', 'GND', 'C0201', mpn='Murata GJM0335C1E2R0WB01', src=NORD + ' C9')
 Ind('L5', S, '3.5nH', 'RF_B', 'RF_MATCHED', mpn='Murata LQP03TN3N5B02', src=NORD + ' L4')

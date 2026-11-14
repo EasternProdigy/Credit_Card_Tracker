@@ -514,7 +514,7 @@
       (width 0)
       (type default))
     (uuid "80afcf25-6b06-5667-bc57-b4222dcbfdc5"))
-  (global_label "VSS_PA"
+  (global_label "GND"
     (shape passive)
     (at 81.28 46.99 270)
     (fields_autoplaced yes)
@@ -522,7 +522,7 @@
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "6d9d5460-964c-51e0-b98f-6102bcf3b60d"))
+    (uuid "9bb87b3e-09d8-5176-90ca-3ef7bdab92ad"))
   (symbol
     (lib_id "Device:C")
     (at 81.28 40.64 0)
@@ -585,39 +585,39 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 127 36.83)
-      (xy 127 34.29))
+      (xy 121.92 36.83)
+      (xy 121.92 34.29))
     (stroke
       (width 0)
       (type default))
-    (uuid "a9d412c4-2f7b-5c96-ae21-2a3b211f93e6"))
+    (uuid "88c372b9-c7da-5d8d-b201-ca116ca8bdeb"))
   (label "RF_A"
-    (at 127 34.29 90)
+    (at 121.92 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "2ab7928a-6d10-56b1-b43b-93dce3ab00c1"))
+    (uuid "8c240ae9-c5b6-527a-8c4e-d65f16b17cd2"))
   (wire
     (pts
-      (xy 127 44.45)
-      (xy 127 46.99))
+      (xy 121.92 44.45)
+      (xy 121.92 46.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "83328ddf-31d9-5940-beb2-e6b8f84349af"))
+    (uuid "1583507a-5c1d-5c17-a0f4-e7a8856fbedb"))
   (label "RF_B"
-    (at 127 46.99 270)
+    (at 121.92 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "9cec53fb-d9cd-5458-b4b6-ce9358a149c2"))
+    (uuid "713837d8-5464-5a5e-ac7c-37af1c7300f1"))
   (symbol
     (lib_id "Device:L")
-    (at 127 40.64 0)
+    (at 121.92 40.64 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -625,43 +625,43 @@
     (dnp no)
     (uuid "44e56295-6f8c-5c4e-ae5e-d888ad52e71b")
     (property "Reference" "L4"
-      (at 128.27 34.29 0)
+      (at 123.19 34.29 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "3.5nH"
-      (at 128.27 36.83 0)
+      (at 123.19 36.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Inductor_SMD:L_0201_0603Metric"
-      (at 127 40.64 0)
+      (at 121.92 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 127 40.64 0)
+      (at 121.92 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" "Murata LQP03TN3N5B02"
-      (at 127 40.64 0)
+      (at 121.92 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L3"
-      (at 127 40.64 0)
+      (at 121.92 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C206424"
-      (at 127 40.64 0)
+      (at 121.92 40.64 0)
       (hide yes)
       (effects
         (font
@@ -677,40 +677,40 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 167.64 36.83)
-      (xy 167.64 34.29))
+      (xy 165.1 36.83)
+      (xy 165.1 34.29))
     (stroke
       (width 0)
       (type default))
-    (uuid "f94ffbeb-7919-5f64-a2db-437033c58d34"))
+    (uuid "c60053e0-0630-5b90-a8d3-ad45654b145d"))
   (label "RF_B"
-    (at 167.64 34.29 90)
+    (at 165.1 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ea99560b-23b0-53d8-aeb6-7f8d95f297e5"))
+    (uuid "5e2c0598-270a-5d4f-9699-221123e8465c"))
   (wire
     (pts
-      (xy 167.64 44.45)
-      (xy 167.64 46.99))
+      (xy 165.1 44.45)
+      (xy 165.1 46.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "2d7284d3-4930-54c8-bdd0-1807fb25e929"))
+    (uuid "181c4027-d636-57cd-bd22-47c52c6caaff"))
   (global_label "GND"
     (shape passive)
-    (at 167.64 46.99 270)
+    (at 165.1 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "8cbe9b35-4d48-57b3-87a5-6bfc8b42463f"))
+    (uuid "832fa13f-4dc0-5e65-a1a4-f863b8da5fac"))
   (symbol
     (lib_id "Device:C")
-    (at 167.64 40.64 0)
+    (at 165.1 40.64 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -718,43 +718,43 @@
     (dnp no)
     (uuid "5244114f-c6ed-51f2-bb61-65ad6134df26")
     (property "Reference" "C26"
-      (at 168.91 34.29 0)
+      (at 166.37 34.29 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "2.0pF"
-      (at 168.91 36.83 0)
+      (at 166.37 36.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
-      (at 167.64 40.64 0)
+      (at 165.1 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 167.64 40.64 0)
+      (at 165.1 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" "Murata GJM0335C1E2R0WB01"
-      (at 167.64 40.64 0)
+      (at 165.1 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 C9"
-      (at 167.64 40.64 0)
+      (at 165.1 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C668326"
-      (at 167.64 40.64 0)
+      (at 165.1 40.64 0)
       (hide yes)
       (effects
         (font
@@ -770,39 +770,39 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 215.9 36.83)
-      (xy 215.9 34.29))
+      (xy 213.36 36.83)
+      (xy 213.36 34.29))
     (stroke
       (width 0)
       (type default))
-    (uuid "6c30d7f6-69bd-5853-a461-982bc929735a"))
+    (uuid "aee8d780-c9e6-5d18-b7b7-02aacf80f52c"))
   (label "RF_B"
-    (at 215.9 34.29 90)
+    (at 213.36 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "8ca0f9b7-2da4-5988-8b03-08638ece3914"))
+    (uuid "4cdcf2e1-96de-59dc-b48b-d985ee8536c6"))
   (wire
     (pts
-      (xy 215.9 44.45)
-      (xy 215.9 46.99))
+      (xy 213.36 44.45)
+      (xy 213.36 46.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "48c90db8-d56b-5572-9628-8ca63a3f6369"))
+    (uuid "200ee57a-c7b3-562f-8fca-c4494a83c46b"))
   (label "RF_MATCHED"
-    (at 215.9 46.99 270)
+    (at 213.36 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "1cb75a77-ff75-58a7-bfb0-058fc0baef49"))
+    (uuid "8bbbdacb-2428-56a9-af1b-f81c60ab8db7"))
   (symbol
     (lib_id "Device:L")
-    (at 215.9 40.64 0)
+    (at 213.36 40.64 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -810,43 +810,43 @@
     (dnp no)
     (uuid "78c767c5-9bf7-52c8-a957-bc61f5693b48")
     (property "Reference" "L5"
-      (at 217.17 34.29 0)
+      (at 214.63 34.29 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "3.5nH"
-      (at 217.17 36.83 0)
+      (at 214.63 36.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Inductor_SMD:L_0201_0603Metric"
-      (at 215.9 40.64 0)
+      (at 213.36 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 215.9 40.64 0)
+      (at 213.36 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" "Murata LQP03TN3N5B02"
-      (at 215.9 40.64 0)
+      (at 213.36 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L4"
-      (at 215.9 40.64 0)
+      (at 213.36 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C206424"
-      (at 215.9 40.64 0)
+      (at 213.36 40.64 0)
       (hide yes)
       (effects
         (font
@@ -862,40 +862,40 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 271.78 36.83)
-      (xy 271.78 34.29))
+      (xy 266.7 36.83)
+      (xy 266.7 34.29))
     (stroke
       (width 0)
       (type default))
-    (uuid "b7f2d4d7-4300-57f8-9ef3-a10502df6a21"))
+    (uuid "740d9e5e-767e-5216-82ba-d437d51f23ac"))
   (label "RF_MATCHED"
-    (at 271.78 34.29 90)
+    (at 266.7 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ca915133-eb2a-59b0-beb9-a8940b2fa106"))
+    (uuid "4ac00168-da90-5bcf-8964-c257bf193005"))
   (wire
     (pts
-      (xy 271.78 44.45)
-      (xy 271.78 46.99))
+      (xy 266.7 44.45)
+      (xy 266.7 46.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "3c9ad8b5-500a-5fd0-bf22-ae72fcfca3fd"))
+    (uuid "74f33816-4bab-5c3a-8f2b-f1ebe5e662a6"))
   (global_label "GND"
     (shape passive)
-    (at 271.78 46.99 270)
+    (at 266.7 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "a5c97233-df6d-5310-aed6-71706782f281"))
+    (uuid "7768ea9e-a9d6-57c0-b5fb-107fc921578e"))
   (symbol
     (lib_id "Device:C")
-    (at 271.78 40.64 0)
+    (at 266.7 40.64 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -903,43 +903,43 @@
     (dnp no)
     (uuid "4030b8af-270c-568b-9235-12df60a112fc")
     (property "Reference" "C27"
-      (at 273.05 34.29 0)
+      (at 267.97 34.29 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "0.3pF C0G"
-      (at 273.05 36.83 0)
+      (at 267.97 36.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
-      (at 271.78 40.64 0)
+      (at 266.7 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 271.78 40.64 0)
+      (at 266.7 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 271.78 40.64 0)
+      (at 266.7 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 C11"
-      (at 271.78 40.64 0)
+      (at 266.7 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C76927"
-      (at 271.78 40.64 0)
+      (at 266.7 40.64 0)
       (hide yes)
       (effects
         (font
@@ -955,40 +955,40 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 325.12 36.83)
-      (xy 325.12 34.29))
+      (xy 320.04 36.83)
+      (xy 320.04 34.29))
     (stroke
       (width 0)
       (type default))
-    (uuid "8ccee6eb-987b-5523-b4fb-317113386c10"))
+    (uuid "b37be9b4-f729-51ac-947c-6e5261d022b5"))
   (label "RF_MATCHED"
-    (at 325.12 34.29 90)
+    (at 320.04 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "8061ccdb-1c2b-527d-8a35-0a7d60ade520"))
+    (uuid "6e4e38b6-4065-5874-b3c4-875c9bdb5bb7"))
   (wire
     (pts
-      (xy 325.12 44.45)
-      (xy 325.12 46.99))
+      (xy 320.04 44.45)
+      (xy 320.04 46.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "6c4801d6-e6fd-59a6-8e28-1a7610d06e80"))
+    (uuid "82a2ce70-90c4-5848-8cfc-75c7f1352b7f"))
   (global_label "GND"
     (shape passive)
-    (at 325.12 46.99 270)
+    (at 320.04 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "9d738210-5240-5ca6-8d4d-d50eaf0727ef"))
+    (uuid "c0d558bd-d418-537b-bee6-485962258dae"))
   (symbol
     (lib_id "Device:C")
-    (at 325.12 40.64 0)
+    (at 320.04 40.64 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -996,43 +996,43 @@
     (dnp yes)
     (uuid "0954f973-b459-50f3-ba1b-2d5bbf57f49c")
     (property "Reference" "C32"
-      (at 326.39 34.29 0)
+      (at 321.31 34.29 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "DNP"
-      (at 326.39 36.83 0)
+      (at 321.31 36.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
-      (at 325.12 40.64 0)
+      (at 320.04 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 325.12 40.64 0)
+      (at 320.04 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 325.12 40.64 0)
+      (at 320.04 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "antenna pi, first shunt (Dwayne)"
-      (at 325.12 40.64 0)
+      (at 320.04 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" ""
-      (at 325.12 40.64 0)
+      (at 320.04 40.64 0)
       (hide yes)
       (effects
         (font

@@ -1382,105 +1382,6 @@
             (effects
               (font
                 (size 1.27 1.27))))))
-      (embedded_fonts no))
-    (symbol "Device:NetTie_2"
-      (pin_numbers
-        (hide yes))
-      (pin_names
-        (offset 0)
-        (hide yes))
-      (exclude_from_sim no)
-      (in_bom no)
-      (on_board yes)
-      (in_pos_files yes)
-      (duplicate_pin_numbers_are_jumpers no)
-      (property "Reference" "NT"
-        (at 0 1.27 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Value" "NetTie_2"
-        (at 0 -1.27 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Footprint" ""
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Datasheet" ""
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Description" "Net tie, 2 pins"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "ki_keywords" "net tie short"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "ki_fp_filters" "Net*Tie*"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (symbol "NetTie_2_0_1"
-        (polyline
-          (pts
-            (xy -1.27 0)
-            (xy 1.27 0))
-          (stroke
-            (width 0.254)
-            (type default))
-          (fill
-            (type none))))
-      (symbol "NetTie_2_1_1"
-        (pin passive line
-          (at -2.54 0 0)
-          (length 2.54)
-          (name "1"
-            (effects
-              (font
-                (size 1.27 1.27))))
-          (number "1"
-            (effects
-              (font
-                (size 1.27 1.27)))))
-        (pin passive line
-          (at 2.54 0 180)
-          (length 2.54)
-          (name "2"
-            (effects
-              (font
-                (size 1.27 1.27))))
-          (number "2"
-            (effects
-              (font
-                (size 1.27 1.27))))))
       (embedded_fonts no)))
   (wire
     (pts
@@ -1688,7 +1589,7 @@
       (width 0)
       (type default))
     (uuid "bc33af68-9b51-5262-9466-0a10b1ef4acc"))
-  (global_label "VSS_PA"
+  (global_label "GND"
     (shape passive)
     (at 41.91 66.04 180)
     (fields_autoplaced yes)
@@ -1696,7 +1597,7 @@
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d3f7811f-d318-576c-a1c7-c951bd6cf2bc"))
+    (uuid "bdda7d8a-c704-5d58-aa7b-be782d43926b"))
   (wire
     (pts
       (xy 44.45 68.58)
@@ -3584,134 +3485,40 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 139.7 177.8)
-      (xy 137.16 177.8))
+      (xy 142.24 176.53)
+      (xy 142.24 173.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "186cb1e8-a564-520f-af5f-4fa2dd69acd9"))
-  (global_label "VSS_PA"
-    (shape passive)
-    (at 137.16 177.8 180)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify right))
-    (uuid "820ee9c0-4c03-5feb-9718-e47caa2cb7aa"))
-  (wire
-    (pts
-      (xy 144.78 177.8)
-      (xy 147.32 177.8))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "0ac74da4-f607-5fe4-aa73-a72436b1119e"))
-  (global_label "GND"
-    (shape passive)
-    (at 147.32 177.8 0)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify left))
-    (uuid "d3483542-d035-5c81-8b83-6c65017b59ce"))
-  (symbol
-    (lib_id "Device:NetTie_2")
-    (at 142.24 177.8 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "c5f3be68-ef10-528e-ba9e-735e3c697d95")
-    (property "Reference" "NT1"
-      (at 146.05 175.26 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Value" "VSS_PA tie"
-      (at 146.05 177.8 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Datasheet" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "MPN" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87: pin 32 joins pin 49 only, under the IC"
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "LCSC" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (pin "1"
-      (uuid "ce48a433-d804-5c3e-90ff-bbe0a8d1d86d"))
-    (pin "2"
-      (uuid "11883aa5-3c0c-55d5-ae07-3f96e67f0c74"))
-    (instances
-      (project "card_v1"
-        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/10196bc5-c4df-5d28-9295-d761dc1433f7"
-          (reference "NT1")
-          (unit 1)))))
-  (wire
-    (pts
-      (xy 193.04 176.53)
-      (xy 193.04 173.99))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "11d6ae72-4939-560e-aeba-524ed25d0533"))
+    (uuid "46ad5d3d-6691-50b5-abee-06ee26e7e448"))
   (global_label "nCHG"
     (shape passive)
-    (at 193.04 173.99 90)
+    (at 142.24 173.99 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "136e5ee9-5517-565a-8664-e775b1bcce70"))
+    (uuid "dcc34f57-135b-5504-abec-14037a78fb10"))
   (wire
     (pts
-      (xy 193.04 184.15)
-      (xy 193.04 186.69))
+      (xy 142.24 184.15)
+      (xy 142.24 186.69))
     (stroke
       (width 0)
       (type default))
-    (uuid "1ecac706-244c-5567-ad1a-b5c5f2a40b6e"))
+    (uuid "59db15bd-de23-5537-a9f7-ea20134049bd"))
   (label "nCHG_MCU"
-    (at 193.04 186.69 270)
+    (at 142.24 186.69 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "24f6ec5c-f44a-5fe8-8a45-cb06a04f9585"))
+    (uuid "1c4b02a4-58e6-55bf-a796-906f8192c6b5"))
   (symbol
     (lib_id "Device:R")
-    (at 193.04 180.34 0)
+    (at 142.24 180.34 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3719,43 +3526,43 @@
     (dnp no)
     (uuid "0403e450-25e9-52c6-8dc6-ed1807687744")
     (property "Reference" "JP6"
-      (at 194.31 173.99 0)
+      (at 143.51 173.99 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "0R"
-      (at 194.31 176.53 0)
+      (at 143.51 176.53 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "v1: charger status link"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C17168"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
