@@ -1,36 +1,8 @@
 ** Drc report for run0.kicad_pcb **
-** Created on 2026-11-14T06:14:23 **
+** Created on 2026-11-14T14:34:42 **
 ** Report includes: Errors, Warnings **
 
-** Found 24 DRC violations **
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-    @(163.2700 mm, 132.5300 mm): Pad 2 [GND] of C18 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-    @(163.2700 mm, 131.6300 mm): Pad 2 [GND] of C21 on F.Cu
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(182.9000 mm, 131.2300 mm): Footprint C9d
-    @(181.8200 mm, 131.6300 mm): Footprint C9c
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(156.8500 mm, 130.1300 mm): Footprint C20
-    @(158.4000 mm, 134.1800 mm): Footprint U5
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(164.6500 mm, 132.8800 mm): Footprint L2
-    @(168.0500 mm, 130.0000 mm): Footprint L1
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(158.4000 mm, 134.1800 mm): Footprint U5
-    @(158.6000 mm, 138.3800 mm): Footprint L3
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(158.4000 mm, 134.1800 mm): Footprint U5
-    @(160.9500 mm, 129.5800 mm): Footprint Y2
+** Found 15 DRC violations **
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
@@ -38,84 +10,55 @@
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
+    @(160.9500 mm, 129.5800 mm): Footprint Y2
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(158.4000 mm, 134.1800 mm): Footprint U5
     @(154.4000 mm, 135.5800 mm): Footprint C22
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
+    @(158.4000 mm, 134.1800 mm): Footprint U5
     @(158.6000 mm, 138.3800 mm): Footprint L3
-    @(159.2800 mm, 138.6300 mm): Footprint C25
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
-    @(158.6000 mm, 139.8300 mm): Footprint L4
+    @(158.4000 mm, 134.1800 mm): Footprint U5
+    @(156.8500 mm, 130.1300 mm): Footprint C20
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
     @(159.2800 mm, 138.6300 mm): Footprint C25
+    @(158.6000 mm, 138.3800 mm): Footprint L3
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(159.2800 mm, 138.6300 mm): Footprint C25
+    @(158.6000 mm, 139.8300 mm): Footprint L4
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(182.9000 mm, 131.2300 mm): Footprint C9d
+    @(181.8200 mm, 131.6300 mm): Footprint C9c
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(164.6500 mm, 132.8800 mm): Footprint L2
+    @(168.0500 mm, 130.0000 mm): Footprint L1
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
     @(158.6000 mm, 143.4800 mm): Footprint AE1
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
-    @(144.0000 mm, 113.9800 mm): Footprint U3
+    @(147.6000 mm, 113.9800 mm): Footprint Q1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
+    Local override; warning
+    @(159.7500 mm, 143.1050 mm): Footprint TP19
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
     @(138.5000 mm, 106.4800 mm): Footprint BT1
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
-    @(147.6000 mm, 113.9800 mm): Footprint Q1
+    @(144.0000 mm, 113.9800 mm): Footprint U3
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
     @(168.0500 mm, 130.0000 mm): Footprint L1
-[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
-    Local override; warning
-    @(159.7500 mm, 143.1050 mm): Footprint TP19
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(130.7486 mm, 115.2521 mm): Via [VBAT] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(146.0000 mm, 109.9800 mm): Via [GND] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(150.5968 mm, 137.9616 mm): Via [nCHG] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(134.0963 mm, 108.8441 mm): Via [nCHG] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(157.3405 mm, 139.7666 mm): Via [nCHG_MCU] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(153.1466 mm, 137.8547 mm): Via [SWDCLK] on F.Cu - B.Cu
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(146.4697 mm, 115.3666 mm): Via [CO_GATE] on F.Cu - B.Cu
 
-** Found 7 unconnected pads **
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(146.0000 mm, 109.9800 mm): Via [GND] on F.Cu - B.Cu
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(160.6000 mm, 137.1300 mm): Pad 36 [VDD_NRF] of U5 on F.Cu
-    @(161.3500 mm, 132.3800 mm): Pad 47 [VDD_NRF] of U5 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(157.3405 mm, 139.7667 mm): Track [nCHG_MCU] on F.Cu, length 0.0001 mm
-    @(158.6000 mm, 131.2300 mm): Pad 6 [nCHG_MCU] of U5 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(128.5000 mm, 145.4600 mm): Track [NFC1] on F.Cu, length 0.9333 mm
-    @(159.8000 mm, 131.2300 mm): Pad 3 [NFC1] of U5 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(127.6000 mm, 124.7800 mm): Pad 1 [P0_00] of TP26 on F.Cu
-    @(155.4500 mm, 135.9800 mm): Pad 23 [P0_00] of U5 on F.Cu
+** Found 0 unconnected pads **
 
 ** Found 0 Footprint errors **
 

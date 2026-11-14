@@ -3,8 +3,10 @@
 #   track/space 0.09/0.09 mm, via hole to track 0.2 mm, via hole-to-hole 0.2 mm, edge clearance >= 0.2 mm.
 # Standard vias stay 0.25/0.5 (no extra cost). The U1 (BQ51003 DSBGA) via-in-pad uses the BGA-guide
 # 4-layer minimum 0.15 drill / 0.25 copper (extra cost option at order time). See QUESTIONS item 0.
+# Exceptions at U5 (0.3/0.15): the DECRF/DECA vias and the pin 36 VDD via beside C23, the NFC1 / P1_06 escape vias at the top pad row,
+# and the C18 ground via between the DCC and DECD traces.
 (rule "jlc_std_via"
-  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.Net != 'DECA'")
+  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.Net != 'DECA' && A.Net != 'NFC1' && A.Net != 'P1_06' && !(A.Net == 'GND' && A.intersectsCourtyard('C18')) && !(A.Net == 'VDD_NRF' && A.intersectsCourtyard('U5'))")
   (constraint hole_size (min 0.25mm))
   (constraint via_diameter (min 0.5mm))
   (constraint annular_width (min 0.125mm)))

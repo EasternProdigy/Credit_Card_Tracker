@@ -392,6 +392,8 @@ track('DCC', [p46, (p46[0] + 0.5, p46[1]), (p46[0] + 0.9, yg), (l2a[0] - 0.3, yg
 p45 = pp('U5', '45'); yd = (c18[1] + fb1a[1]) / 2
 track('DECD', [p45, (fb1a[0], p45[1]), (fb1a[0], yd), (l2b[0] - 0.75, yd), (l2b[0] - 0.25, l2b[1] + 0.2)], 0.2)
 track('DECD', [c18, (c18[0], yd)], 0.2); track('DECD', [fb1a, (fb1a[0], p45[1])], 0.2)
+# C18 ground pad is fenced in by DCC (above) and DECD (below): 0.3/0.15 via in the 0.7 mm gap toward L2 (4-layer)
+c18g = pp('C18', '2'); via('GND', c18g[0] + 0.48, c18g[1], 0.3, 0.15); track('GND', [c18g, (c18g[0] + 0.48, c18g[1])], 0.2)
 # DECA: FB1.2 -> right -> down -> gap between C19 and C24 -> C19.1 / C24.1 / C30.1
 c19, c24, c30 = pp('C19', '1'), pp('C24', '1'), pp('C30', '1')
 ya = (c19[1] + c24[1]) / 2
@@ -413,7 +415,7 @@ track('VDD_NRF', [c22, p22], 0.2)
 vj = (jp4[0], jp4[1] + 0.95); via('VDD_NRF', *vj); track('VDD_NRF', [jp4, vj], 0.3)
 v4 = (j4[0], j4[1] - 1.15); via('VDD_NRF', *v4); track('VDD_NRF', [j4, v4], 0.3)
 vt = (tp17[0], tp17[1] - 1.0); via('VDD_NRF', *vt); track('VDD_NRF', [tp17, vt], 0.3)
-vc = (c22[0] - 0.12, c22[1] - 1.0); via('VDD_NRF', *vc); track('VDD_NRF', [c22, vc], 0.25)
+vc = (c22[0] - 0.12, c22[1] + 0.75); via('VDD_NRF', *vc)   # via above C22 (was below: it blocked pin 23 / P0.00's escape); track('VDD_NRF', [c22, vc], 0.25)
 track('VDD_NRF', [j3, (j3[0], vj[1]), vj], 0.3, 'B.Cu')
 track('VDD_NRF', [j3, (j3[0], v4[1] - 0.6), (v4[0] + 0.6, v4[1] - 0.6), v4], 0.3, 'B.Cu')
 track('VDD_NRF', [v4, (v4[0] - 1.0, v4[1] + 1.0), (vt[0] + 0.0, vt[1] - 8.0), vt], 0.3, 'B.Cu')
@@ -423,7 +425,14 @@ c31g = pp('C31', '2'); via('GND', c31g[0] - 0.62, c31g[1]); track('GND', [c31g, 
 # VDD_NRF local ring: each VDD pin to its decap on top, decaps dropped to a B.Cu ring around U5
 p10, p36, c20a, c23a, c17a = pp('U5', '10'), pp('U5', '36'), pp('C20', '1'), pp('C23', '1'), pp('C17', '1')
 track('VDD_NRF', [(p10[0], p10[1] + 0.1), (p10[0], c20a[1] - 0.3), c20a], 0.2)
-track('VDD_NRF', [(p36[0], 16.6), c23a], 0.2)   # pin 36 + C23: no room for a via on 2 layers -> manual/4-layer link (see MORNING_REPORT)
+track('VDD_NRF', [(p36[0], 16.6), c23a], 0.2)
+# pin 36 + C23 island: 0.3/0.15 via just above C23 (the DECA class via), Freerouting links it on In2/B.Cu (4-layer)
+v36 = (c23a[0] + 0.07, c23a[1] + 0.58); via('VDD_NRF', v36[0], v36[1], 0.3, 0.15); track('VDD_NRF', [c23a, v36], 0.2)
+# NFC1 (pin 3) and P1_06 (pin 7) are boxed in by top-row escapes: 0.3/0.15 vias just outside the pad row (4-layer)
+p3, p7 = pp('U5', '3'), pp('U5', '7')
+v3 = (p3[0] + 0.03, p3[1] + 0.78); via('NFC1', v3[0], v3[1], 0.3, 0.15); track('NFC1', [(p3[0], p3[1] + 0.3), v3], 0.15)
+v7 = (p7[0] - 0.35, p7[1] + 0.83); via('P1_06', v7[0], v7[1], 0.3, 0.15)
+track('P1_06', [(p7[0], p7[1] + 0.3), (p7[0], p7[1] + 0.48), v7], 0.15)
 track('VDD_NRF', [(p48[0] + 0.15, p48[1]), (p48[0] + 0.55, p48[1]), (p48[0] + 0.65, c21[1]), c21], 0.2)
 track('VDD_NRF', [(p47[0] + 0.15, p47[1]), (p47[0] + 0.4, p47[1] + 0.15), (p48[0] + 0.55, p48[1])], 0.15)
 track('VDD_NRF', [c21, (c21[0], c21[1] + 0.55), (c17a[0], c17a[1] - 0.25), c17a], 0.2)
