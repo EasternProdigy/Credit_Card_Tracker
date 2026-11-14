@@ -1,0 +1,22 @@
+{
+ "battery": {
+  "nominal": 1.05,
+  "rss": 1.101,
+  "worst": 1.122
+ },
+ "coil": {
+  "nominal": 0.82,
+  "rss": 0.875,
+  "worst": 0.912
+ },
+ "electronics (CSP)": {
+  "nominal": 1.045,
+  "rss": 1.088,
+  "worst": 1.137
+ },
+ "electronics if QFN48": {
+  "nominal": 1.27,
+  "rss": 1.329,
+  "worst": 1.382
+ }
+}

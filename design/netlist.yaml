@@ -1,0 +1,103 @@
+# Wallet tracker card: functional netlist (rev 0.4, 2026-11-13)
+# Pin names are FUNCTIONAL. Map them to pin or ball numbers in design/pinmaps/ before capture.
+# "v1" = rigid FR4 + QFN48 bring-up board; "v2" = flex + CSP card. Same netlist.
+
+nets:
+  power: [VRECT, V5_RX, VCELL, VBAT, VDD_3V3, GND, PGND]
+  signals: [AC1, AC2, COIL1, VBAT_SENSE, nCHG, NTC, RF_NRF, RF_MATCHED, ANT_FEED, SWDIO, SWDCLK, nRESET, BT_NEG, PACK_NEG]
+  notes:
+    - PGND and GND are the same net; PGND marks the BQ51003 power return. Join at U1.
+    - VCELL is the cell + terminal (also called VBAT). Kept as two names only for clarity; tie them with a net tie at the cell tab.
+    - PACK_NEG is system GND after the protection FETs; BT_NEG is the raw cell negative.
+
+components:
+  # ---------------- A: Qi receiver
+  - {ref: L1, part: "Wurth 760308101309", value: "10uH Qi RX coil, D26 x 0.5mm", pins: {"1": COIL1, "2": AC2}}
+  - {ref: C1a, part: "Murata GRM155R71H104KE14 (X7R 50V 0402, 0.5mm)", value: "100nF", pins: {"1": COIL1, "2": AC1}}
+  - {ref: C1b, part: "Murata GRM155R71H104KE14 (X7R 50V 0402, 0.5mm)", value: "100nF", pins: {"1": COIL1, "2": AC1}}
+  - {ref: C1c, part: "X7R 50V 0402", value: "33nF (bench trim)", pins: {"1": COIL1, "2": AC1}}
+  - {ref: C2a, part: "C0G 50V 0402", value: "2.2nF", pins: {"1": AC1, "2": AC2}}
+  - {ref: C2b, part: "C0G 50V 0402", value: "330pF", pins: {"1": AC1, "2": AC2}}
+  - ref: U1
+    part: "TI BQ51003YFPR"
+    pins: {AC1: AC1, AC2: AC2, BOOT1: BOOT1, BOOT2: BOOT2, RECT: VRECT, OUT: V5_RX, CLAMP1: CLAMP1, CLAMP2: CLAMP2,
+           COMM1: COMM1, COMM2: COMM2, ILIM: ILIM, FOD: FOD, TS_CTRL: TS_RX, AD: PGND, AD_EN: PGND, EN1: PGND, EN2: PGND,
+           CHG: NC_RXCHG, PGND: PGND}
+  - {ref: C3, value: "10nF 25V", pins: {"1": BOOT1, "2": AC1}}
+  - {ref: C4, value: "10nF 25V", pins: {"1": BOOT2, "2": AC2}}
+  - {ref: C5, value: "22nF 25V", pins: {"1": COMM1, "2": AC1}}
+  - {ref: C6, value: "22nF 25V", pins: {"1": COMM2, "2": AC2}}
+  - {ref: C7, value: "470nF 25V", pins: {"1": CLAMP1, "2": AC1}}
+  - {ref: C8, value: "470nF 25V", pins: {"1": CLAMP2, "2": AC2}}
+  - {ref: C9a, value: "2.2uF 16V X5R 0402", pins: {"1": VRECT, "2": PGND}}
+  - {ref: C9b, value: "2.2uF 16V X5R 0402", pins: {"1": VRECT, "2": PGND}}
+  - {ref: C9c, value: "2.2uF 16V X5R 0402", pins: {"1": VRECT, "2": PGND}}
+  - {ref: C10, value: "100nF 25V", pins: {"1": VRECT, "2": PGND}}
+  - {ref: C11, value: "4.7uF 10V X5R 0402", pins: {"1": V5_RX, "2": PGND}}
+  - {ref: R1, value: "1.55k 1%", pins: {"1": ILIM_N, "2": PGND}, note: "ILIM/FOD resistor network per BQ51003 datasheet; total 1.75k -> IMAX 150 mA"}
+  - {ref: RFOD, value: "200R (calibrate)", pins: {"1": FOD, "2": ILIM_N}, note: "verify exact ILIM/FOD topology in datasheet"}
+  - {ref: R_TS, value: "10k", pins: {"1": TS_RX, "2": PGND}, note: "O8: confirm TS/CTRL handling without RX NTC"}
+
+  # ---------------- B: charger
+  - ref: U2
+    part: "TI BQ25101YFPR"
+    pins: {IN: V5_RX, OUT: VCELL, ISET: ISET, TS: NTC, CHG: nCHG, VSS: GND}
+  - {ref: C12, value: "1uF 10V", pins: {"1": V5_RX, "2": GND}}
+  - {ref: C13, value: "1uF 6.3V", pins: {"1": VCELL, "2": GND}}
+  - {ref: R2, value: "2.05k 1%", pins: {"1": ISET, "2": GND}, note: "ICHG = 135/2050 = 66 mA"}
+  - {ref: TH1, part: "10k NTC beta~3370 thin film, on cell", pins: {"1": NTC, "2": GND}}
+
+  # ---------------- C: cell + protection
+  - {ref: BT1, part: "Grepow GRP0849049 4.2V 135mAh 49x49x0.85", pins: {"+": VCELL, "-": BT_NEG}}
+  - ref: U3
+    part: "ABLIC S-82N1B (4.20V OVP variant, O7)"
+    pins: {VDD: PROT_VDD, VSS: BT_NEG, DO: DO_GATE, CO: CO_GATE, VM: PROT_VM, PS: PS_PIN}
+  - {ref: R5, value: "330R", pins: {"1": VCELL, "2": PROT_VDD}}
+  - {ref: C29, value: "100nF", pins: {"1": PROT_VDD, "2": BT_NEG}}
+  - {ref: R6, value: "2k", pins: {"1": PROT_VM, "2": PACK_NEG}}
+  - ref: Q1
+    part: "Dual NMOS common-drain CSP (O6)"
+    pins: {S1: BT_NEG, G1: DO_GATE, S2: PACK_NEG, G2: CO_GATE, D: Q1_DRAIN}
+  - {ref: NT1, part: "net tie", pins: {"1": PACK_NEG, "2": GND}}
+  - {ref: NT2, part: "net tie", pins: {"1": VCELL, "2": VBAT}}
+
+  # ---------------- D: supply + sense
+  - ref: U4
+    part: "TI TPS7A0233PYCHR (v2) / TPS7A0233PDQNR (v1)"
+    pins: {IN: VBAT, EN: VBAT, OUT: VDD_3V3, GND: GND}
+  - {ref: C14, value: "1uF", pins: {"1": VBAT, "2": GND}}
+  - {ref: C15, value: "4.7uF", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: R3, value: "10M 1%", pins: {"1": VBAT, "2": VBAT_SENSE}}
+  - {ref: R4, value: "10M 1%", pins: {"1": VBAT_SENSE, "2": GND}}
+  - {ref: C16, value: "100nF", pins: {"1": VBAT_SENSE, "2": GND}}
+
+  # ---------------- E: nRF54L15
+  - ref: U5
+    part: "Nordic nRF54L15-CAAA (v2) / nRF54L15-QFAA (v1)"
+    pins: {VDD: VDD_3V3, DCC: DCC, DEC_pins: "per Nordic config 1 (O2)", XC1: XC1, XC2: XC2, XL1: XL1, XL2: XL2,
+           ANT: RF_NRF, VSS: GND, SWDIO: SWDIO, SWDCLK: SWDCLK, nRESET: nRESET,
+           AIN_P1x: VBAT_SENSE, GPIO_P1x: nCHG, NFC1: NFC1_DNP, NFC2: NFC2_DNP}
+  - {ref: C17, value: "10uF 0402", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: C18, value: "2.2uF 0201", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: C19, value: "2.2uF 0201", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: C20, value: "100nF 0201", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: C21, value: "10nF 0201", pins: {"1": VDD_3V3, "2": GND}}
+  - {ref: L2, value: "4.7uH 0402 (DC/DC)", pins: {"1": DCC, "2": DCDC_OUT}, note: "plus FB1 0201 bead and DEC caps per Nordic"}
+  - {ref: Y1, value: "32 MHz 1612 per Nordic BOM", pins: {"1": XC1, "2": XC2}}
+  - {ref: Y2, value: "32.768 kHz 2012 per Nordic BOM", pins: {"1": XL1, "2": XL2}}
+  - {ref: TP1, pins: {"1": SWDIO}}
+  - {ref: TP2, pins: {"1": SWDCLK}}
+  - {ref: TP3, pins: {"1": nRESET}}
+  - {ref: TP4, pins: {"1": VDD_3V3}}
+  - {ref: TP5, pins: {"1": GND}}
+
+  # ---------------- F: RF + antenna
+  - {ref: L3, part: "Murata LQP03HQ3N6B02", value: "3.6nH", note: "Nordic CAAA config-1 match, topology per Nordic"}
+  - {ref: L4, part: "Murata LQP03HQ4N6H02", value: "4.6nH"}
+  - {ref: L5, part: "Murata LQP03HQ2N0B02", value: "2.0nH"}
+  - {ref: C25, value: "3.9pF 0201"}
+  - {ref: C26, part: "Murata GJM0335C1H1R2WB01", value: "1.2pF 0201"}
+  - {ref: C27, value: "1.2pF 0201"}
+  - {ref: L6, value: "2.2nH 0201", pins: {"1": RF_MATCHED, "2": ANT_FEED}, note: "antenna L-match, retune on bench"}
+  - {ref: C28, value: "0.2pF 0201", pins: {"1": ANT_FEED, "2": GND}, note: "shunt, add DNP pi pads"}
+  - {ref: ANT1, part: "Printed IFA", value: "arm 20 mm (trim 19-24), short-feed 3 mm, h 6 mm, 0.5 mm trace", pins: {feed: ANT_FEED, short: GND}}

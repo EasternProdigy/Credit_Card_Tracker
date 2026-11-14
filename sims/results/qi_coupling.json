@@ -1,0 +1,69 @@
+{
+  "TX_A11_air_L_uH": 3.578677867560039,
+  "TX_wheeler_uH": 4.340182446308651,
+  "RX_turns_solved": 20,
+  "RX_air_L_uH": 6.4594067460859295,
+  "coupling": {
+    "best (2.0 + 1.0 leather + 0.3)": {
+      "gap_mm": 3.3,
+      "M_nH": 2053.4113221354223,
+      "k_air": 0.42708894714332823,
+      "k_air_offset_5mm": 0.4017623742429606,
+      "k_air_offset_10mm": 0.3164229097778579
+    },
+    "nominal (2.5 + 1.5 leather + 0.3)": {
+      "gap_mm": 4.3,
+      "M_nH": 1854.4552592847758,
+      "k_air": 0.3857080827764664,
+      "k_air_offset_5mm": 0.36147252207038366,
+      "k_air_offset_10mm": 0.28341368961205077
+    },
+    "worst (3.0 + 2.0 leather + 0.3)": {
+      "gap_mm": 5.3,
+      "M_nH": 1673.7349194611577,
+      "k_air": 0.3481200657870659,
+      "k_air_offset_5mm": 0.32533547886886616,
+      "k_air_offset_10mm": 0.25458142893648883
+    }
+  },
+  "link_efficiency": {
+    "best (2.0 + 1.0 leather + 0.3) / air": {
+      "k": 0.427,
+      "eta_max_coils_pct": 89.0
+    },
+    "best (2.0 + 1.0 leather + 0.3) / ferrite_x1.5": {
+      "k": 0.641,
+      "eta_max_coils_pct": 92.5
+    },
+    "nominal (2.5 + 1.5 leather + 0.3) / air": {
+      "k": 0.386,
+      "eta_max_coils_pct": 87.8
+    },
+    "nominal (2.5 + 1.5 leather + 0.3) / ferrite_x1.5": {
+      "k": 0.579,
+      "eta_max_coils_pct": 91.7
+    },
+    "worst (3.0 + 2.0 leather + 0.3) / air": {
+      "k": 0.348,
+      "eta_max_coils_pct": 86.6
+    },
+    "worst (3.0 + 2.0 leather + 0.3) / ferrite_x1.5": {
+      "k": 0.522,
+      "eta_max_coils_pct": 90.9
+    }
+  },
+  "tuning": {
+    "Ls'=11uH,Ls=10uH": {
+      "C1_nF": 230.3,
+      "C2_nF": 2.56
+    },
+    "Ls'=12uH,Ls=10uH": {
+      "C1_nF": 211.1,
+      "C2_nF": 2.56
+    },
+    "TI_example_check(16uH,11uH)": {
+      "C1_nF": 158.3,
+      "C2_nF": 2.34
+    }
+  }
+}

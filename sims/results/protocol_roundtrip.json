@@ -1,0 +1,29 @@
+{
+ "apple_adv_len_bytes": 31,
+ "apple_adv_fits_31B": true,
+ "apple_mac": "E4:1B:F3:DF:07:8D",
+ "apple_report_len": 88,
+ "apple_decoded": {
+  "lat": 42.3736,
+  "lon": -71.119,
+  "accuracy_m": 12,
+  "battery_bits": 2,
+  "battery_flag_set": true
+ },
+ "apple_unsigned_pitfall_lon": 358.3777296,
+ "google_eid_len": 20,
+ "google_adv_len_bytes": 29,
+ "google_adv_fits_31B": true,
+ "google_registered_slots_4days": 337,
+ "google_hashed_flags_mask_for_this_static_eid": "0x4A",
+ "google_flags_raw_correct": "0x02",
+ "google_flags_on_air_correct": "0x48",
+ "google_everytag_0xC0_as_seen_by_phone": {
+  "byte": "0x8A",
+  "reserved_bits_set": true,
+  "battery_field": 1,
+  "utp_bit": 0
+ },
+ "google_everytag_frame_type": "0x41 = 'unwanted tracking protection mode ON' per spec; should be 0x40",
+ "google_roundtrip_ok": true
+}

@@ -1,0 +1,40 @@
+Ref,Qty,Part,Value,Package,Max height mm,Notes
+U5,1,Nordic nRF54L15-QFAA,,QFN48 6x6,~0.85,v1 bring-up; use DK/QFN48 config 1
+U1,1,TI BQ51003YFPR,,DSBGA-28 1.9x3.0,verify,Needs PCBA or stencil + reflow
+U2,1,TI BQ25101YFPR,,DSBGA-6 1.6x0.9,0.5,
+U3,1,ABLIC S-82N1B (4.20 V OVP variant),,SNT-6A,verify,O7
+Q1,1,Dual NMOS common drain,,CSP,verify,O6
+U4,1,TI TPS7A0233PDQNR,3.3 V,X2SON 1x1,0.4,
+L1,1,Wurth 760308101309,10 uH,D26 coil,0.5,
+BT1,1,Grepow GRP0849049,135 mAh 4.2 V,49x49 pouch,0.85,
+TH1,1,10k NTC beta~3370 thin film,,film,,on cell
+Y1,1,32 MHz crystal per Nordic BOM,,1612,verify,
+Y2,1,32.768 kHz crystal per Nordic BOM,,2012,verify,
+L2,1,DC/DC inductor,4.7 uH,0402,verify,
+FB1,1,Ferrite bead per Nordic,,0201,,
+L3-L5,3,Murata LQP03HQ,3.6/4.6/2.0 nH,0201,0.3,Nordic match
+C25-C27,3,MLCC C0G,3.9/1.2/1.2 pF,0201,0.33,Nordic match
+L6,1,Inductor,2.2 nH,0201,0.3,antenna match (tune)
+C28,1,MLCC C0G,0.2 pF,0201,0.33,antenna match (tune)
+C1a-C1b,2,Murata GRM155R71H104KE14 X7R 50 V,100 nF,0402,0.55,series tank (TI: X7R OK; 3 in parallel)
+C1c,1,X7R 50 V,33 nF,0402,0.55,bench trim after measuring Ls'
+C2a,1,C0G 50 V,2.2 nF,0402,0.55,parallel tank
+C2b,1,C0G 50 V,330 pF,0402,0.55,parallel tank
+C3-C8,6,MLCC 25 V,10/10/22/22/470/470 nF,0402,0.5,
+C9a-C9c,3,X5R 16 V,2.2 uF,0402,<=0.55,RECT (>=4 uF effective)
+C10,1,MLCC 25 V,100 nF,0201,0.33,
+C11,1,X5R 10 V,4.7 uF,0402,0.55,OUT
+C12-C15,4,MLCC,1 uF x3 / 4.7 uF,0402,0.5,
+C16,1,MLCC,100 nF,0201,0.33,
+C17-C21,5,MLCC,10 uF/2.2 uF x2/100 nF/10 nF,0402/0201,0.5,
+C29,1,MLCC,100 nF,0201,0.33,
+R1,1,Resistor 1%,1.55 k,0201,0.3,
+RFOD,1,Resistor,200 R,0201,0.3,calibrate
+R_TS,1,Resistor,10 k,0201,0.3,O8
+R2,1,Resistor 1%,2.05 k,0201,0.3,ICHG 66 mA
+R3-R4,2,Resistor 1%,10 M,0201,0.3,
+R5,1,Resistor,330 R,0201,0.3,
+R6,1,Resistor,2 k,0201,0.3,
+ANT1,1,Printed IFA,arm 20 mm,copper,0,
+TP1-TP5,5,Test pads,SWD + power,pad,0,
+PCB,1,JLCPCB 2-layer FR4 0.4 mm ENIG black mask,,85.60x53.98 r3.18,0.4,

@@ -1,0 +1,34 @@
+{
+ "Everytag defaults (multPeriod 2, settings 60 s)": {
+  "avg_current_uA_median": 8.86,
+  "months_p5": 11.2,
+  "months_median": 12.8,
+  "months_p95": 14.8,
+  "each_network_every_s": 3.86,
+  "meets_google_2s_rule": false
+ },
+ "Spec-compliant (multPeriod 1, settings 60 s)": {
+  "avg_current_uA_median": 12.74,
+  "months_p5": 8.7,
+  "months_median": 9.8,
+  "months_p95": 11.3,
+  "each_network_every_s": 1.93,
+  "meets_google_2s_rule": true
+ },
+ "RECOMMENDED (multPeriod 1, settings 600 s, low-Iq protector)": {
+  "avg_current_uA_median": 11.42,
+  "months_p5": 9.3,
+  "months_median": 10.7,
+  "months_p95": 12.4,
+  "each_network_every_s": 1.93,
+  "meets_google_2s_rule": true
+ },
+ "Recommended but BQ2970/DW01-class protector": {
+  "avg_current_uA_median": 15.03,
+  "months_p5": 7.6,
+  "months_median": 8.7,
+  "months_p95": 10.0,
+  "each_network_every_s": 1.93,
+  "meets_google_2s_rule": true
+ }
+}

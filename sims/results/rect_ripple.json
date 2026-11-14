@@ -1,0 +1,42 @@
+{
+ "C_RECT=10u k=0.35": {
+  "VRECT_avg": 6.04,
+  "ripple_pp_mV": 9.1
+ },
+ "C_RECT=10u k=0.25": {
+  "VRECT_avg": 6.58,
+  "ripple_pp_mV": 10.1
+ },
+ "C_RECT=6u k=0.35": {
+  "VRECT_avg": 6.04,
+  "ripple_pp_mV": 14.8
+ },
+ "C_RECT=6u k=0.25": {
+  "VRECT_avg": 6.58,
+  "ripple_pp_mV": 16.5
+ },
+ "C_RECT=4u k=0.35": {
+  "VRECT_avg": 6.05,
+  "ripple_pp_mV": 21.8
+ },
+ "C_RECT=4u k=0.25": {
+  "VRECT_avg": 6.58,
+  "ripple_pp_mV": 24.7
+ },
+ "C_RECT=2u k=0.35": {
+  "VRECT_avg": 6.06,
+  "ripple_pp_mV": 42.5
+ },
+ "C_RECT=2u k=0.25": {
+  "VRECT_avg": 6.58,
+  "ripple_pp_mV": 49.7
+ },
+ "C_RECT=1u k=0.35": {
+  "VRECT_avg": 6.08,
+  "ripple_pp_mV": 83.2
+ },
+ "C_RECT=1u k=0.25": {
+  "VRECT_avg": 6.59,
+  "ripple_pp_mV": 99.3
+ }
+}

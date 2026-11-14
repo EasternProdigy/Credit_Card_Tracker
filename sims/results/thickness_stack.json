@@ -1,0 +1,26 @@
+{
+ "battery": {
+  "nominal_mm": 1.216,
+  "worst_case_mm": 1.296,
+  "RSS_mm": 1.268,
+  "fits_1.5mm_worst_case": true
+ },
+ "coil": {
+  "nominal_mm": 0.986,
+  "worst_case_mm": 1.086,
+  "RSS_mm": 1.042,
+  "fits_1.5mm_worst_case": true
+ },
+ "electronics (CSP side)": {
+  "nominal_mm": 1.211,
+  "worst_case_mm": 1.311,
+  "RSS_mm": 1.255,
+  "fits_1.5mm_worst_case": true
+ },
+ "electronics if QFN48 used": {
+  "nominal_mm": 1.436,
+  "worst_case_mm": 1.556,
+  "RSS_mm": 1.496,
+  "fits_1.5mm_worst_case": false
+ }
+}

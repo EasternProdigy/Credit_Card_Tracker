@@ -1,0 +1,70 @@
+{
+ "create_user": 200,
+ "login": 200,
+ "groups": [
+  "Wallet bundle",
+  "Travel bundle"
+ ],
+ "device": {
+  "id": 1,
+  "groupId": 1
+ },
+ "ingest_google": 200,
+ "ingest_apple": 200,
+ "ingest_bag": 200,
+ "ingest_lowbatt": 200,
+ "positions": [
+  {
+   "deviceId": 2,
+   "lat": 42.3601,
+   "lon": -71.0589,
+   "accuracy": 20.0,
+   "battery": 90.0,
+   "network": null,
+   "alarm": null,
+   "fixTime": "2026-11-14T00:05:23.000+00:00"
+  },
+  {
+   "deviceId": 1,
+   "lat": 42.37425,
+   "lon": -71.1181,
+   "accuracy": 30.0,
+   "battery": 15.0,
+   "network": "apple",
+   "alarm": "lowBattery",
+   "fixTime": "2026-11-14T00:07:43.000+00:00"
+  }
+ ],
+ "devices": [
+  {
+   "name": "Backpack tag",
+   "groupId": 2,
+   "status": "online",
+   "lastUpdate": "2026-11-14T00:08:44.244+00:00"
+  },
+  {
+   "name": "Wallet card",
+   "groupId": 1,
+   "status": "online",
+   "lastUpdate": "2026-11-14T00:08:44.275+00:00"
+  }
+ ],
+ "history_points_for_card": 3,
+ "forwarded_events": [
+  {
+   "type": "deviceOnline",
+   "alarm": null,
+   "device": "Wallet card"
+  },
+  {
+   "type": "deviceOnline",
+   "alarm": null,
+   "device": "Backpack tag"
+  },
+  {
+   "type": "alarm",
+   "alarm": "lowBattery",
+   "device": "Wallet card"
+  }
+ ]
+}

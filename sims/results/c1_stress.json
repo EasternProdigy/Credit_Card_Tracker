@@ -1,0 +1,37 @@
+{
+ "cases_within_OVP": "58 of 80",
+ "worst_C1_peak_V": {
+  "k": 0.35,
+  "f_kHz": 120.0,
+  "rl": 100,
+  "vdc": 9.5,
+  "vrect": 14.47941,
+  "vc1_pk": 1.488065,
+  "ic_rms": 0.192957,
+  "vc2_pk": 15.22684
+ },
+ "worst_C2_peak_V": {
+  "k": 0.35,
+  "f_kHz": 120.0,
+  "rl": 100,
+  "vdc": 9.5,
+  "vrect": 14.47941,
+  "vc1_pk": 1.488065,
+  "ic_rms": 0.192957,
+  "vc2_pk": 15.22684
+ },
+ "worst_coil_I_rms": {
+  "k": 0.35,
+  "f_kHz": 120.0,
+  "rl": 100,
+  "vdc": 9.5,
+  "vrect": 14.47941,
+  "vc1_pk": 1.488065,
+  "ic_rms": 0.192957,
+  "vc2_pk": 15.22684
+ },
+ "charging_points (RL 100, VRECT 5-8 V)": {
+  "C1_peak_V_max": 0.7556173,
+  "I_rms_max": 0.0982696
+ }
+}

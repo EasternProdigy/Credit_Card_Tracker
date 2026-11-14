@@ -1,0 +1,43 @@
+{
+ "full, warm (4.20 V, R0 0.3)": {
+  "vdd_min": 3.297,
+  "vdd_start": 3.3,
+  "droop_mV": 2.9,
+  "vbat_min": 4.196,
+  "margin_over_1.7V": 1.597
+ },
+ "mid (3.75 V, R0 0.5)": {
+  "vdd_min": 3.297,
+  "vdd_start": 3.3,
+  "droop_mV": 2.9,
+  "vbat_min": 3.744,
+  "margin_over_1.7V": 1.597
+ },
+ "near dropout (3.40 V, R0 0.8)": {
+  "vdd_min": 3.296,
+  "vdd_start": 3.3,
+  "droop_mV": 3.9,
+  "vbat_min": 3.391,
+  "margin_over_1.7V": 1.596
+ },
+ "empty (3.30 V, R0 1.0)": {
+  "vdd_min": 3.254,
+  "vdd_start": 3.299,
+  "droop_mV": 45.2,
+  "vbat_min": 3.289,
+  "margin_over_1.7V": 1.554
+ },
+ "empty + cold 0 C / aged (3.30 V, R0 4.0)": {
+  "vdd_min": 3.227,
+  "vdd_start": 3.299,
+  "droop_mV": 72.1,
+  "vbat_min": 3.26,
+  "margin_over_1.7V": 1.527
+ },
+ "divider_sample": {
+  "ideal_V": 2.1,
+  "sampled_V": 2.09992,
+  "error_mV": 0.084,
+  "always_on_current_uA": 0.21
+ }
+}

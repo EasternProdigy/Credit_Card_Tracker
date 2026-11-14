@@ -1,0 +1,44 @@
+{
+ "arm_for_eps_1.2": {
+  "arm_mm": 21.0,
+  "S11_dB": -13.8
+ },
+ "arm_for_eps_1.3": {
+  "arm_mm": 20.0,
+  "S11_dB": -11.3
+ },
+ "arm_for_eps_1.45": {
+  "arm_mm": 19.0,
+  "S11_dB": -9.3
+ },
+ "mismatch_loss_dB_for_S11": {
+  "-20": 0.04,
+  "-10": 0.46,
+  "-7": 0.97,
+  "-4": 2.2,
+  "-2.4": 3.72
+ },
+ "link_budget_range": {
+  "wallet on a table/bag, matched": {
+   "EIRP_dBm": -0.5,
+   "range_m": {
+    "open air/outdoors": 260.3,
+    "indoors/street clutter": 61.6
+   }
+  },
+  "wallet in a back pocket (body loss 10 dB), matched": {
+   "EIRP_dBm": -10.5,
+   "range_m": {
+    "open air/outdoors": 82.3,
+    "indoors/street clutter": 26.2
+   }
+  },
+  "back pocket, antenna NOT retuned (S11 -4 dB)": {
+   "EIRP_dBm": -12.2,
+   "range_m": {
+    "open air/outdoors": 67.7,
+    "indoors/street clutter": 22.7
+   }
+  }
+ }
+}
