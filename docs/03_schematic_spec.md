@@ -11,10 +11,10 @@ Functional pin names only. Map them to pin or ball numbers from the datasheets b
 | U1 | TI BQ51003YFP | | AC1, AC2, BOOT1, BOOT2, RECT, OUT, CLAMP1, CLAMP2, COMM1, COMM2, ILIM, FOD, TS/CTRL, AD, AD-EN, EN1, EN2, CHG, PGND | WPC v1.2, 5 V output |
 | C3/C4 | BOOT1 to AC1, BOOT2 to AC2 | 10 nF, 25 V | | per TI typical application |
 | C5/C6 | COMM1 to AC1, COMM2 to AC2 | 22 nF, 25 V | | |
-| C7/C8 | CLAMP1 to AC1, CLAMP2 to AC2 | 470 nF, 25 V | | |
+| C7/C8 | CLAMP1 to AC1, CLAMP2 to AC2 | 470 nF, ≥25 V (v1: 50 V X5R, GRM155R61H474KE11D) | | |
 | C9a to C9c, C10 | RECT to PGND | 3 × 2.2 µF 16 V X5R 0402 (≤ 0.55 mm) + 100 nF | net `VRECT` | ≥ 4 µF effective at 7 V bias → about 25 mV ripple (simulated). TI rates RECT caps at 16 V; OVP is 15 V |
 | C11 | OUT to PGND | 4.7 µF 10 V X5R 0402 + 100 nF | net `V5_RX` | TI uses 10 µF + 0.1 µF at 500 mA; we run 150 mA |
-| R1 | ILIM → FOD node (TI SLUSBC8C Fig. 32) | 1.55 kΩ | R1 + RFOD = 1.75 kΩ → IMAX = 262/1750 = 150 mA | rev 0.6: was wired so ILIM floated |
+| R1 | ILIM → FOD node (TI SLUSBC8C Fig. 32) | 1.50 kΩ 1 % (E96) | R1 + RFOD = 1.70 kΩ → IMAX = 262/1700 = 154 mA, hardware limit 185 mA | rev 0.6: was wired so ILIM floated; 1.55 k is not an E96 value |
 | RFOD (+ RFOD2 DNP) | FOD → PGND | 200 Ω start | | calibrate with TI SLUC577; TI asks for 2 footprints |
 | ROS1 (+ ROS2 DNP) | RECT → FOD (ROS2: OUT → FOD) | 20 kΩ | | TI default, SLUSBC8C p.28 |
 | R_TS | TS/CTRL to PGND | 10 kΩ | | datasheet p.5: no NTC → 10 kΩ to GND (O8 closed) |

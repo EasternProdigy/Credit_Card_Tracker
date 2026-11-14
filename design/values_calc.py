@@ -36,6 +36,9 @@ print(f"C1 = {C1*1e9:.1f} nF   C2 = {C2*1e9:.2f} nF   (TI check: {check1*1e9:.1f
 built_C1 = 100e-9 + 100e-9 + 33e-9; built_C2 = 2.2e-9 + 330e-12
 print(f"Built C1 = {built_C1*1e9:.0f} nF -> fS = {1/(2*math.pi*math.sqrt(Ls_prime*built_C1))/1e3:.1f} kHz (spec 90-105 kHz); built C2 = {built_C2*1e9:.2f} nF -> fD = {1/(2*math.pi*math.sqrt(Ls*(1/(1/built_C2+1/built_C1))))/1e3:.0f} kHz (spec 900-1100 kHz)")
 print(f"BQ51003 R_ILIM total = {R_ILIM_total:.0f} ohm (R1 + RFOD) for IMAX {IMAX*1e3:.0f} mA")
+# rev 0.6: E96 values. R1 = 1.50k (1.55k is not E96), RFOD = 200R (TI uses 196R). SLUSBC8C eq. 2.
+R1_v, RFOD_v = 1500, 200
+print(f"BQ51003 chosen R1 {R1_v} + RFOD {RFOD_v} = {R1_v+RFOD_v} ohm -> IMAX {262/(R1_v+RFOD_v)*1e3:.0f} mA, ILIM {314/(R1_v+RFOD_v)*1e3:.0f} mA")
 print(f"BQ25101 ICHG = {ICHG*1e3:.1f} mA = {ICHG*1e3/CELL_mAh:.2f}C ; ITERM ~ {0.1*ICHG*1e3:.1f} mA")
 print("TS voltage: " + ", ".join(f"{t} C -> {v_ts(t):.3f} V" for t in (0, 10, 25, 45, 60)))
 print(f"Divider drain = {I_div*1e6:.2f} uA ; VBAT_SENSE at 4.2 V = {4.2*R4/(R3+R4):.2f} V")

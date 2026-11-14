@@ -27,3 +27,5 @@
 - **v1 RF match follows Nordic's QFN48 config 1** (2.7 nH, 3.5 nH ×2, 1.5 pF, 2.0 pF), not the CSP values. Topology is pending the Nordic figure.
 - **Q1 = onsemi EFC4615R-TR** (LCSC C605382). Common drain, 0.37 mm tall, 33 mOhm typical source-to-source at 3.1 V gate, 1000 in stock at JLC. Backup: EFC4626R (0.20 mm, 45 mOhm, 150 in stock). Discharge overcurrent then trips at about 0.9 to 1.2 A.
 - **Nordic QFN48 config 1 adopted for v1** (Dwayne approved): Nordic's 50 Ohm RF match, then our IFA L-match as a second stage with DNP full pi pads; 0603 4.7 uH DC/DC inductor; 2016 32 MHz crystal.
+- **R1 = 1.50 k (E96)** instead of 1.55 k, which isn't stocked or E96. R1 + RFOD = 1.70 k → IMAX 154 mA, hardware limit 185 mA (SLUSBC8C eq. 2). Still above the 66 mA charge plus the system load.
+- **v1 BOM substitutions (JLC stock):** L4/L5 LQP03TN3N5B02 (TN, Q≈14) for Nordic's LQP03HQ3N5B02 (not stocked); C7/C8 470 nF 50 V X5R. U3 S-82N1BAA and U4 TPS7A0233PDQNR are not in JLC stock; order them through JLC Global Sourcing or consign them.

@@ -117,6 +117,7 @@ FP = {
 # sym: 'Device:R' etc. or 'custom:<name>'
 C = []
 def add(ref, sheet, sym, value, fp, pins, dnp=False, mpn='', src='', dev=False):
+    if fp is None: fp = CUSTOM_SYMBOLS[sym.split(':')[1]]['fp']
     C.append(dict(ref=ref, sheet=sheet, sym=sym, value=value, fp=FP.get(fp, fp), pins=pins,
                   dnp=dnp, mpn=mpn, src=src, dev=dev))
 
@@ -150,14 +151,14 @@ Cap('C3', S, '10nF 25V X7R', 'BOOT1', 'AC1', src=TIQI)
 Cap('C4', S, '10nF 25V X7R', 'BOOT2', 'AC2', src=TIQI)
 Cap('C5', S, '22nF 25V X7R', 'COMM1', 'AC1', src=SPEC)
 Cap('C6', S, '22nF 25V X7R', 'COMM2', 'AC2', src=SPEC)
-Cap('C7', S, '470nF 25V X7R', 'CLAMP1', 'AC1', src=TIQI + ' p.5 (0.47uF)')
-Cap('C8', S, '470nF 25V X7R', 'CLAMP2', 'AC2', src=TIQI + ' p.5 (0.47uF)')
+Cap('C7', S, '470nF 25V X5R', 'CLAMP1', 'AC1', src=TIQI + ' p.5 (0.47uF)')
+Cap('C8', S, '470nF 25V X5R', 'CLAMP2', 'AC2', src=TIQI + ' p.5 (0.47uF)')
 for r in ('C9a', 'C9b', 'C9c'):
     Cap(r, S, '2.2uF 16V X5R', 'VRECT', 'GND', src=SPEC)
 Cap('C10', S, '100nF 25V X7R', 'VRECT', 'GND', src=SPEC)
 Cap('C11', S, '4.7uF 10V X5R', 'V5_RX', 'GND', src=SPEC)
 Cap('C11b', S, '100nF 25V X7R', 'V5_RX', 'GND', src=SPEC + ' (+100 nF on OUT)')
-R('R1', S, '1.55k 1%', 'ILIM', 'FOD', src='SLUSBC8C p.28: R1+RFOD=1.75k -> IMAX 150 mA')
+R('R1', S, '1.5k 1%', 'ILIM', 'FOD', src='SLUSBC8C p.28: R1+RFOD=1.70k -> IMAX 154 mA (1.55k is not E96; rev 0.6)')
 R('RFOD', S, '200R 1%', 'FOD', 'GND', src='SLUSBC8C p.28 (TI 196R), calibrate')
 R('RFOD2', S, 'DNP', 'FOD', 'GND', dnp=True, src='SLUSBC8C p.28: 2 RFOD footprints')
 R('ROS1', S, '20k 1%', 'VRECT', 'FOD', src='SLUSBC8C p.28 default')
@@ -260,9 +261,9 @@ R('JP6', S, '0R', 'nCHG', 'nCHG_MCU', dev=True, src='v1: charger status link')
 S = 'rf_antenna'
 Ind('L3', S, '2.7nH', 'RF_NRF', 'RF_A', mpn='Murata LQP03HQ2N7B02', src=NORD + ' L2')
 Cap('C25', S, '1.5pF', 'RF_A', 'VSS_PA', 'C0201', mpn='Murata GJM0335C1E1R5WB01', src=NORD + ' C6')
-Ind('L4', S, '3.5nH', 'RF_A', 'RF_B', mpn='Murata LQP03HQ3N5B02', src=NORD + ' L3')
+Ind('L4', S, '3.5nH', 'RF_A', 'RF_B', mpn='Murata LQP03TN3N5B02', src=NORD + ' L3')
 Cap('C26', S, '2.0pF', 'RF_B', 'GND', 'C0201', mpn='Murata GJM0335C1E2R0WB01', src=NORD + ' C9')
-Ind('L5', S, '3.5nH', 'RF_B', 'RF_MATCHED', mpn='Murata LQP03HQ3N5B02', src=NORD + ' L4')
+Ind('L5', S, '3.5nH', 'RF_B', 'RF_MATCHED', mpn='Murata LQP03TN3N5B02', src=NORD + ' L4')
 Cap('C27', S, '0.3pF C0G', 'RF_MATCHED', 'GND', 'C0201', src=NORD + ' C11')
 Cap('C32', S, 'DNP', 'RF_MATCHED', 'GND', 'C0201', dnp=True, src='antenna pi, first shunt (Dwayne)')
 Ind('L6', S, '2.2nH', 'RF_MATCHED', 'ANT_FEED', src='sims/antenna_match.py L-match')

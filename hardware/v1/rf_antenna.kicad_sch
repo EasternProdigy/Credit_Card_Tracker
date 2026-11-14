@@ -475,7 +475,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C7216765"
       (at 35.56 40.64 0)
       (hide yes)
       (effects
@@ -568,7 +568,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C435397"
       (at 81.28 40.64 0)
       (hide yes)
       (effects
@@ -648,7 +648,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" "Murata LQP03HQ3N5B02"
+    (property "MPN" "Murata LQP03TN3N5B02"
       (at 127 40.64 0)
       (hide yes)
       (effects
@@ -660,7 +660,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C206424"
       (at 127 40.64 0)
       (hide yes)
       (effects
@@ -753,7 +753,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C668326"
       (at 167.64 40.64 0)
       (hide yes)
       (effects
@@ -833,7 +833,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" "Murata LQP03HQ3N5B02"
+    (property "MPN" "Murata LQP03TN3N5B02"
       (at 215.9 40.64 0)
       (hide yes)
       (effects
@@ -845,7 +845,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C206424"
       (at 215.9 40.64 0)
       (hide yes)
       (effects
@@ -938,7 +938,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C76927"
       (at 271.78 40.64 0)
       (hide yes)
       (effects
@@ -1123,7 +1123,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C98041"
       (at 40.64 73.66 0)
       (hide yes)
       (effects
@@ -1216,7 +1216,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C913527"
       (at 91.44 73.66 0)
       (hide yes)
       (effects
