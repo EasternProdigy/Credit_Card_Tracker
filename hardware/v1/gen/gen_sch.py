@@ -81,7 +81,7 @@ for c in D.C:
         if n: sheet_of_net.setdefault(n, set()).add(c['sheet'])
 for sh, nets in D.PWR_FLAGS.items():
     for n in nets: sheet_of_net.setdefault(n, set()).add(sh)
-is_global = lambda n: len(sheet_of_net.get(n, ())) > 1 or n in ('GND',)
+is_global = lambda n: True   # all nets global: PCB net names match exactly (no sheet-path prefixes)
 
 def label(net, x, y, ang):
     just = {0: 'left', 180: 'right', 90: 'left', 270: 'right'}[ang]
@@ -152,7 +152,7 @@ def build_sheet(sheet, comps, lcsc, page_w=400):
             props.append([S('property'), 'LCSC', lcsc.get(ref, ''), [S('at'), sx, sy, 0], HIDE, FONT])
         dnp = bool(c.get('dnp'))
         sym = [S('symbol'), [S('lib_id'), full], [S('at'), sx, sy, 0], [S('unit'), 1],
-               [S('exclude_from_sim'), S('no')], [S('in_bom'), S('no' if c.get('flag') else 'yes')],
+               [S('exclude_from_sim'), S('no')], [S('in_bom'), S('no' if (c.get('flag') or c['sym'] == 'Connector:TestPoint') else 'yes')],
                [S('on_board'), S('no' if c.get('flag') else 'yes')], [S('dnp'), S('yes' if dnp else 'no')],
                [S('uuid'), U('sym', ref)]] + props
         for num in sorted({p[0] for p in pins}):

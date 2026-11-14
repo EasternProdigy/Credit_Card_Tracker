@@ -728,14 +728,15 @@
       (width 0)
       (type default))
     (uuid "fefcd5c8-09e3-59f7-9bea-7cc485ffc530"))
-  (label "COIL1"
+  (global_label "COIL1"
+    (shape passive)
     (at 33.02 35.56 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "260c79a0-a006-5ab3-91c5-ac99e9eb8154"))
+    (uuid "a3d84aa9-d3f1-5b0f-9264-2d6adfaba4c6"))
   (wire
     (pts
       (xy 50.8 35.56)
@@ -744,14 +745,15 @@
       (width 0)
       (type default))
     (uuid "1384dcb9-5149-5385-ab2f-12b881829d01"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 53.34 35.56 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9c164b71-0ab8-5aa9-944c-fa462922d8d7"))
+    (uuid "ac98e0ad-e28a-5c1d-a956-e6d038126c5d"))
   (symbol
     (lib_id "wallet_tracker:Wurth_760308101309")
     (at 43.18 35.56 0)
@@ -820,14 +822,15 @@
       (width 0)
       (type default))
     (uuid "ea31bb5e-d15c-5883-a8b9-8fcc7ef5a9e2"))
-  (label "COIL1"
+  (global_label "COIL1"
+    (shape passive)
     (at 93.98 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "bb6e2149-2d77-5330-9eec-96c6b4c911d3"))
+    (uuid "e9e33424-4d65-56f2-9d9f-eeca7eb3ce0b"))
   (wire
     (pts
       (xy 93.98 44.45)
@@ -836,14 +839,15 @@
       (width 0)
       (type default))
     (uuid "5d1ff196-62d6-5391-a034-52b8b8f74fdb"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 93.98 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "754c62b8-5e71-5ae2-a51b-59a79f54a77c"))
+    (uuid "4ef01a5b-d1a3-52be-b28d-1eb99b6f2b8b"))
   (symbol
     (lib_id "Device:C")
     (at 93.98 40.64 0)
@@ -912,14 +916,15 @@
       (width 0)
       (type default))
     (uuid "50cd4fd8-80c7-5bb9-aaed-6c217c2a4749"))
-  (label "COIL1"
+  (global_label "COIL1"
+    (shape passive)
     (at 139.7 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "93628309-70bc-5091-b5ed-3516a764f010"))
+    (uuid "1266f60f-8abb-5f72-a342-9cd93662a3e8"))
   (wire
     (pts
       (xy 139.7 44.45)
@@ -928,14 +933,15 @@
       (width 0)
       (type default))
     (uuid "f5943db0-ee66-5466-8b7b-fe07f9b62b15"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 139.7 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "514c53aa-c029-58aa-8bd5-4308673b2474"))
+    (uuid "730a66ed-2977-5333-9800-b28b178abd5b"))
   (symbol
     (lib_id "Device:C")
     (at 139.7 40.64 0)
@@ -1004,14 +1010,15 @@
       (width 0)
       (type default))
     (uuid "e118efd4-3284-5cb1-a46a-07420920b3fe"))
-  (label "COIL1"
+  (global_label "COIL1"
+    (shape passive)
     (at 182.88 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9cc9c37a-e7aa-5c20-9b30-9ca808ac8313"))
+    (uuid "1b3d9c24-bae3-58d1-aac9-9f04de75e5ef"))
   (wire
     (pts
       (xy 182.88 44.45)
@@ -1020,14 +1027,15 @@
       (width 0)
       (type default))
     (uuid "8f25feb4-1a54-5067-acd0-866721220c69"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 182.88 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "cdd3bc2d-fc74-51a6-979c-bbd12650c0c0"))
+    (uuid "891875f7-a6ab-5591-9cdc-f190aed96100"))
   (symbol
     (lib_id "Device:C")
     (at 182.88 40.64 0)
@@ -1096,14 +1104,15 @@
       (width 0)
       (type default))
     (uuid "d70a9dc8-1ebe-5fa9-817c-7a9fdb05e85e"))
-  (label "COIL1"
+  (global_label "COIL1"
+    (shape passive)
     (at 226.06 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "7b87d59c-1ec0-52c7-962a-4d79499c6893"))
+    (uuid "206eb149-a952-52e0-8f6c-59a21ccd6cb6"))
   (wire
     (pts
       (xy 226.06 44.45)
@@ -1112,14 +1121,15 @@
       (width 0)
       (type default))
     (uuid "1c4f24ce-651d-5f88-9794-66ea1be3b052"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 226.06 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "1277cfd1-869e-5b95-8e5a-822478818384"))
+    (uuid "ef0a67d8-36b0-5a6c-b656-08373235cf89"))
   (symbol
     (lib_id "Device:C")
     (at 226.06 40.64 0)
@@ -1188,14 +1198,15 @@
       (width 0)
       (type default))
     (uuid "1d28c342-254b-52c4-ba10-7dfa347fa6e2"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 269.24 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "77b05bba-8e6c-553c-98b4-3daa0fbd7a7a"))
+    (uuid "bb299b76-9c99-5558-93b0-149b5dcfca74"))
   (wire
     (pts
       (xy 269.24 44.45)
@@ -1204,14 +1215,15 @@
       (width 0)
       (type default))
     (uuid "2824acbd-2ba3-5065-bbe9-fb2c542c185c"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 269.24 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "f173aef0-dc17-5b4b-92c6-be6ce0c12712"))
+    (uuid "7ce95198-b326-5da6-aa53-229deb24bd51"))
   (symbol
     (lib_id "Device:C")
     (at 269.24 40.64 0)
@@ -1280,14 +1292,15 @@
       (width 0)
       (type default))
     (uuid "54e89fd0-5c45-5d5d-97af-87ef7fac5d42"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 312.42 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ad4d00ad-0578-56fd-a4fa-e0ba248a7ada"))
+    (uuid "82eecc49-1f74-50e6-bdc1-7e6c78df472b"))
   (wire
     (pts
       (xy 312.42 44.45)
@@ -1296,14 +1309,15 @@
       (width 0)
       (type default))
     (uuid "ede4bef7-7c5f-5811-92e4-a2b2eefc88d4"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 312.42 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "dce3da43-6be8-568f-bd68-6e406be270f5"))
+    (uuid "45fb175b-3187-50d4-bb1d-28bf74bb9e4f"))
   (symbol
     (lib_id "Device:C")
     (at 312.42 40.64 0)
@@ -1372,14 +1386,15 @@
       (width 0)
       (type default))
     (uuid "781b15a2-7fc9-5a34-a6be-4b916fb447a2"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 355.6 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "52e6e650-1078-594c-92ee-d2f8947e270e"))
+    (uuid "dc1715ac-0c86-5506-ac27-ffbea89765c3"))
   (wire
     (pts
       (xy 355.6 44.45)
@@ -1388,14 +1403,15 @@
       (width 0)
       (type default))
     (uuid "6b856782-2a64-5ed7-b94b-68386f19c612"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 355.6 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "8d3dc9fb-9732-506f-a839-6bc48a3243b2"))
+    (uuid "b7f92a48-6729-53c5-a470-382d8e0c75f1"))
   (symbol
     (lib_id "Device:C")
     (at 355.6 40.64 0)
@@ -1464,14 +1480,15 @@
       (width 0)
       (type default))
     (uuid "63108103-556c-5d0f-9c39-930061dc18a0"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 33.02 71.12 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "c6bd65fe-1b0e-57cc-864c-7ae7f389772a"))
+    (uuid "ecf7b41e-0bc5-50a0-a289-14e2fb9e72d2"))
   (wire
     (pts
       (xy 35.56 73.66)
@@ -1480,14 +1497,15 @@
       (width 0)
       (type default))
     (uuid "a47ce5dc-6c20-5a9d-931c-f4632b125956"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 33.02 73.66 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "b4feb54d-6e86-516d-a32f-28fc1059c606"))
+    (uuid "403c282d-f276-520e-8eb4-5e897460b401"))
   (wire
     (pts
       (xy 35.56 76.2)
@@ -1496,14 +1514,15 @@
       (width 0)
       (type default))
     (uuid "ca78f729-7445-5580-a8f3-28b736ab7df3"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 33.02 76.2 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "42c76f60-b153-5b8b-b379-864cd30a52f2"))
+    (uuid "c8d641f9-57ec-5162-843a-d878c3112660"))
   (wire
     (pts
       (xy 35.56 78.74)
@@ -1512,14 +1531,15 @@
       (width 0)
       (type default))
     (uuid "fbfe96ee-199d-517a-9eab-0d31fe16300f"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 33.02 78.74 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d7fb46a0-4f33-57d9-ab47-9fe05c8c200b"))
+    (uuid "90a0c6c4-2d56-545d-b9a2-b720f9a7d8dd"))
   (wire
     (pts
       (xy 35.56 81.28)
@@ -1528,14 +1548,15 @@
       (width 0)
       (type default))
     (uuid "f5d4cdff-6565-5115-9198-e415068cc7c1"))
-  (label "BOOT1"
+  (global_label "BOOT1"
+    (shape passive)
     (at 33.02 81.28 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e7906d82-c010-5178-b9b8-42ad842297b7"))
+    (uuid "f7cdc7e5-702a-5149-b89a-41c0ae66dd2f"))
   (wire
     (pts
       (xy 35.56 83.82)
@@ -1544,14 +1565,15 @@
       (width 0)
       (type default))
     (uuid "6bf58863-5791-5495-8ff9-1dd76ec5f08f"))
-  (label "BOOT2"
+  (global_label "BOOT2"
+    (shape passive)
     (at 33.02 83.82 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e618e542-09ce-533c-ba9c-1626a0c2edfd"))
+    (uuid "737125d0-2a25-5752-903e-42efd0a8616d"))
   (wire
     (pts
       (xy 35.56 86.36)
@@ -1560,14 +1582,15 @@
       (width 0)
       (type default))
     (uuid "8d77c996-1ba3-5a20-b195-4fe4a418d4b0"))
-  (label "COMM1"
+  (global_label "COMM1"
+    (shape passive)
     (at 33.02 86.36 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "412d6b6e-a2d0-550b-bfd3-4f0f5247d065"))
+    (uuid "ad7f7595-191a-51cd-8c3f-fb03281c9379"))
   (wire
     (pts
       (xy 35.56 88.9)
@@ -1576,14 +1599,15 @@
       (width 0)
       (type default))
     (uuid "0d25361d-891b-58d0-8cae-d3eba2b3923a"))
-  (label "COMM2"
+  (global_label "COMM2"
+    (shape passive)
     (at 33.02 88.9 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d3eb75ad-f294-58a2-bdd8-55e4a5975206"))
+    (uuid "e165a483-38eb-53f5-a0d0-86be7fb55223"))
   (wire
     (pts
       (xy 35.56 91.44)
@@ -1592,14 +1616,15 @@
       (width 0)
       (type default))
     (uuid "867ebabf-e85b-53fe-80dd-bd32cfaf9da4"))
-  (label "CLAMP1"
+  (global_label "CLAMP1"
+    (shape passive)
     (at 33.02 91.44 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "1b5cff86-77ed-58f8-9753-97ff9da389fa"))
+    (uuid "a3a5988f-9919-5ffe-96d1-5598041130e8"))
   (wire
     (pts
       (xy 35.56 93.98)
@@ -1608,14 +1633,15 @@
       (width 0)
       (type default))
     (uuid "066c5f96-e430-5390-b00a-07bfc7021499"))
-  (label "CLAMP2"
+  (global_label "CLAMP2"
+    (shape passive)
     (at 33.02 93.98 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "67d5eb7d-9deb-59cc-8c9e-fdae22d99ee8"))
+    (uuid "beed19c5-ae1d-5504-bbfe-b7eebcf63f82"))
   (wire
     (pts
       (xy 35.56 96.52)
@@ -1624,14 +1650,15 @@
       (width 0)
       (type default))
     (uuid "48b2a5c8-e9f5-516e-b47e-c6561074716a"))
-  (label "ILIM"
+  (global_label "ILIM"
+    (shape passive)
     (at 33.02 96.52 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "168f2d1f-57b6-587d-af38-b9d195e70296"))
+    (uuid "ea3b3a01-d866-5eee-8bc0-6c28cb262d1e"))
   (wire
     (pts
       (xy 35.56 99.06)
@@ -1640,14 +1667,15 @@
       (width 0)
       (type default))
     (uuid "87a6e37c-3847-5a02-9947-f98ed5e17627"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 33.02 99.06 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "1885367c-fe3b-5251-a497-a3cdc67ce316"))
+    (uuid "fbaa3e59-ee5b-5a72-8621-9ab3c2a25f37"))
   (wire
     (pts
       (xy 66.04 71.12)
@@ -1656,14 +1684,15 @@
       (width 0)
       (type default))
     (uuid "5cfe505f-f598-5d66-8f9e-74dbc010bf04"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 68.58 71.12 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f7490fa4-851a-5fcc-92f4-3e17f42e2b8d"))
+    (uuid "a4a7f586-e111-5c41-9ada-e006cd8da4a5"))
   (wire
     (pts
       (xy 66.04 73.66)
@@ -1672,14 +1701,15 @@
       (width 0)
       (type default))
     (uuid "8425cd19-6869-5d77-a7dc-ffd95ac950fc"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 68.58 73.66 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "b45b411e-98af-5c9c-8d3b-c893b7f94f44"))
+    (uuid "c9773eff-d82e-5aa4-a9f4-e148a13108e0"))
   (wire
     (pts
       (xy 66.04 76.2)
@@ -1688,14 +1718,15 @@
       (width 0)
       (type default))
     (uuid "49ad86e3-6800-57a7-aa0f-e45765c4a38e"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 68.58 76.2 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "0d1032d8-4251-5978-b156-4b0553bcd803"))
+    (uuid "b12768f5-92f7-5ccc-b302-b862d06b652c"))
   (wire
     (pts
       (xy 66.04 78.74)
@@ -1704,14 +1735,15 @@
       (width 0)
       (type default))
     (uuid "55487e3d-0750-52cd-82a6-b78964ca4d50"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 68.58 78.74 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "8d555120-00a3-5907-8c91-d0e275b295cc"))
+    (uuid "31cafa8f-1bd7-5f4b-96b9-a52ceef209b8"))
   (wire
     (pts
       (xy 66.04 81.28)
@@ -1720,14 +1752,15 @@
       (width 0)
       (type default))
     (uuid "aa1a56cd-17ad-5940-8b87-046fb7ebca50"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 68.58 81.28 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "47f7662b-7294-5111-9d49-d84a794fedef"))
+    (uuid "71f99184-310e-59fa-afd8-0a57f0ca4e9e"))
   (wire
     (pts
       (xy 66.04 83.82)
@@ -1736,14 +1769,15 @@
       (width 0)
       (type default))
     (uuid "e7f9d39d-cef2-5ce5-a245-eeba4173c89b"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 68.58 83.82 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "2fdd207b-a704-5d1c-9ba8-e501af73bb75"))
+    (uuid "5cd6d0ff-0592-509b-a1fd-70cd84f11495"))
   (wire
     (pts
       (xy 66.04 86.36)
@@ -1752,14 +1786,15 @@
       (width 0)
       (type default))
     (uuid "e512f667-4150-5e9d-802b-425f6fe31636"))
-  (label "RXCHG"
+  (global_label "RXCHG"
+    (shape passive)
     (at 68.58 86.36 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f6c936da-6b7a-5a93-a5e6-ac81d10bab60"))
+    (uuid "61088ec2-8d3d-5991-8457-497ac2a87074"))
   (wire
     (pts
       (xy 66.04 88.9)
@@ -1768,14 +1803,15 @@
       (width 0)
       (type default))
     (uuid "ba287933-c84e-5baf-97b4-b08830b61f99"))
-  (label "TS_RX"
+  (global_label "TS_RX"
+    (shape passive)
     (at 68.58 88.9 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "951822eb-7289-5629-84b0-a4c78ada9c43"))
+    (uuid "6e0b2ed0-a289-5e3c-a83e-a9ec8878ab67"))
   (wire
     (pts
       (xy 66.04 91.44)
@@ -2018,14 +2054,15 @@
       (width 0)
       (type default))
     (uuid "1496b9ac-7480-559e-9268-f126fd113bea"))
-  (label "BOOT1"
+  (global_label "BOOT1"
+    (shape passive)
     (at 111.76 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9a858d9d-2bf0-52df-9825-47f47af220a2"))
+    (uuid "c63d35ae-000f-5a55-b003-6b211b916428"))
   (wire
     (pts
       (xy 111.76 77.47)
@@ -2034,14 +2071,15 @@
       (width 0)
       (type default))
     (uuid "12623947-553c-5395-96f0-0fbe04545a5f"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 111.76 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "b2e0aaa8-e76f-5721-91c4-b76931bf4434"))
+    (uuid "7f6bf90c-0c12-5bb1-aa65-091bbb73a6b6"))
   (symbol
     (lib_id "Device:C")
     (at 111.76 73.66 0)
@@ -2110,14 +2148,15 @@
       (width 0)
       (type default))
     (uuid "1cf25700-afff-55ff-8977-951a19d3b28b"))
-  (label "BOOT2"
+  (global_label "BOOT2"
+    (shape passive)
     (at 154.94 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "7d172222-2633-5554-9888-f1140b5d13f5"))
+    (uuid "598d4fc0-51e7-594c-9e07-45f0fc05dcd7"))
   (wire
     (pts
       (xy 154.94 77.47)
@@ -2126,14 +2165,15 @@
       (width 0)
       (type default))
     (uuid "df15f65a-bf26-502c-a85a-21766b00bdf8"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 154.94 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "929270e8-14c4-553f-9db7-43a542601335"))
+    (uuid "f5155aa3-8d35-5754-81ba-edd4ae98475d"))
   (symbol
     (lib_id "Device:C")
     (at 154.94 73.66 0)
@@ -2202,14 +2242,15 @@
       (width 0)
       (type default))
     (uuid "b63bf5d5-754f-5d35-a48c-4ddbac6f2499"))
-  (label "COMM1"
+  (global_label "COMM1"
+    (shape passive)
     (at 200.66 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "5d26be6e-dd19-5c0d-8cc3-d5a1e24eea34"))
+    (uuid "5229a5b8-f4fe-559a-88ee-5d0960120d0b"))
   (wire
     (pts
       (xy 200.66 77.47)
@@ -2218,14 +2259,15 @@
       (width 0)
       (type default))
     (uuid "8dabeead-f834-5fe3-8c57-17fc02642a22"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 200.66 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "cd31b676-6c0e-59e2-8b69-60cbfe3d3836"))
+    (uuid "bf289606-1b3a-586c-af27-86aea8fdda99"))
   (symbol
     (lib_id "Device:C")
     (at 200.66 73.66 0)
@@ -2294,14 +2336,15 @@
       (width 0)
       (type default))
     (uuid "c40be784-d1ae-5624-b7f6-266fbd7a0f74"))
-  (label "COMM2"
+  (global_label "COMM2"
+    (shape passive)
     (at 243.84 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "762fae16-6398-590b-a7fc-97eb9a3325c3"))
+    (uuid "558c403c-45c5-5be2-adc6-2b319da947ce"))
   (wire
     (pts
       (xy 243.84 77.47)
@@ -2310,14 +2353,15 @@
       (width 0)
       (type default))
     (uuid "e319bd30-0dca-5ac5-ab85-4cbd31f6790f"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 243.84 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "2efe7200-9af7-5833-9f21-8804f50c1c6f"))
+    (uuid "1b6860a6-e0ed-501b-bb1e-28074746f666"))
   (symbol
     (lib_id "Device:C")
     (at 243.84 73.66 0)
@@ -2386,14 +2430,15 @@
       (width 0)
       (type default))
     (uuid "3a755867-0b8c-5318-ab67-793b3aa2a0cc"))
-  (label "CLAMP1"
+  (global_label "CLAMP1"
+    (shape passive)
     (at 289.56 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "3273d2ee-c4b7-571c-a105-097e0406e9e3"))
+    (uuid "cd52e33d-e58f-5e23-8b7b-e0bde34f304a"))
   (wire
     (pts
       (xy 289.56 77.47)
@@ -2402,14 +2447,15 @@
       (width 0)
       (type default))
     (uuid "59282a9a-6fa1-5d53-ab9d-71edc86b3a7e"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 289.56 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d22b4e79-ba38-50ed-a170-97c4479df31c"))
+    (uuid "31c82097-00b7-566a-989f-efcd1767f4cf"))
   (symbol
     (lib_id "Device:C")
     (at 289.56 73.66 0)
@@ -2478,14 +2524,15 @@
       (width 0)
       (type default))
     (uuid "6262436c-12e9-551c-9fcd-0ffe76d25dff"))
-  (label "CLAMP2"
+  (global_label "CLAMP2"
+    (shape passive)
     (at 335.28 67.31 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "117d20ab-e146-59b8-92c7-fcad6f8ff057"))
+    (uuid "ce0788d7-9fbd-5622-a546-7edaabb14cb4"))
   (wire
     (pts
       (xy 335.28 77.47)
@@ -2494,14 +2541,15 @@
       (width 0)
       (type default))
     (uuid "a365abdc-a95a-5de3-b934-c5c905ac0415"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 335.28 80.01 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "5a397d2e-9e9d-584c-bf6c-ac81363bff08"))
+    (uuid "9542c8b3-1bff-5598-912a-4d185d7cca40"))
   (symbol
     (lib_id "Device:C")
     (at 335.28 73.66 0)
@@ -2570,14 +2618,15 @@
       (width 0)
       (type default))
     (uuid "91fe6deb-0c71-584b-b6dd-04c1033c6a40"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 35.56 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "1a3b59fd-cf9e-5be2-8123-3d91fde9a6f2"))
+    (uuid "8097f5c0-f5da-5758-9d56-f160674ac49b"))
   (wire
     (pts
       (xy 35.56 138.43)
@@ -2663,14 +2712,15 @@
       (width 0)
       (type default))
     (uuid "fe30a3c0-aa4f-5f28-9abf-2eaef6fbe0a7"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 78.74 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "3d15b459-f55d-594e-9cfb-2894bcc3eb0a"))
+    (uuid "f3426428-1be2-59f9-ad0a-043814cd091c"))
   (wire
     (pts
       (xy 78.74 138.43)
@@ -2756,14 +2806,15 @@
       (width 0)
       (type default))
     (uuid "5e02cde2-82a8-5f44-9e8b-a342eac85a57"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 124.46 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "d9bec614-ff1f-5432-978f-2d1c9a41acfb"))
+    (uuid "e31eea14-4057-5b6e-b2dc-69d8afdaf124"))
   (wire
     (pts
       (xy 124.46 138.43)
@@ -2849,14 +2900,15 @@
       (width 0)
       (type default))
     (uuid "bbea6142-e3c9-5b73-89e5-0e30cc2950c2"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 167.64 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "62ee2a66-8306-52a9-9301-07f213737303"))
+    (uuid "3afe21c1-be23-5c53-9f84-175bb9a44874"))
   (wire
     (pts
       (xy 167.64 138.43)
@@ -2942,14 +2994,15 @@
       (width 0)
       (type default))
     (uuid "a6c9efac-e24a-5f0f-b8d8-fce6e246e381"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 210.82 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "77993160-8b8c-5fe2-9de1-ba87bd8d2012"))
+    (uuid "64d123bc-ad7b-5511-b929-423b6f5e1904"))
   (wire
     (pts
       (xy 210.82 138.43)
@@ -3035,14 +3088,15 @@
       (width 0)
       (type default))
     (uuid "c82650bb-cbda-5f91-b264-8d0f08f496fc"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 256.54 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "4af0b4b7-063e-57d7-8266-2200344b9e25"))
+    (uuid "17ecdbed-df52-5d0c-b1c4-26a605d191d2"))
   (wire
     (pts
       (xy 256.54 138.43)
@@ -3128,14 +3182,15 @@
       (width 0)
       (type default))
     (uuid "25e73492-720e-5b3a-a453-710a28269569"))
-  (label "ILIM"
+  (global_label "ILIM"
+    (shape passive)
     (at 299.72 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f733bfe5-fcce-5278-8d04-13aa528aeed0"))
+    (uuid "9a4f9a77-9dff-5c83-b967-318c636b7570"))
   (wire
     (pts
       (xy 299.72 138.43)
@@ -3144,14 +3199,15 @@
       (width 0)
       (type default))
     (uuid "1d8a22e7-6ad1-53af-a96d-de0e2a431395"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 299.72 140.97 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "2b0691c2-820c-521a-bebb-84d49e6509da"))
+    (uuid "776175f7-f0a6-53f7-a8c9-7ff36cc7034a"))
   (symbol
     (lib_id "Device:R")
     (at 299.72 134.62 0)
@@ -3220,14 +3276,15 @@
       (width 0)
       (type default))
     (uuid "c1735046-cdc0-5187-b650-788292a33d8f"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 340.36 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "df311a53-10d9-5ea7-9d0f-908e2a4745f1"))
+    (uuid "1fe6e719-5186-5100-9fa3-fec320629474"))
   (wire
     (pts
       (xy 340.36 138.43)
@@ -3313,14 +3370,15 @@
       (width 0)
       (type default))
     (uuid "3c27dea4-0a27-5c2c-8df5-65970be1cd09"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 35.56 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "4cdd7d2f-4f86-5fb3-b77a-778268f3615d"))
+    (uuid "94404add-7dfc-5c6c-89cf-4d1baf89a621"))
   (wire
     (pts
       (xy 35.56 173.99)
@@ -3406,14 +3464,15 @@
       (width 0)
       (type default))
     (uuid "0e5efb31-4c31-5277-b4c7-09ad50bcaab9"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 78.74 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "b34b7fa3-a2e2-5e69-bf1d-116c59931ee6"))
+    (uuid "9c1a54a2-b46c-56da-86a2-3db5011d98d1"))
   (wire
     (pts
       (xy 78.74 173.99)
@@ -3422,14 +3481,15 @@
       (width 0)
       (type default))
     (uuid "013048f9-f36a-53d1-aa71-557ecbe0a317"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 78.74 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e149e4c0-4031-5b3c-aeda-880fb733b241"))
+    (uuid "c9a02f5d-2213-5345-8da5-78b8db7457c1"))
   (symbol
     (lib_id "Device:R")
     (at 78.74 170.18 0)
@@ -3498,14 +3558,15 @@
       (width 0)
       (type default))
     (uuid "a241e5cd-2877-5d48-9351-9c2a86496d82"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 121.92 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "906bab57-3fd5-50ba-9ac4-dca9b0a74322"))
+    (uuid "47ef0269-149a-56b6-89aa-b3b277480dea"))
   (wire
     (pts
       (xy 121.92 173.99)
@@ -3514,14 +3575,15 @@
       (width 0)
       (type default))
     (uuid "f744b5b2-a38e-50c9-88f1-94bb46daf38d"))
-  (label "FOD"
+  (global_label "FOD"
+    (shape passive)
     (at 121.92 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "3d580b71-ff0e-535a-9d1c-7d0639eece29"))
+    (uuid "a5c25334-51c6-558f-98de-76276f712eed"))
   (symbol
     (lib_id "Device:R")
     (at 121.92 170.18 0)
@@ -3590,14 +3652,15 @@
       (width 0)
       (type default))
     (uuid "d26f711b-99b8-598f-986b-25a279e6d2d9"))
-  (label "TS_RX"
+  (global_label "TS_RX"
+    (shape passive)
     (at 165.1 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "23f45ecf-91c2-5725-a398-2bdf6baed7f5"))
+    (uuid "97d15032-84fc-5fd6-97a2-7079bfc1619a"))
   (wire
     (pts
       (xy 165.1 173.99)
@@ -3683,14 +3746,15 @@
       (width 0)
       (type default))
     (uuid "fa13b625-43f2-5796-a987-e93594dffa2f"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 210.82 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ca5b744b-5368-5269-be2c-33dbdbec8f46"))
+    (uuid "d91cd9a5-4847-59e2-9d11-2f1940328d33"))
   (wire
     (pts
       (xy 210.82 173.99)
@@ -3776,20 +3840,21 @@
       (width 0)
       (type default))
     (uuid "9e72ae17-b30e-50b9-bcfe-ac51b202db52"))
-  (label "VRECT"
+  (global_label "VRECT"
+    (shape passive)
     (at 256.54 167.64 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d67b6343-96c6-5ac6-9b77-10922d1390e4"))
+    (uuid "a6025a33-5845-5ae2-9a2e-4dee83c90a07"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 256.54 165.1 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "4626295e-2aa5-5dd8-ae61-e365a0df6565")
@@ -3850,20 +3915,21 @@
       (width 0)
       (type default))
     (uuid "184a8c3c-ea2e-5b25-b965-d40cff0d477b"))
-  (label "V5_RX"
+  (global_label "V5_RX"
+    (shape passive)
     (at 299.72 167.64 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "f0b4c2a7-22d9-52e0-bf42-55f314228ecb"))
+    (uuid "00ee8fd4-7c3d-5c12-9949-4f433cc6680c"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 299.72 165.1 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "24125a40-6136-566b-ae0c-7ae2379c9a25")
@@ -3924,20 +3990,21 @@
       (width 0)
       (type default))
     (uuid "1441d03c-0c30-5378-9337-d1c89cf630f4"))
-  (label "AC1"
+  (global_label "AC1"
+    (shape passive)
     (at 342.9 167.64 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e44613dc-f6ce-598a-8740-152b48514f66"))
+    (uuid "b1ba2eb3-fa1b-503e-9a4f-d9f952eaa594"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 342.9 165.1 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "6cb99f8c-fd43-5af1-953b-ef628527bc63")
@@ -3998,20 +4065,21 @@
       (width 0)
       (type default))
     (uuid "58da4b71-6045-5087-ba96-0c42c9da428f"))
-  (label "AC2"
+  (global_label "AC2"
+    (shape passive)
     (at 35.56 203.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e72a38c2-b659-54d6-81fd-b4fadbb0c640"))
+    (uuid "08bc989f-cab9-5161-9c31-ef599d14800f"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 35.56 200.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "31c0acdd-6ad6-5eeb-bcce-eda374c7ac28")
@@ -4072,20 +4140,21 @@
       (width 0)
       (type default))
     (uuid "498bc4d6-b0ad-5aec-a618-b0def9309143"))
-  (label "RXCHG"
+  (global_label "RXCHG"
+    (shape passive)
     (at 78.74 203.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "0aec0f09-2e75-5c54-a27e-20a44a840609"))
+    (uuid "3821ac77-723a-5fb3-b8ac-e1871f66a527"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 78.74 200.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "6314e844-9c37-5f7a-8725-4bdaeccddae1")

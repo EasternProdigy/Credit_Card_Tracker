@@ -640,14 +640,15 @@
       (width 0)
       (type default))
     (uuid "a8228731-136d-56c5-a199-d4c9edae6b8f"))
-  (label "VDD_3V3"
+  (global_label "VDD_3V3"
+    (shape passive)
     (at 60.96 35.56 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "0947a61a-7446-5227-8b92-bc699f5acf54"))
+    (uuid "77f9e0b5-5736-56fa-8ee4-8b94fc11d2cf"))
   (wire
     (pts
       (xy 43.18 45.72)
@@ -850,14 +851,15 @@
       (width 0)
       (type default))
     (uuid "d968d8ba-cd65-5634-9b98-371ec943ac29"))
-  (label "VDD_3V3"
+  (global_label "VDD_3V3"
+    (shape passive)
     (at 147.32 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "e9421209-bcbf-5dcf-a1d7-eeb18c1971ef"))
+    (uuid "dd816885-30aa-5d6f-b0eb-edf685eb861b"))
   (wire
     (pts
       (xy 147.32 44.45)
@@ -960,14 +962,15 @@
       (width 0)
       (type default))
     (uuid "cfc66604-d9c1-5e5f-ab89-a208b70b0f66"))
-  (label "VBAT_SENSE"
+  (global_label "VBAT_SENSE"
+    (shape passive)
     (at 198.12 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "ccffea3f-5f85-5ad7-9908-d41b7652578d"))
+    (uuid "f04b63b6-f6b9-5305-a8c5-e12c4b890a13"))
   (symbol
     (lib_id "Device:R")
     (at 198.12 40.64 0)
@@ -1036,14 +1039,15 @@
       (width 0)
       (type default))
     (uuid "44827bde-f737-5c48-bb14-372bcd8a7f13"))
-  (label "VBAT_SENSE"
+  (global_label "VBAT_SENSE"
+    (shape passive)
     (at 254 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "6bb54dc8-355c-57fb-8774-994bddfc3a73"))
+    (uuid "f98f7c48-f820-54f6-bb27-df1656310906"))
   (wire
     (pts
       (xy 254 44.45)
@@ -1129,14 +1133,15 @@
       (width 0)
       (type default))
     (uuid "e5d9dc28-a1b7-5785-8562-3ca35d569afd"))
-  (label "VBAT_SENSE"
+  (global_label "VBAT_SENSE"
+    (shape passive)
     (at 307.34 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ab7eed01-0c18-5bf4-982e-2e0d8e3a8ced"))
+    (uuid "32f238e8-96db-5d7e-a4a8-a3f29eada40b"))
   (wire
     (pts
       (xy 307.34 44.45)
@@ -1222,14 +1227,15 @@
       (width 0)
       (type default))
     (uuid "1307514c-7811-5705-a871-e9c524a15757"))
-  (label "VDD_3V3"
+  (global_label "VDD_3V3"
+    (shape passive)
     (at 358.14 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "c07383c9-6246-557f-b177-b7bd508223c7"))
+    (uuid "b84c3aa7-b54c-518e-8194-3107a0cdef8f"))
   (wire
     (pts
       (xy 358.14 44.45)
@@ -1315,14 +1321,15 @@
       (width 0)
       (type default))
     (uuid "e043caf6-eb3f-5445-9557-9c717b2209ef"))
-  (label "VDD_3V3"
+  (global_label "VDD_3V3"
+    (shape passive)
     (at 35.56 73.66 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "67f52a20-1c6c-5393-9ce8-7772177908b8"))
+    (uuid "e46653a7-5ede-5bc9-8f05-e5c10b3ff09a"))
   (wire
     (pts
       (xy 38.1 76.2)
@@ -1408,14 +1415,15 @@
       (width 0)
       (type default))
     (uuid "dad0200c-d7f3-5ffd-b45d-dee5c0c2adbd"))
-  (label "VBAT_SENSE"
+  (global_label "VBAT_SENSE"
+    (shape passive)
     (at 96.52 69.85 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "060dc91f-aa63-5ee9-910f-d0e609a484a5"))
+    (uuid "281d91b4-9d63-5aa7-9e0b-0f54fb6cd3ed"))
   (wire
     (pts
       (xy 96.52 80.01)
@@ -1501,20 +1509,21 @@
       (width 0)
       (type default))
     (uuid "29dfcdd0-ba64-5761-ad2b-a3275792bad6"))
-  (label "VDD_3V3"
+  (global_label "VDD_3V3"
+    (shape passive)
     (at 152.4 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "f2d035d4-9f0b-52e2-8ff3-68574769c79e"))
+    (uuid "930a679e-60be-5d31-9ce0-d6b11ce6bfda"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 152.4 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "c6deb67d-3d14-580c-89a1-449870f73250")
@@ -1589,7 +1598,7 @@
     (at 200.66 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "69f77f20-9d58-5df4-8c32-c04144fc86f8")
@@ -1650,20 +1659,21 @@
       (width 0)
       (type default))
     (uuid "8317383f-f483-5c66-b3c1-8e536a39acfb"))
-  (label "VBAT_SENSE"
+  (global_label "VBAT_SENSE"
+    (shape passive)
     (at 251.46 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "8b09f2d1-55ff-591f-b583-0c3eb0775839"))
+    (uuid "ff1260af-076f-5e29-9768-c1f455c4a553"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 251.46 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "167ce95c-e54d-51f5-a4ff-72efae37ea14")

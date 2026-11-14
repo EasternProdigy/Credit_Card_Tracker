@@ -38,15 +38,16 @@ RF_W = min((round(w, 2) for w in [x / 100 for x in range(20, 80)]),
 board = pcbnew.NewBoard(PCB)
 ds = board.GetDesignSettings()
 ds.SetBoardThickness(mm(0.4))
-ds.m_TrackMinWidth = mm(0.1); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm(0.45)
-ds.m_MinThroughDrill = mm(0.2); ds.m_HoleClearance = mm(0.2); ds.m_CopperEdgeClearance = mm(0.3)
-ds.m_HoleToHoleMin = mm(0.25); ds.m_ViasMinAnnularWidth = mm(0.1)
+ds.m_TrackMinWidth = mm(0.1); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm(0.25)
+ds.m_MinThroughDrill = mm(0.15); ds.m_HoleClearance = mm(0.2); ds.m_CopperEdgeClearance = mm(0.3)
+ds.m_HoleToHoleMin = mm(0.25); ds.m_ViasMinAnnularWidth = mm(0.05)
 nc = ds.m_NetSettings
 dflt = nc.GetDefaultNetclass()
 dflt.SetClearance(mm(0.12)); dflt.SetTrackWidth(mm(0.15)); dflt.SetViaDiameter(mm(0.5)); dflt.SetViaDrill(mm(0.25))
 CLASSES = {
     'QI_AC': (0.4, 0.15, ['AC1', 'AC2', 'COIL1']),
-    'PWR': (0.3, 0.12, ['VRECT', 'V5_RX', 'V5_CHG', 'VCHG', 'VCELL', 'VBAT', 'BT_NEG', 'VDD_3V3', 'VDD_NRF', 'DCC', 'DECD']),
+    'PWR': (0.3, 0.12, ['VRECT', 'V5_RX', 'V5_CHG', 'VCHG', 'VCELL', 'VBAT', 'BT_NEG', 'VDD_3V3']),
+    'MCU_PWR': (0.2, 0.12, ['VDD_NRF', 'DCC', 'DECD', 'DECA']),
     'RF50': (RF_W, RF_GAP, ['RF_NRF', 'RF_A', 'RF_B', 'RF_MATCHED', 'ANT_FEED']),
 }
 for name, (tw, cl, nets) in CLASSES.items():
@@ -80,20 +81,24 @@ for c in D.C:
     path = LOCAL if lib == 'wallet_tracker' else f'{FPROOT}/{lib}.pretty'
     f = pcbnew.FootprintLoad(path, name)
     assert f, c['fp']
+    f.SetFPID(pcbnew.LIB_ID(lib, name))
     f.SetReference(c['ref']); f.SetValue(c['value'])
     f.SetPath(pcbnew.KIID_PATH(f"/{GS.U('sheet', c['sheet'])}/{GS.U('sym', c['ref'])}"))
     f.SetSheetname(c['sheet']); f.SetSheetfile(c['sheet'] + '.kicad_sch')
     if c['dnp']: f.SetDNP(True)
-    for k, v in (('MPN', c['mpn']), ('LCSC', lcsc.get(c['ref'], ''))):
-        if v:
-            f.SetField(k, v); f.GetField(k).SetVisible(False)
+    for k, v in (('MPN', c['mpn']), ('Source', c['src']), ('LCSC', lcsc.get(c['ref'], ''))):
+        f.SetField(k, v or ''); f.GetField(k).SetVisible(False)
     padnames = {p.GetNumber() for p in f.Pads()}
     for pin, n in c['pins'].items():
         if pin not in padnames:
             raise SystemExit(f"{c['ref']}: pin {pin} has no pad in {c['fp']}")
+    pin_names = {q[0]: q[1] for q in GS.get_symbol(c['sym'])[2]}
     for p in f.Pads():
-        n = c['pins'].get(p.GetNumber())
+        num = p.GetNumber()
+        n = c['pins'].get(num)
         if n: p.SetNet(net(n))
+        elif num in c['pins']:   # explicit no-connect: use KiCad's schematic name so parity matches
+            p.SetNet(net(f"unconnected-({c['ref']}-{pin_names[num].replace('/', '{slash}')}-Pad{num})"))
     f.Reference().SetVisible(False)   # minimal silkscreen (docs/04); refs remain on F.Fab via ${REFERENCE}
     board.Add(f); FP[c['ref']] = f
 
@@ -136,7 +141,7 @@ PITCH = 1.45
 for i, ref in enumerate(['L3', 'L4', 'L5', 'L6']):
     P(ref, sx, ay - 1.25 - i * PITCH, 'N')
 node = lambda i: ay - 1.25 - i * PITCH - PITCH / 2
-P('C25', sx + 1.1, node(0), 'W')     # RF_A shunt, ground pad toward pin 32 (top layer only)
+P('C25', padpos('U5', '32')[0] + 0.28, ay - 1.5, 'S')   # RF_A shunt; GND pad straight below pin 32 (top only)
 P('C26', sx - 1.1, node(1), 'E')     # RF_B shunt, ground via to bottom only
 P('C27', sx - 1.1, node(2), 'E')     # RF_MATCHED shunt
 P('C32', sx + 1.1, node(2), 'W')     # DNP pi
@@ -153,18 +158,18 @@ P('C23', 62.3, 16.6, 'W')            # VDD pin 36
 P('R7', 56.9, 15.95, 'E')             # pin 30 side = pad 1 (nRESET_IC)
 P('C31', 56.9, 15.05, 'E')
 # right side: DC/DC + DEC (pins 43..48 at x 61.35, y 20.0..22.0)
-P('C21', 62.45, 22.25, 'W')          # VDD 48
-P('C18', 62.45, 21.35, 'W')          # DECD
-P('FB1', 62.45, 20.6, 'W')           # DECD -> DECA
-P('C19', 62.45, 19.85, 'W')          # DECA
-P('C24', 62.45, 19.1, 'W')
-P('C30', 62.45, 18.35, 'W')
-P('L2', 64.15, 21.1, 'N')            # DCC (top) -> DECD (bottom)
-P('C17', 63.25, 23.75, 'S')          # 10 uF VDD 47/48
+P('C21', 62.95, 22.35, 'W')          # VDD 48
+P('C18', 62.95, 21.45, 'W')           # DECD
+P('FB1', 62.95, 20.55, 'W')          # DECD -> DECA
+P('C19', 62.95, 19.65, 'W')           # DECA
+P('C24', 62.95, 18.75, 'W')
+P('C30', 62.95, 17.85, 'W')
+P('L2', 64.65, 21.1, 'N')            # DCC (top) -> DECD (bottom)
+P('C17', 63.55, 23.75, 'S')          # 10 uF VDD 47/48
 # top: VDD 10, NFC (DNP), 32 kHz
 P('C20', 56.85, 23.85, 'S')
-P('C34', 57.95, 24.35, 'S'); P('C33', 58.95, 24.35, 'S')
-P('Y2', 60.95, 24.4, 0)
+P('C33', 28.5, 9.0, 'S'); P('C34', 29.5, 9.0, 'S')   # NFC tuning (DNP) at the antenna pads
+P('Y2', 60.95, 24.4, 180)          # rotated: XL1/XL2 do not cross
 # left: VDD 22
 P('C22', 54.4, 18.4, 'E')
 P('JP6', 53.3, 13.9, 'N'); P('JP5', 53.3, 11.8, 'N')
@@ -172,9 +177,9 @@ P('JP6', 53.3, 13.9, 'N'); P('JP5', 53.3, 11.8, 'N')
 # Qi receiver
 P('L1', 68.05, 38.98 - 15.0, 0)      # lands at (66.05 / 70.05, 23.98)
 for i, ref in enumerate(['C1a', 'C1b', 'C1c', 'C1d']):
-    P(ref, 65.85 + i * 1.55, 20.0, 'N')       # COIL1 on top
+    P(ref, 66.45 + i * 1.55, 20.0, 'N')       # COIL1 on top
 for i, ref in enumerate(['C2a', 'C2b', 'C2c']):
-    P(ref, 65.85 + i * 1.55, 15.6, 'N')       # AC1 on top
+    P(ref, 66.45 + i * 1.55, 15.6, 'N')       # AC1 on top
 UQX, UQY = 75.6, 19.6
 P('U1', UQX, UQY, 90)                # rot 90: AC balls (row B) face the tank caps on the left
 # U1 courtyard ~ x 73.1-78.1, y 17.6-21.6
@@ -216,11 +221,13 @@ def cbox(f):
     c = f.GetCourtyard(pcbnew.F_CrtYd)
     if c.OutlineCount() == 0: return None
     b = c.BBox(); return [b.GetLeft(), b.GetTop(), b.GetRight(), b.GetBottom()]
+HAND = {'C21', 'C18', 'FB1', 'C19', 'C24', 'C30', 'L2', 'C25', 'C23', 'C17', 'C20', 'C22', 'L3', 'L4', 'L5', 'L6',
+        'C26', 'C27', 'C28', 'C32', 'TP19', 'R7', 'C31'}
 def resolve(maxmove=0.5):
     """Only small-vs-big overlaps: push the small part straight away from the big one, at most maxmove."""
     report = []
     for r in FP:
-        if BIG(r): continue
+        if BIG(r) or r in HAND: continue
         total = 0.0
         for _ in range(10):
             me = cbox(FP[r]); hit = None
@@ -288,6 +295,137 @@ def pour(layer, pts, netname='GND', prio=0):
     board.Add(z); return z
 card_pts = [(0.4, 0.4), (W - 0.4, 0.4), (W - 0.4, H - 0.4), (0.4, H - 0.4)]
 pour('B.Cu', card_pts); pour('F.Cu', card_pts)
+
+# ---------------------------------------------------------------- hand routes (critical nets), vias
+TRK = []
+def pad_obj(ref, num):
+    for p in FP[ref].Pads():
+        if p.GetNumber() == num: return p
+def track(netname, pts, w, layer='F.Cu'):
+    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+        t = pcbnew.PCB_TRACK(board); t.SetStart(K(x1, y1)); t.SetEnd(K(x2, y2)); t.SetWidth(mm(w))
+        t.SetLayer(board.GetLayerID(layer)); t.SetNet(net(netname)); t.SetLocked(True); board.Add(t); TRK.append(t)
+VIAS = []
+def via(netname, x, y, d=0.5, drill=0.25, locked=True):
+    v = pcbnew.PCB_VIA(board); v.SetPosition(K(x, y)); v.SetWidth(mm(d)); v.SetDrill(mm(drill))
+    v.SetNet(net(netname)); v.SetLocked(locked); board.Add(v); VIAS.append((x, y, d / 2, netname)); return v
+def free(x, y, r, netname, clr=0.13):
+    """True if a circle at (x, y) radius r keeps clr from every other-net pad, via and track (bbox test)."""
+    X, Y = mm(X0 + x), mm(Y0 - y); R = mm(r + clr)
+    if not (0.6 < x < W - 0.6 and 0.6 < y < H - 0.6): return False
+    for f in FP.values():
+        for p in f.Pads():
+            if p.GetNetname() == netname and netname: continue
+            b = p.GetBoundingBox()
+            if b.GetLeft() - R < X < b.GetRight() + R and b.GetTop() - R < Y < b.GetBottom() + R: return False
+    for vx, vy, vr, vn in VIAS:
+        if vn != netname and math.hypot(vx - x, vy - y) < vr + r + clr: return False
+        if vn == netname and math.hypot(vx - x, vy - y) < vr + r + 0.1: return False
+    for t in TRK:
+        if t.GetNetname() == netname: continue
+        a, b = t.GetStart(), t.GetEnd(); hw = t.GetWidth() / 2
+        if min(a.x, b.x) - hw - R < X < max(a.x, b.x) + hw + R and min(a.y, b.y) - hw - R < Y < max(a.y, b.y) + hw + R:
+            return False
+    for z in board.Zones():
+        if z.GetIsRuleArea() and z.GetDoNotAllowVias() and z.Outline().Contains(pcbnew.VECTOR2I(X, Y)):
+            return False
+    return True
+pp = padpos
+RFW = 0.30
+# RF chain (Nordic Fig.180 order), straight and short
+segs = [(('U5', '31'), ('L3', '1'), 'RF_NRF'), (('L3', '2'), ('L4', '1'), 'RF_A'), (('L4', '2'), ('L5', '1'), 'RF_B'),
+        (('L5', '2'), ('L6', '1'), 'RF_MATCHED'), (('L6', '2'), ('AE1', '1'), 'ANT_FEED')]
+for a_, b_, n_ in segs:
+    track(n_, [pp(*a_), pp(*b_)], RFW)
+for ref, n_ in (('C26', 'RF_B'), ('C27', 'RF_MATCHED'), ('C32', 'RF_MATCHED'), ('C28', 'ANT_FEED')):
+    x1, y1 = pp(ref, '1'); track(n_, [(x1, y1), (sx, y1)], 0.25)
+tx, ty = pp('TP19', '1'); track('ANT_FEED', [(tx, ty), (sx, ty)], 0.2)
+# C25 ground -> pin 32 only (top), pin 32 -> exposed pad only (under the IC)
+g25 = pp('C25', '2'); p32 = pp('U5', '32')
+track('GND', [g25, (p32[0] + 0.08, g25[1] + 0.24), (p32[0] + 0.08, 16.4), (p32[0], 16.6), p32], 0.15)
+c25a = pp('C25', '1'); track('RF_A', [c25a, (sx, c25a[1])], 0.25)
+track('GND', [p32, (p32[0], p32[1] + 0.75)], 0.2)          # inward to the EP edge (EP edge at UY-2.3)
+# C26 ground: via straight to the bottom ground
+g26 = pp('C26', '2'); via('GND', g26[0] - 0.55, g26[1]); track('GND', [g26, (g26[0] - 0.55, g26[1])], 0.25)
+# antenna short to ground: via at the short pad
+shp = pp('AE1', '2'); via('GND', shp[0], shp[1] + 0.75); track('GND', [shp, (shp[0], shp[1] + 0.75)], 0.5)
+# crystal 32 MHz (no traces under it; Nordic: within 3 mm)
+p34, p35, p36 = pp('U5', '34'), pp('U5', '35'), pp('U5', '36')
+y1p1, y1p3 = pp('Y1', '1'), pp('Y1', '3')
+track('XC1', [p34, (p34[0], y1p1[1]), y1p1], 0.15)
+track('XC2', [p35, (p35[0], 16.0), (y1p3[0], 16.0), y1p3], 0.15)
+track('VDD_NRF', [p36, (p36[0], pp('C23', '1')[1]), pp('C23', '1')], 0.2)
+# 32 kHz
+p1, p2 = pp('U5', '1'), pp('U5', '2'); y2a, y2b = pp('Y2', '1'), pp('Y2', '2')
+track('XL1', [p1, (p1[0], 23.55), (y2a[0], 23.55), y2a], 0.15)
+track('XL2', [p2, (p2[0], 23.55 if y2b[0] < p2[0] - 0.3 else y2b[1]), y2b], 0.15) if abs(y2b[0] - p2[0]) < 0.3 else None
+# DEC / DCC / VDD on the right side: straight stubs where aligned
+a_ = pp('U5', '43'); b_ = pp('C19', '1'); track('DECA', [a_, (a_[0] + 0.55, a_[1]), (b_[0] - 0.35, b_[1]), b_], 0.2)
+p47, p48, c21 = pp('U5', '47'), pp('U5', '48'), pp('C21', '1')
+track('VDD_NRF', [(p47[0] + 0.2, p47[1]), (p48[0] + 0.2, p48[1])], 0.15)            # bridge pins 47/48
+track('VDD_NRF', [p48, (p48[0] + 0.55, p48[1]), (p48[0] + 0.65, c21[1]), c21], 0.2)
+# DCC: pin 46 -> L2 pad 1 through the gap between C21 and C18
+p46 = pp('U5', '46'); l2a, l2b = pp('L2', '1'), pp('L2', '2'); c18, fb1a, fb1b = pp('C18', '1'), pp('FB1', '1'), pp('FB1', '2')
+yg = (c21[1] + c18[1]) / 2
+track('DCC', [p46, (p46[0] + 0.5, p46[1]), (p46[0] + 0.9, yg), (l2a[0] - 0.3, yg), l2a], 0.2)
+# DECD: pin 45 -> FB1.1/C18.1 column (same net) -> gap between C18 and FB1 -> L2 pad 2
+p45 = pp('U5', '45'); yd = (c18[1] + fb1a[1]) / 2
+track('DECD', [p45, (fb1a[0], p45[1]), (fb1a[0], yd), (l2b[0] - 0.75, yd), (l2b[0] - 0.25, l2b[1] + 0.2)], 0.2)
+track('DECD', [c18, (c18[0], yd)], 0.2); track('DECD', [fb1a, (fb1a[0], p45[1])], 0.2)
+# DECA: FB1.2 -> right -> down -> gap between C19 and C24 -> C19.1 / C24.1 / C30.1
+c19, c24, c30 = pp('C19', '1'), pp('C24', '1'), pp('C30', '1')
+ya = (c19[1] + c24[1]) / 2
+track('DECA', [fb1b, (fb1b[0] + 0.52, fb1b[1]), (fb1b[0] + 0.52, ya), (c19[0], ya)], 0.2)
+track('DECA', [c19, (c19[0], ya), c24, c30], 0.2)
+# DECRF (pin 33): boxed in by C25 ground and the crystal; small via (4-layer class) and bottom run to the DECA node
+p33 = pp('U5', '33'); va = (p33[0] + 0.05, 16.25); vb = (c30[0] - 0.15, c30[1] - 0.5)
+track('DECA', [p33, (p33[0], 16.4), va], 0.15); via('DECA', va[0], va[1], 0.3, 0.15)
+track('DECA', [va, (61.4, va[1]), (vb[0], vb[1] - 0.9), vb], 0.2, 'B.Cu')
+via('DECA', vb[0], vb[1], 0.3, 0.15); track('DECA', [vb, c30], 0.2)
+# EP ground vias (QFN48 thermal/ground, 3 x 3, 0.25 drill)
+for i in (-1, 0, 1):
+    for j in (-1, 0, 1):
+        via('GND', UX + i * 1.2, UY + j * 1.2)
+# U1 via-in-pad on the 5 enclosed balls (JLC 4-layer BGA guide: 0.15 drill / 0.25 copper)
+for ball, n_ in (('C2', 'VRECT'), ('C3', 'VRECT'), ('E2', 'CLAMP2'), ('E3', 'CLAMP1'), ('F2', 'FOD')):
+    x_, y_ = pp('U1', ball); via(n_, x_, y_, 0.25, 0.15)
+# GND via beside every GND pad of small parts (pours on both layers), searching outward
+GND_SKIP = {'C25', 'C26', 'AE1', 'U5', 'U1', 'TP23', 'TP24', 'TP25'}
+for ref, f in FP.items():
+    if ref in GND_SKIP or ref.startswith('J') or ref == 'BT1': continue
+    cx, cy = card(f.GetPosition())
+    for p in f.Pads():
+        if p.GetNetname() != 'GND': continue
+        px, py = card(p.GetPosition())
+        dx, dy = px - cx, py - cy; L = math.hypot(dx, dy) or 1
+        cands = []
+        for dist in (0.55, 0.7, 0.9):
+            for ang in (0, 25, -25, 50, -50, 90, -90):
+                a = math.atan2(dy, dx) + math.radians(ang)
+                cands.append((px + dist * math.cos(a), py + dist * math.sin(a)))
+        for vx, vy in cands:
+            path_ok = all(free(px + (vx - px) * t, py + (vy - py) * t, 0.125, 'GND', 0.13) for t in (0.45, 0.7, 0.85))
+            if path_ok and free(vx, vy, 0.25, 'GND'):
+                via('GND', vx, vy); track('GND', [(px, py), (vx, vy)], 0.25); break
+# U1 PGND balls (row A, edge): via outward from each
+for ball in ('A1', 'A2', 'A3', 'A4'):
+    px, py = pp('U1', ball); cx, cy = card(FP['U1'].GetPosition())
+    for dist in (0.6, 0.75, 0.9):
+        vx, vy = px + math.copysign(dist, px - cx), py
+        if free(vx, vy, 0.25, 'GND'):
+            via('GND', vx, vy); track('GND', [(px, py), (vx, vy)], 0.2); break
+# ground edge stitching (docs/04: <= 3 mm along y = 10.5), plus a 4 mm grid elsewhere
+x = 53.0
+while x < 83.4:
+    for dy in (0.45, 0.7, 1.0):
+        if free(x, 10.5 + dy, 0.25, 'GND', 0.2): via('GND', x, 10.5 + dy, locked=False); break
+    x += 2.0
+for gx in [2 + 4 * i for i in range(21)]:
+    for gy in [12 + 4 * j for j in range(11)]:
+        inside_coil = math.hypot(gx - 68.05, gy - 38.98) < 13.6
+        if inside_coil or (52.0 < gx < 84 and gy < 26.5) or gy < 10.8: continue
+        if free(gx, gy, 0.25, 'GND', 0.3): via('GND', gx, gy, locked=False)
+print('vias', len(VIAS), 'hand tracks', len(TRK))
 
 if __name__ == '__main__':
     pcbnew.SaveBoard(PCB, board)

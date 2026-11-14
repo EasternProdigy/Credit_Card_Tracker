@@ -729,14 +729,15 @@
       (width 0)
       (type default))
     (uuid "2d64a53a-d033-50e3-813b-96957333f2ac"))
-  (label "ISET"
+  (global_label "ISET"
+    (shape passive)
     (at 33.02 38.1 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "792ff3c9-39d4-5d5e-822a-a36f54ef34e4"))
+    (uuid "b4363695-46c5-5982-97cb-58a586ce2063"))
   (wire
     (pts
       (xy 35.56 40.64)
@@ -745,14 +746,15 @@
       (width 0)
       (type default))
     (uuid "a4293cff-8ffc-5cb2-b90e-29cac30fc3f2"))
-  (label "NTC"
+  (global_label "NTC"
+    (shape passive)
     (at 33.02 40.64 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "ef5d37c6-b925-5192-8d5d-186dd47182ce"))
+    (uuid "41cd3c49-8be7-5442-8a37-d02ab23552b2"))
   (wire
     (pts
       (xy 60.96 35.56)
@@ -761,14 +763,15 @@
       (width 0)
       (type default))
     (uuid "b0a7dd93-3fb1-52f7-ae2f-623a9fa7f1aa"))
-  (label "VCHG"
+  (global_label "VCHG"
+    (shape passive)
     (at 63.5 35.56 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "95cbf1e8-5992-5173-8078-883ebf63f58b"))
+    (uuid "36293f34-3c45-52a0-93db-4c1c440d70c8"))
   (wire
     (pts
       (xy 60.96 38.1)
@@ -973,14 +976,15 @@
       (width 0)
       (type default))
     (uuid "9ff0eb87-0ab8-5987-847a-833759dbb7b6"))
-  (label "VCHG"
+  (global_label "VCHG"
+    (shape passive)
     (at 152.4 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "e74a1269-6b1d-5ff6-9f0b-a364d7f9cc85"))
+    (uuid "e5cb361a-82c8-51d1-a7fe-c1fef1c90b47"))
   (wire
     (pts
       (xy 152.4 44.45)
@@ -1066,14 +1070,15 @@
       (width 0)
       (type default))
     (uuid "e5742a9f-5b7f-533a-8b40-7d30c41eae3c"))
-  (label "ISET"
+  (global_label "ISET"
+    (shape passive)
     (at 193.04 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "78705471-cd78-5837-997c-0745ba260ac7"))
+    (uuid "778d79d1-f7d6-5501-ad0b-83cd83e89c83"))
   (wire
     (pts
       (xy 193.04 44.45)
@@ -1159,14 +1164,15 @@
       (width 0)
       (type default))
     (uuid "2ab97f66-7de4-527b-a318-1f8294798b5e"))
-  (label "NTC"
+  (global_label "NTC"
+    (shape passive)
     (at 236.22 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "bd0e53de-2e76-5c15-8977-3a7e26edee41"))
+    (uuid "5c7064a9-200a-5e4f-b23a-31051002c943"))
   (wire
     (pts
       (xy 236.22 44.45)
@@ -1252,14 +1258,15 @@
       (width 0)
       (type default))
     (uuid "d56f61f6-abe4-5270-af20-e8893331b04a"))
-  (label "NTC"
+  (global_label "NTC"
+    (shape passive)
     (at 279.4 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "2573f745-9bea-5f15-9a2c-10db3cc0a685"))
+    (uuid "d0520348-2a3a-5087-a31d-fe46068ce1eb"))
   (wire
     (pts
       (xy 279.4 44.45)
@@ -1345,14 +1352,15 @@
       (width 0)
       (type default))
     (uuid "57799e9c-cc46-56ed-85a5-b201d2b8afcd"))
-  (label "VCHG"
+  (global_label "VCHG"
+    (shape passive)
     (at 322.58 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "438bfff2-886a-5fd1-bb80-7ef2cee56eb7"))
+    (uuid "aaeb79de-f984-5c38-842a-c9c6e1caa76c"))
   (wire
     (pts
       (xy 322.58 44.45)
@@ -1452,7 +1460,7 @@
     (at 365.76 35.56 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "ba8074e2-f390-5a54-a3f2-eae0663c6c1f")
@@ -1513,20 +1521,21 @@
       (width 0)
       (type default))
     (uuid "d4c40f1d-b7ab-5205-81d1-bbc10571633d"))
-  (label "VCHG"
+  (global_label "VCHG"
+    (shape passive)
     (at 35.56 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "0539f76b-d3f6-5f6d-b177-d1f4d4aca841"))
+    (uuid "60f2a376-d1a8-5729-b14a-a4c6be4222f1"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 35.56 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "d30c3334-48c6-5401-ac45-6943139ae907")
@@ -1601,7 +1610,7 @@
     (at 76.2 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "0a8c5fe7-9ea4-52b2-bf69-5f7a221bd132")
@@ -1662,20 +1671,21 @@
       (width 0)
       (type default))
     (uuid "83669d3f-3ae4-556d-a8c3-a711695dc71a"))
-  (label "NTC"
+  (global_label "NTC"
+    (shape passive)
     (at 119.38 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "ae806b69-d98b-5960-b3b7-548501253d45"))
+    (uuid "88edb4ba-7f5b-5732-9faf-dd1bf9cc6b86"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 119.38 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "9e784146-b286-5c88-8be5-12f13c3a4793")
