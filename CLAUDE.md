@@ -23,6 +23,17 @@ A credit-card-size (85.60 × 53.98 mm, ~1.05 mm thick) Bluetooth tracker for the
 4. **Unverified items are tracked** in `docs/09_open_items.md`. Close them with a source or a measurement; never assume.
 5. **Simulate before claiming.** Use KiCad's ngspice integration for power and charging circuits. The `sims/` folder has standalone Python + ngspice scripts that already ran; reproduce or extend them, don't just cite them.
 
+## Logging (mandatory)
+This project will be open-sourced, so the log is the build story. Every session logs, every time.
+- **Daily log:** `docs/log/YYYY-MM-DD.md`, one file per day, started from `docs/log/TEMPLATE.md`. Append a new "Session" block per session; never edit or delete past entries.
+- **Log as you go**, not only at the end: after each design change, simulation, test or decision, add a bullet. A Stop hook (`.claude/hooks/require_log.py`) blocks you from finishing if project files changed after the last log entry, or if files are waiting in `measurements/inbox/`.
+- **Log what Dwayne tells you.** If he reports a test result, a bodge, a part swap or an observation in chat, write it into the log with numbers and units, even if you changed no files.
+- **Raw data goes in `measurements/`.** Dwayne drops PPK2 exports, NanoVNA `.s1p` files, scope screenshots and photos into `measurements/inbox/`. File each one with `python3 scripts/log_measurement.py <file> --board v1 --tool PPK2 --what "..." --result "..."`. Ask him what it was if you can't tell.
+- **Record failures too.** What didn't work and why is the most useful part for other builders.
+- **Lasting decisions** also go in `docs/10_decision_log.md`; open questions in `docs/09_open_items.md`.
+- **Commit after logging** with a message that matches the log entry. Tag board orders: `git tag hw-v1-ordered`, `hw-v2-ordered`.
+- **Never log or commit secrets:** Google tokens, GoogleFindMyTools keys, Apple private keys, anisette data, the Everytag password, server URLs or passwords. Keep them in `secrets/` (git-ignored). If a secret ever lands in a commit, stop and tell Dwayne.
+
 ## Tools
 - KiCad 10 (native Fedora install) with the `kicad` MCP server (mixelpixx KiCAD-MCP-Server).
   - **PCB:** live via the IPC API while KiCad is open.

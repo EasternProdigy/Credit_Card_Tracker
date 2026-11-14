@@ -1,11 +1,34 @@
-# KiCad transient files
-*.lck
+# --- Secrets: never commit ---
+secrets/
+*.key
+*.pem
+*.p12
+.env
+.env.*
+secrets.json
+Auth/
+*_keys.json
+*privkey*
+anisette*/
+*.keyfile
+
+# --- KiCad junk ---
 *-backups/
-_autosave-*
-*.kicad_prl
+*.lck
 fp-info-cache
+*.kicad_prl
+_autosave-*
 \#auto_saved_files#
 
-# Python
+# --- Build / tooling ---
 __pycache__/
 *.pyc
+.venv/
+node_modules/
+build/
+dist/
+firmware/**/build*/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
