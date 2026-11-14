@@ -1,0 +1,68 @@
+(footprint "ABLIC_SNT-6A"
+  (version 20241229)
+  (generator "gen_fp.py")
+  (layer "F.Cu")
+  (descr "ABLIC SNT-6A, land PG006-A-L-SD-4.1, body 1.57x1.6x0.50 max (PG006-A-P-SD-2.1)")
+  (attr smd)
+  (property "Reference" "REF**"
+    (at 0 -1.5 0)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (property "Value" "ABLIC_SNT-6A"
+    (at 0 1.5 0)
+    (layer "F.Fab")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (pad "1" smd rect
+    (at -0.5 0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "2" smd rect
+    (at 0 0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "3" smd rect
+    (at 0.5 0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "4" smd rect
+    (at 0.5 -0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "5" smd rect
+    (at 0 -0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "6" smd rect
+    (at -0.5 -0.94)
+    (size 0.3 0.52)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (fp_rect
+    (start -0.785 -0.8)
+    (end 0.785 0.8)
+    (stroke
+      (width 0.05)
+      (type solid))
+    (fill no)
+    (layer "F.Fab"))
+  (fp_rect
+    (start -1 -1.45)
+    (end 1 1.45)
+    (stroke
+      (width 0.05)
+      (type solid))
+    (fill no)
+    (layer "F.CrtYd"))
+  (fp_circle
+    (center -1.05 1.25)
+    (end -0.99 1.25)
+    (stroke
+      (width 0.12)
+      (type solid))
+    (fill no)
+    (layer "F.SilkS")))

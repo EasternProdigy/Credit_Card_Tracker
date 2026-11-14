@@ -72,3 +72,14 @@ Copy Nordic's reference exactly: CAAA config 1 for v2, QFN48 config 1 for v1. Th
 | L6 | 2.2 nH 0201, series toward the antenna | antenna L-match (NEC-2 result; retune on the bench) |
 | C28 | 0.2 pF 0201, shunt | same; add DNP pads for a full π if space allows |
 | ANT1 | printed IFA | arm 20 mm (trim zone 19 to 24 mm), short-to-feed 3 mm, height 6 mm above the ground edge, 0.5 mm trace |
+
+## v1 dev-board additions (rev 0.6, 2026-11-14)
+Source of truth for v1: `hardware/v1/gen/design.py` (generates `hardware/v1/*.kicad_sch`). Additions over the v2 circuit:
+- **Section links (0 Ω, 0603):** JP1 V5_RX→V5_CHG (Qi→charger), JP2 VCHG→VCELL (charger→cell), JP3 VCELL→VBAT (PPK2 battery break, J2 header DNP), JP4 VDD_3V3→VDD_NRF (PPK2 3.3 V break, J3 header DNP). Signal links JP5 VBAT_SENSE→VBAT_SENSE_MCU, JP6 nCHG→nCHG_MCU (0402).
+- **Trim footprints (0603, DNP):** C1d (series tank), C2c (parallel tank). Qi tank caps are 0603 on v1.
+- **FOD calibration:** RFOD2 and ROS2 DNP (TI p.28).
+- **MCU:** Nordic QFN48 config 1 exactly (refs C17 to C31, L2, FB1, Y1, Y2, R7, NT1; see `design/pinmaps/nRF54L15_QFN48.md`). RF: Nordic 50 Ω match (L3, C25, L4, C26, L5, C27), then the antenna stage C32 (DNP shunt), L6 2.2 nH, C28 0.2 pF.
+- **Battery:** J1 JST SH 2-pin (optional) and BT1 tab lands; TH1 is an on-board 0402 NTC on v1, with R_TSD (DNP 10 k) to disable NTC sensing.
+- **Debug:** J4 10-pin 1.27 mm Cortex SWD (SWO on P2.07). Test pads TP1 to TP29 on every rail, the rectifier, AC1/AC2, the cell, SWD, the protector gates, spare GPIO (P0.00, P0.01, P1.06) and the antenna feed (0.6 mm pad).
+- **NFC:** J5 antenna pads and tuning caps C33/C34, all DNP.
+- **Height:** v1 is exempt from the 0.625 mm budget (0603, headers, QFN48 0.9 mm). v2 keeps it.

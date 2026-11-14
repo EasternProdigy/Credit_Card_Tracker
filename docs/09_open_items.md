@@ -21,3 +21,5 @@
 | O17 | Grepow cell protection board present or not | Avoid double protection, thickness | Ask Grepow |
 | O18 | ~~nRF54L15 QFN48 config-1 schematic wiring~~ **CLOSED 2026-11-14** (Dwayne supplied datasheet v1.0) (cap-to-pin, FB1 position, RF match order) | Blocks the v1 MCU sheet | Download Nordic's QFN48 reference design files by browser into `design/ref/` (site blocks scripts) |
 | O19 | BQ51003 YFP package height | Height budget | TI YFP0028 drawing |
+| O20 | Würth 760308101309 lead/land geometry | v1 coil lands are generic 1.5 x 2.5 mm pads 4 mm apart | Würth datasheet (blocked to scripts) or measure the sample |
+| O21 | onsemi EFC4615R recommended land (0.30 mm NSMD assumed) | Assembly yield | onsemi SOLDERRM or app note |

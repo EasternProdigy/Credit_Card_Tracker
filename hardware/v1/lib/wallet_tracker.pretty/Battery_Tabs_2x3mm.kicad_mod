@@ -1,0 +1,43 @@
+(footprint "Battery_Tabs_2x3mm"
+  (version 20241229)
+  (generator "gen_fp.py")
+  (layer "F.Cu")
+  (descr "Cell tab lands 2x3 mm, 5 mm pitch")
+  (attr smd)
+  (property "Reference" "REF**"
+    (at 0 -1.5 0)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (property "Value" "Battery_Tabs_2x3mm"
+    (at 0 1.5 0)
+    (layer "F.Fab")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (pad "1" smd rect
+    (at -2.5 0)
+    (size 2 3)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "2" smd rect
+    (at 2.5 0)
+    (size 2 3)
+    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (fp_rect
+    (start -3.75 -1.75)
+    (end 3.75 1.75)
+    (stroke
+      (width 0.05)
+      (type solid))
+    (fill no)
+    (layer "F.CrtYd"))
+  (fp_line
+    (start -2.5 -2)
+    (end -2.5 -2.4)
+    (stroke
+      (width 0.15)
+      (type solid))
+    (layer "F.SilkS")))

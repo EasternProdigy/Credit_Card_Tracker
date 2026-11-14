@@ -1,0 +1,65 @@
+(footprint "IFA_2G4_arm20_h6"
+  (version 20241229)
+  (generator "gen_fp.py")
+  (layer "F.Cu")
+  (descr "Printed IFA 2.4 GHz, arm 20 mm (trim 19-24), feed-short 3 mm, h 6 mm, 0.5 mm")
+  (attr smd)
+  (net_tie_pad_groups "1, 2")
+  (property "Reference" "REF**"
+    (at 0 -1.5 0)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (property "Value" "IFA_2G4_arm20_h6"
+    (at 0 1.5 0)
+    (layer "F.Fab")
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.08))))
+  (pad "1" smd rect
+    (at 0 0)
+    (size 0.5 0.5)
+    (layers "F.Cu"))
+  (pad "2" smd rect
+    (at -3 0)
+    (size 0.5 0.5)
+    (layers "F.Cu"))
+  (fp_line
+    (start 0 0)
+    (end 0 6)
+    (stroke
+      (width 0.5)
+      (type solid))
+    (layer "F.Cu"))
+  (fp_line
+    (start -3 0)
+    (end -3 6)
+    (stroke
+      (width 0.5)
+      (type solid))
+    (layer "F.Cu"))
+  (fp_line
+    (start -3 6)
+    (end 20 6)
+    (stroke
+      (width 0.5)
+      (type solid))
+    (layer "F.Cu"))
+  (fp_rect
+    (start -3.5 -0.5)
+    (end 20.5 6.5)
+    (stroke
+      (width 0.05)
+      (type solid))
+    (fill no)
+    (layer "F.CrtYd"))
+  (fp_line
+    (start 15 5)
+    (end 23 5)
+    (stroke
+      (width 0.05)
+      (type solid))
+    (layer "F.Fab")))
