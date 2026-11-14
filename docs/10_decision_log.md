@@ -32,3 +32,8 @@
 - **R6 (S-82N1B VM resistor) 2 k → 470 Ω.** ABLIC's external-parts table gives R2 = 300 to 750 Ω, typical 470 Ω. 2 k was outside the range in the rev 0.4 netlist. Found in improve pass 1.
 - **R_PS 0 Ω → 1 kΩ.** ABLIC R3 (PS input protection) is typically 1 kΩ. PS still tied low (normal operation).
 - **DECRF routing:** Nordic DevZone (thread 127617) warns that routing DECA/DECRF under XC1/XC2 couples noise into the HFXO and recommends 4-layer with an inner ground for QFAA. v1 2-layer: DECRF crosses XC at right angles only. On the 4-layer build (needed anyway for U1 via-in-pad), put DECRF on an inner signal layer under a ground layer.
+- **Y1 = Murata XRCGB32M000F1S1BR0** (ESR 50 Ω, ±10 ppm). The 80 Ω part was marginal against Nordic Fig. 17.
+- **L2 = Murata LQM18PN4R7MFRL** (4.7 µH, 620 mA, 550 mΩ). It meets Nordic's ≥ 120 mA / ≤ 650 mΩ; the value-only match had picked a 15 mA, 2.1 Ω part.
+- **C9d 4.7 µF 25 V 0603 added on RECT (v1).** TI's minimum is 4.7 µF, and 3 × 2.2 µF 0402 derate below that at 7 V. For v2, re-check the derated total with the real MPN curves.
+- **v1 layout split:** MCU+RF and Qi RX sit in the v2 electronics zone; charger, protector, LDO, jumpers, headers and test pads sit in the battery-pocket area (v1 only; the cell is off-board on J1/BT1).
+- **NT1 removed:** pin 32 (VSS_PA) is GND in the netlist; Nordic's pin 32 → EP-only topology is enforced in the layout by keepouts and a scripted trace.

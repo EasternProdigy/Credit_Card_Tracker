@@ -6055,7 +6055,7 @@
 				)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "Murata LQM18PN4R7MFRL"
 			(at 0 0 270)
 			(layer "F.SilkS")
 			(hide yes)
@@ -6067,7 +6067,7 @@
 				)
 			)
 		)
-		(property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1 (v1 0603, Dwayne)"
+		(property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1: >=120 mA, <=650 mOhm (v1 0603, Dwayne)"
 			(at 0 0 270)
 			(layer "F.SilkS")
 			(hide yes)
@@ -6079,7 +6079,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1034"
+		(property "LCSC" "C114862"
 			(at 0 0 270)
 			(layer "F.SilkS")
 			(hide yes)
@@ -22219,6 +22219,61 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "8f5ca356-d3c2-4251-86c6-361c29e6b3db")
+	)
+	(gr_text "SWD"
+		(at 133 124.98 0)
+		(layer "F.SilkS")
+		(uuid "9c601403-a7a6-41c5-bf25-a2213687a639")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "+"
+		(at 134.2 104.48 0)
+		(layer "F.SilkS")
+		(uuid "4832a1a0-74fe-42d7-a1d7-1f8710b2fb20")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "PPK BAT"
+		(at 136.5 116.98 0)
+		(layer "F.SilkS")
+		(uuid "9d77d671-f1fa-4b60-a64c-d22d18947135")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "PPK 3V3"
+		(at 136.5 140.98 0)
+		(layer "F.SilkS")
+		(uuid "e03aa1b5-6238-4026-8a0a-12908ac7fe13")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "+"
+		(at 147 106.48 0)
+		(layer "F.SilkS")
+		(uuid "024cbd2a-3654-47cf-a252-7e44bb7cafb1")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
 	)
 	(segment
 		(start 158.2 137.729999)

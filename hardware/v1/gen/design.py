@@ -241,7 +241,7 @@ Cap('C21', S, '100nF X7R', 'VDD_NRF', 'GND', 'C0201', src=NORD + ' C10 (pins 47/
 Cap('C20', S, '100nF X7R', 'VDD_NRF', 'GND', 'C0201', src=NORD + ' C4 (pin 10)')
 Cap('C22', S, '100nF X7R', 'VDD_NRF', 'GND', 'C0201', src=NORD + ' C7 (pin 22)')
 Cap('C23', S, '100nF X7R', 'VDD_NRF', 'GND', 'C0201', src=NORD + ' C8 (pin 36)')
-Ind('L2', S, '4.7uH 120mA', 'DCC', 'DECD', 'L0603', src=NORD + ' L1 (v1 0603, Dwayne)')
+Ind('L2', S, '4.7uH 120mA', 'DCC', 'DECD', 'L0603', mpn='Murata LQM18PN4R7MFRL', src=NORD + ' L1: >=120 mA, <=650 mOhm (v1 0603, Dwayne)')
 Cap('C18', S, '2.2uF X6T', 'DECD', 'GND', 'C0201', src=NORD + ' C1')
 add('FB1', S, 'Device:FerriteBead_Small', '120R@100MHz', 'L0201', {'1': 'DECD', '2': 'DECA'},
     src=NORD + ' FB1')

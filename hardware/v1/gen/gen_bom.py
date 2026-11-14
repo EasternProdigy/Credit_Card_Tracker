@@ -55,6 +55,8 @@ def res(value, fp):
     return rank(rs)
 
 def ind(value, fp, mpn):
+    if mpn.startswith('Murata LQM18'):
+        return by_mpn(mpn.split()[1])   # DC/DC inductor: pinned by MPN (current/DCR matter, pass 2)
     if mpn.startswith('Murata LQP03'):
         base = mpn.split()[1]
         return rank(rows("mfr_part like ?", (base + '%',)))

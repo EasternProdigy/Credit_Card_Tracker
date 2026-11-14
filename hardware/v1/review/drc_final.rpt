@@ -1,6 +1,6 @@
 ** Drc report for card_v1.kicad_pcb **
-** Created on 2026-11-14T06:14:48 **
-** Report includes: Errors, Warnings, Exclusions **
+** Created on 2026-11-14T06:17:26 **
+** Report includes: Errors, Warnings **
 
 ** Found 18 DRC violations **
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
@@ -73,7 +73,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(146.0000 mm, 109.9800 mm): Via [GND] on F.Cu - B.Cu
-    @(100.4000 mm, 153.5800 mm): Zone [GND] on B.Cu, priority 0
+    @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0
 [unconnected_items]: Missing connection between items
     Local override; error
     @(100.4000 mm, 153.5800 mm): Zone [GND] on F.Cu, priority 0

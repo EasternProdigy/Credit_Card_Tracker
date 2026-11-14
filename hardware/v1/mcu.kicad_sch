@@ -2613,19 +2613,19 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" ""
+    (property "MPN" "Murata LQM18PN4R7MFRL"
       (at 35.56 147.32 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1 (v1 0603, Dwayne)"
+    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1: >=120 mA, <=650 mOhm (v1 0603, Dwayne)"
       (at 35.56 147.32 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C1034"
+    (property "LCSC" "C114862"
       (at 35.56 147.32 0)
       (hide yes)
       (effects

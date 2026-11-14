@@ -255,6 +255,16 @@ def resolve(maxmove=0.5):
     return report
 RESOLVE_ITERS = resolve()
 
+
+# polarity marks (silk refs are hidden): "+" at cell pin 1, labels for the PPK2 and SWD headers
+def silk(txt, x, y, sz=0.8):
+    t = pcbnew.PCB_TEXT(board); t.SetText(txt); t.SetPosition(K(x, y)); t.SetLayer(pcbnew.F_SilkS)
+    t.SetTextSize(pcbnew.VECTOR2I(mm(sz), mm(sz))); t.SetTextThickness(mm(0.15)); board.Add(t)
+for ref in ('J1', 'BT1'):
+    px_, py_ = padpos(ref, '1'); silk('+', px_ - (1.8 if ref == 'BT1' else 0), py_ + 2.0)
+for ref, lbl in (('J2', 'PPK BAT'), ('J3', 'PPK 3V3'), ('J4', 'SWD')):
+    cx_, cy_ = card(FP[ref].GetPosition()); silk(lbl, cx_ - (4.5 if ref == 'J4' else 0), cy_ + 3.0)
+
 # ---------------------------------------------------------------- keepouts
 def rule_area(name, pts, layers=('F.Cu', 'B.Cu'), tracks=True, vias=True, pour=True, pads=False, fps=False):
     z = pcbnew.ZONE(board); z.SetIsRuleArea(True); z.SetZoneName(name)
