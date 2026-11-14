@@ -419,16 +419,20 @@
         "pattern": "VDD_3V3"
       },
       {
-        "netclass": "PWR",
+        "netclass": "MCU_PWR",
         "pattern": "VDD_NRF"
       },
       {
-        "netclass": "PWR",
+        "netclass": "MCU_PWR",
         "pattern": "DCC"
       },
       {
-        "netclass": "PWR",
+        "netclass": "MCU_PWR",
         "pattern": "DECD"
+      },
+      {
+        "netclass": "MCU_PWR",
+        "pattern": "DECA"
       },
       {
         "netclass": "RF50",
@@ -449,22 +453,6 @@
       {
         "netclass": "RF50",
         "pattern": "ANT_FEED"
-      },
-      {
-        "netclass": "MCU_PWR",
-        "pattern": "VDD_NRF"
-      },
-      {
-        "netclass": "MCU_PWR",
-        "pattern": "DCC"
-      },
-      {
-        "netclass": "MCU_PWR",
-        "pattern": "DECD"
-      },
-      {
-        "netclass": "MCU_PWR",
-        "pattern": "DECA"
       }
     ]
   },

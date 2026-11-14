@@ -42,6 +42,7 @@ ds.m_TrackMinWidth = mm(0.1); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm
 ds.m_MinThroughDrill = mm(0.15); ds.m_HoleClearance = mm(0.2); ds.m_CopperEdgeClearance = mm(0.3)
 ds.m_HoleToHoleMin = mm(0.25); ds.m_ViasMinAnnularWidth = mm(0.05)
 nc = ds.m_NetSettings
+nc.ClearNetclassPatternAssignments()
 dflt = nc.GetDefaultNetclass()
 dflt.SetClearance(mm(0.12)); dflt.SetTrackWidth(mm(0.15)); dflt.SetViaDiameter(mm(0.5)); dflt.SetViaDrill(mm(0.25))
 CLASSES = {
@@ -86,6 +87,7 @@ for c in D.C:
     f.SetPath(pcbnew.KIID_PATH(f"/{GS.U('sheet', c['sheet'])}/{GS.U('sym', c['ref'])}"))
     f.SetSheetname(c['sheet']); f.SetSheetfile(c['sheet'] + '.kicad_sch')
     if c['dnp']: f.SetDNP(True)
+    if c['sym'] == 'Connector:TestPoint': f.SetExcludedFromBOM(True)
     for k, v in (('MPN', c['mpn']), ('Source', c['src']), ('LCSC', lcsc.get(c['ref'], ''))):
         f.SetField(k, v or ''); f.GetField(k).SetVisible(False)
     padnames = {p.GetNumber() for p in f.Pads()}
@@ -155,8 +157,9 @@ for rot in (0, 90, 180, 270):                             # arm away from the ba
     if shx < sx - 1 and card(pcbnew.VECTOR2I(bb.GetRight(), bb.GetBottom()))[1] < feed_y: break
 P('Y1', 62.0, 14.5, 0)               # XC1/XC2 pins at (59.8/60.2, 16.85): within 3 mm
 P('C23', 62.3, 16.6, 'W')            # VDD pin 36
-P('R7', 56.9, 15.95, 'E')             # pin 30 side = pad 1 (nRESET_IC)
-P('C31', 56.9, 15.05, 'E')
+P('R7', 57.5, 15.55, 'E')             # pin 30 side = pad 1 (nRESET_IC)
+P('C31', 57.5, 14.8, 'E')
+
 # right side: DC/DC + DEC (pins 43..48 at x 61.35, y 20.0..22.0)
 P('C21', 62.95, 22.35, 'W')          # VDD 48
 P('C18', 62.95, 21.45, 'W')           # DECD
@@ -265,7 +268,7 @@ def rule_area(name, pts, layers=('F.Cu', 'B.Cu'), tracks=True, vias=True, pour=T
     board.Add(z); return z
 def circle_pts(cx, cy, r, n=48): return [(cx + r * math.cos(2 * math.pi * i / n), cy + r * math.sin(2 * math.pi * i / n)) for i in range(n)]
 # antenna keep-out (docs/04): only IFA copper; footprints' own copper is allowed (pads=False keeps AE1 legal)
-rule_area('ANT_KEEPOUT', [(52.5, 2.0), (83.6, 2.0), (83.6, 9.5), (52.5, 9.5)], pour=True, tracks=True, vias=True)
+rule_area('ANT_KEEPOUT', [(52.5, 2.0), (83.6, 2.0), (83.6, 10.2), (52.5, 10.2)], pour=True, tracks=True, vias=True)
 # coil: no copper on any layer inside D26, except its lands (lands sit outside the circle)
 rule_area('COIL_KEEPOUT', circle_pts(68.05, 38.98, 13.0), tracks=True, vias=True, pour=True)
 # Nordic Fig. 180: C25 ground only to pin 32 (top); keep the top pour away from C25's ground pad + pin 32
@@ -354,7 +357,9 @@ p34, p35, p36 = pp('U5', '34'), pp('U5', '35'), pp('U5', '36')
 y1p1, y1p3 = pp('Y1', '1'), pp('Y1', '3')
 track('XC1', [p34, (p34[0], y1p1[1]), y1p1], 0.15)
 track('XC2', [p35, (p35[0], 16.0), (y1p3[0], 16.0), y1p3], 0.15)
-track('VDD_NRF', [p36, (p36[0], pp('C23', '1')[1]), pp('C23', '1')], 0.2)
+# VDD_NRF pin 36 -> C23: left to Freerouting (locked stubs inside QFN pads made its normalizer oscillate)
+p30 = pp('U5', '30'); r7a, c31a = pp('R7', '1'), pp('C31', '1')
+track('nRESET_IC', [p30, (p30[0], p30[1] - 0.6), r7a, c31a], 0.15)
 # 32 kHz
 p1, p2 = pp('U5', '1'), pp('U5', '2'); y2a, y2b = pp('Y2', '1'), pp('Y2', '2')
 track('XL1', [p1, (p1[0], 23.55), (y2a[0], 23.55), y2a], 0.15)
@@ -362,8 +367,6 @@ track('XL2', [p2, (p2[0], 23.55 if y2b[0] < p2[0] - 0.3 else y2b[1]), y2b], 0.15
 # DEC / DCC / VDD on the right side: straight stubs where aligned
 a_ = pp('U5', '43'); b_ = pp('C19', '1'); track('DECA', [a_, (a_[0] + 0.55, a_[1]), (b_[0] - 0.35, b_[1]), b_], 0.2)
 p47, p48, c21 = pp('U5', '47'), pp('U5', '48'), pp('C21', '1')
-track('VDD_NRF', [(p47[0] + 0.2, p47[1]), (p48[0] + 0.2, p48[1])], 0.15)            # bridge pins 47/48
-track('VDD_NRF', [p48, (p48[0] + 0.55, p48[1]), (p48[0] + 0.65, c21[1]), c21], 0.2)
 # DCC: pin 46 -> L2 pad 1 through the gap between C21 and C18
 p46 = pp('U5', '46'); l2a, l2b = pp('L2', '1'), pp('L2', '2'); c18, fb1a, fb1b = pp('C18', '1'), pp('FB1', '1'), pp('FB1', '2')
 yg = (c21[1] + c18[1]) / 2
@@ -375,13 +378,31 @@ track('DECD', [c18, (c18[0], yd)], 0.2); track('DECD', [fb1a, (fb1a[0], p45[1])]
 # DECA: FB1.2 -> right -> down -> gap between C19 and C24 -> C19.1 / C24.1 / C30.1
 c19, c24, c30 = pp('C19', '1'), pp('C24', '1'), pp('C30', '1')
 ya = (c19[1] + c24[1]) / 2
-track('DECA', [fb1b, (fb1b[0] + 0.52, fb1b[1]), (fb1b[0] + 0.52, ya), (c19[0], ya)], 0.2)
-track('DECA', [c19, (c19[0], ya), c24, c30], 0.2)
+track('DECA', [fb1b, c19], 0.2)
+track('DECA', [c19, c24, c30], 0.2)
+c19g = pp('C19', '2'); via('GND', c19g[0] + 0.6, c19g[1]); track('GND', [c19g, (c19g[0] + 0.6, c19g[1])], 0.25)
+c23g = pp('C23', '2'); via('GND', c23g[0] + 0.62, c23g[1]); track('GND', [c23g, (c23g[0] + 0.62, c23g[1])], 0.25)
+y1g4, y1g2 = pp('Y1', '4'), pp('Y1', '2')
+via('GND', y1g4[0] - 0.85, y1g4[1] - 0.15); track('GND', [y1g4, (y1g4[0] - 0.85, y1g4[1] - 0.15)], 0.25)
+via('GND', y1g2[0] + 0.85, y1g2[1]); track('GND', [y1g2, (y1g2[0] + 0.85, y1g2[1])], 0.25)
 # DECRF (pin 33): boxed in by C25 ground and the crystal; small via (4-layer class) and bottom run to the DECA node
 p33 = pp('U5', '33'); va = (p33[0] + 0.05, 16.25); vb = (c30[0] - 0.15, c30[1] - 0.5)
 track('DECA', [p33, (p33[0], 16.4), va], 0.15); via('DECA', va[0], va[1], 0.3, 0.15)
 track('DECA', [va, (61.4, va[1]), (vb[0], vb[1] - 0.9), vb], 0.2, 'B.Cu')
 via('DECA', vb[0], vb[1], 0.3, 0.15); track('DECA', [vb, c30], 0.2)
+# VDD_NRF trunk on B.Cu: JP4 -> J3 (PPK2) -> J4 (SWD VTref) -> TP17, and JP4 -> C22 / pin 22 at the MCU
+jp4, j3, j4, tp17, c22, p22 = pp('JP4', '2'), pp('J3', '2'), pp('J4', '1'), pp('TP17', '1'), pp('C22', '1'), pp('U5', '22')
+track('VDD_NRF', [c22, p22], 0.2)
+vj = (jp4[0], jp4[1] + 0.95); via('VDD_NRF', *vj); track('VDD_NRF', [jp4, vj], 0.3)
+v4 = (j4[0], j4[1] - 1.15); via('VDD_NRF', *v4); track('VDD_NRF', [j4, v4], 0.3)
+vt = (tp17[0], tp17[1] - 1.0); via('VDD_NRF', *vt); track('VDD_NRF', [tp17, vt], 0.3)
+vc = (c22[0] - 0.12, c22[1] - 1.0); via('VDD_NRF', *vc); track('VDD_NRF', [c22, vc], 0.25)
+track('VDD_NRF', [j3, (j3[0], vj[1]), vj], 0.3, 'B.Cu')
+track('VDD_NRF', [j3, (j3[0], v4[1] - 0.6), (v4[0] + 0.6, v4[1] - 0.6), v4], 0.3, 'B.Cu')
+track('VDD_NRF', [v4, (v4[0] - 1.0, v4[1] + 1.0), (vt[0] + 0.0, vt[1] - 8.0), vt], 0.3, 'B.Cu')
+track('VDD_NRF', [vj, (51.3, vj[1]), (vc[0], vj[1] + 3.42), vc], 0.3, 'B.Cu')
+c20g = pp('C20', '2'); via('GND', c20g[0], c20g[1] + 0.7); track('GND', [c20g, (c20g[0], c20g[1] + 0.7)], 0.25)
+c31g = pp('C31', '2'); via('GND', c31g[0] - 0.62, c31g[1]); track('GND', [c31g, (c31g[0] - 0.62, c31g[1])], 0.25)
 # EP ground vias (QFN48 thermal/ground, 3 x 3, 0.25 drill)
 for i in (-1, 0, 1):
     for j in (-1, 0, 1):
