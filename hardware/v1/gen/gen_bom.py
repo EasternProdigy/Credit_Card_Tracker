@@ -45,7 +45,7 @@ def cap(value, fp):
 
 def res(value, fp):
     v = value.split()[0]
-    tok = {'0R': '0Ω', '330R': '330Ω', '200R': '200Ω'}.get(v, v.replace('k', 'kΩ').replace('M', 'MΩ'))
+    tok = v[:-1] + 'Ω' if v.endswith('R') else v.replace('k', 'kΩ').replace('M', 'MΩ')
     if tok.endswith('kΩ') and '.' not in tok: pass
     pk = pkg_of(fp)
     rs = rows("package=? and subcategory like '%Resistor%' and (description like ? or description like ?)",
@@ -55,6 +55,8 @@ def res(value, fp):
     return rank(rs)
 
 def ind(value, fp, mpn):
+    if mpn.startswith('Murata LQM18'):
+        return by_mpn(mpn.split()[1])   # DC/DC inductor: pinned by MPN (current/DCR matter, pass 2)
     if mpn.startswith('Murata LQP03'):
         base = mpn.split()[1]
         return rank(rows("mfr_part like ?", (base + '%',)))
@@ -74,7 +76,7 @@ SPECIAL = {
     'Cell (JST SH)': lambda: by_mpn('SM02B-SRSS-TB'),
     '120R@100MHz': lambda: rank([r for r in rows("package='0201' and subcategory like '%Ferrite%' and description like ?",
                                                  ('%120Ω@100MHz%',))]),
-    '32MHz CL8pF': lambda: rank([r for r in rows("subcategory like '%Crystal%' and description like '%32MHz%' and description like '%8pF%' and (package like '%2016%' or description like '%2016%')", ())]),
+    '32MHz CL8pF': lambda: by_mpn('XRCGB32M000F1S1BR0'),   # ESR 50 ohm (pass 1: the 80 ohm part was marginal vs Nordic Fig. 17)
     '32.768kHz CL9pF': lambda: rank([r for r in rows("subcategory like '%Crystal%' and description like '%32.768kHz%' and description like '%9pF%' and (package like '%2012%' or description like '%2012%')", ())]),
     'SWD 10p 1.27': lambda: rank([r for r in rows("subcategory like '%Pin Header%' and description like '%1.27mm%' and description like '%2x5%' and description like '%SMD%'", ())]),
 }

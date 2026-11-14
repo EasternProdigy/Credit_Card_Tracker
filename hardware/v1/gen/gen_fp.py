@@ -66,7 +66,7 @@ fp('Wurth_760308101309_Lands', 'Wurth 760308101309 D26 Qi coil; lands generic 1.
 W = 0.5
 items = [pad('1', 'rect', 0, 0, W, W, ('F.Cu',)), pad('2', 'rect', -3.0, 0, W, W, ('F.Cu',)),
          line('F.Cu', 0, 0, 0, 6.0, W), line('F.Cu', -3.0, 0, -3.0, 6.0, W), line('F.Cu', -3.0, 6.0, 20.0, 6.0, W),
-         rect('F.CrtYd', -3.5, -0.5, 20.5, 6.5), line('F.Fab', 15.0, 5.0, 23.0, 5.0, 0.05)]
+         rect('F.CrtYd', -3.5, 0.3, 20.5, 6.5), line('F.Fab', 15.0, 5.0, 23.0, 5.0, 0.05)]
 fp('IFA_2G4_arm20_h6', 'Printed IFA 2.4 GHz, arm 20 mm (trim 19-24), feed-short 3 mm, h 6 mm, 0.5 mm', items,
    extra=[[S('net_tie_pad_groups'), '1, 2']])
 print('footprints written')

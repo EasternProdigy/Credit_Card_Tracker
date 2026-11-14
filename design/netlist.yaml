@@ -57,7 +57,7 @@ components:
     pins: {VDD: PROT_VDD, VSS: BT_NEG, DO: DO_GATE, CO: CO_GATE, VM: PROT_VM, PS: PS_PIN}
   - {ref: R5, value: "330R", pins: {"1": VCELL, "2": PROT_VDD}}
   - {ref: C29, value: "100nF", pins: {"1": PROT_VDD, "2": BT_NEG}}
-  - {ref: R6, value: "2k", pins: {"1": PROT_VM, "2": PACK_NEG}}
+  - {ref: R6, value: "470R", pins: {"1": PROT_VM, "2": PACK_NEG}, note: "ABLIC R2 300-750, typ 470 (rev 0.6)"}
   - ref: Q1
     part: "onsemi EFC4615R-TR (LCSC C605382), common drain, 0.37 mm"
     pins: {S1: BT_NEG, G1: DO_GATE, S2: PACK_NEG, G2: CO_GATE}

@@ -722,14 +722,15 @@
       (width 0)
       (type default))
     (uuid "2d64a53a-d033-50e3-813b-96957333f2ac"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 33.02 38.1 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "ce49333a-4655-5772-a3b1-7d07bc385086"))
+    (uuid "7ea9b631-b681-5e2c-b80d-5ed11acd8c13"))
   (symbol
     (lib_id "Connector_Generic:Conn_01x02")
     (at 40.64 35.56 0)
@@ -815,14 +816,15 @@
       (width 0)
       (type default))
     (uuid "d8ab85af-f101-5214-8919-c6a03907921b"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 83.82 38.1 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "75874425-5727-5ad3-91d7-c064ff90ebba"))
+    (uuid "290acc87-7108-5675-91e1-6fcb8dc87bc2"))
   (symbol
     (lib_id "Connector_Generic:Conn_01x02")
     (at 91.44 35.56 0)
@@ -891,14 +893,15 @@
       (width 0)
       (type default))
     (uuid "865daaf5-a9ac-5349-86d1-cc0c587a7ead"))
-  (label "PROT_VDD"
+  (global_label "PROT_VDD"
+    (shape passive)
     (at 137.16 35.56 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "21e5653c-522e-54dd-9de6-4c257c849770"))
+    (uuid "e9f62579-2b22-54fd-a863-5e01a8546792"))
   (wire
     (pts
       (xy 139.7 38.1)
@@ -907,14 +910,15 @@
       (width 0)
       (type default))
     (uuid "21f1a7d1-9389-5d2c-aa69-939f820ab878"))
-  (label "PS_PIN"
+  (global_label "PS_PIN"
+    (shape passive)
     (at 137.16 38.1 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "af0804a3-45a7-5555-9943-92b6ae16536b"))
+    (uuid "a2d50bac-26ff-5ca9-9b43-388052111209"))
   (wire
     (pts
       (xy 139.7 40.64)
@@ -923,14 +927,15 @@
       (width 0)
       (type default))
     (uuid "458120e9-6419-5d0b-ba55-0f7334ea1894"))
-  (label "PROT_VM"
+  (global_label "PROT_VM"
+    (shape passive)
     (at 137.16 40.64 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "401e474a-8a90-59f6-9056-51254638109d"))
+    (uuid "9a390b8e-f0eb-53b6-94b2-46c69a0c012b"))
   (wire
     (pts
       (xy 160.02 35.56)
@@ -939,14 +944,15 @@
       (width 0)
       (type default))
     (uuid "99b6b779-7993-509d-bd25-aa6329e68e0a"))
-  (label "DO_GATE"
+  (global_label "DO_GATE"
+    (shape passive)
     (at 162.56 35.56 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "2b039371-e44f-56c5-a23c-64d250aca5f1"))
+    (uuid "52feedc1-27a8-5447-a59b-fee3f43334d0"))
   (wire
     (pts
       (xy 160.02 38.1)
@@ -955,14 +961,15 @@
       (width 0)
       (type default))
     (uuid "1cb07394-bcac-5c76-aed1-a70db4c9326b"))
-  (label "CO_GATE"
+  (global_label "CO_GATE"
+    (shape passive)
     (at 162.56 38.1 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "54aaefbd-a05b-5e76-b4d6-c845223d0c56"))
+    (uuid "a4c79b88-b7a6-545e-82be-95dc34611f11"))
   (wire
     (pts
       (xy 144.78 45.72)
@@ -971,14 +978,15 @@
       (width 0)
       (type default))
     (uuid "df314c49-9fa8-585f-b5da-12e9fe61690d"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 144.78 48.26 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "b0c3518f-662b-515b-a283-fc1dc07f0039"))
+    (uuid "fd55d102-e55a-50ef-a3d6-b3b2ce13b30a"))
   (symbol
     (lib_id "wallet_tracker:S-82N1BAA")
     (at 149.86 38.1 0)
@@ -1072,14 +1080,15 @@
       (width 0)
       (type default))
     (uuid "4f787dcf-4ff4-5937-9d67-c4f3aaade7db"))
-  (label "PROT_VDD"
+  (global_label "PROT_VDD"
+    (shape passive)
     (at 210.82 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "da5ef073-fe95-5387-ba12-9e6be8362c43"))
+    (uuid "8ba4516b-b578-57e4-90b7-4c4ee6b1e68e"))
   (symbol
     (lib_id "Device:R")
     (at 210.82 40.64 0)
@@ -1148,14 +1157,15 @@
       (width 0)
       (type default))
     (uuid "f2801066-0e2f-5c4c-9fd2-79f455c5b3bd"))
-  (label "PROT_VDD"
+  (global_label "PROT_VDD"
+    (shape passive)
     (at 261.62 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "5086b9c8-6138-57dc-8553-5ad81657ec96"))
+    (uuid "2104a489-d991-581a-8e8a-bbd48ec3aaa3"))
   (wire
     (pts
       (xy 261.62 44.45)
@@ -1164,14 +1174,15 @@
       (width 0)
       (type default))
     (uuid "976a7f9d-4156-5032-b2f0-42d98ca7a678"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 261.62 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "1e824881-9712-589b-af46-7c437ced8db3"))
+    (uuid "99735b28-d81f-5ac2-9fff-fb3cc75d35b8"))
   (symbol
     (lib_id "Device:C")
     (at 261.62 40.64 0)
@@ -1240,14 +1251,15 @@
       (width 0)
       (type default))
     (uuid "f1ee5610-e574-5393-ab1b-a1a416862198"))
-  (label "PROT_VM"
+  (global_label "PROT_VM"
+    (shape passive)
     (at 309.88 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "5ca43153-2598-5bd6-902d-61a1c75b181e"))
+    (uuid "551eee1f-1c53-580a-bfb7-70fd698fa632"))
   (wire
     (pts
       (xy 309.88 44.45)
@@ -1280,7 +1292,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "2k"
+    (property "Value" "470R"
       (at 311.15 36.83 0)
       (effects
         (font
@@ -1304,13 +1316,13 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "docs/03_schematic_spec.md (PACK_NEG = GND)"
+    (property "Source" "ABLIC S-82N1B ext. parts table: R2 300-750, typ 470 ohm (rev 0.6; was 2k)"
       (at 309.88 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C4109"
+    (property "LCSC" "C25117"
       (at 309.88 40.64 0)
       (hide yes)
       (effects
@@ -1333,14 +1345,15 @@
       (width 0)
       (type default))
     (uuid "1307514c-7811-5705-a871-e9c524a15757"))
-  (label "PS_PIN"
+  (global_label "PS_PIN"
+    (shape passive)
     (at 358.14 34.29 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9f8f01bf-cf44-5a9f-a261-4c24bf675deb"))
+    (uuid "816b09c3-c8fd-50a3-9a84-bf29140be8ac"))
   (wire
     (pts
       (xy 358.14 44.45)
@@ -1349,14 +1362,15 @@
       (width 0)
       (type default))
     (uuid "9e1719eb-257a-5702-9dda-f681db1a449f"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 358.14 46.99 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "6ccdd81b-15e3-5358-96f6-b626509e5321"))
+    (uuid "a0dd3e5a-21e8-57f5-a0b4-667740ae1a6a"))
   (symbol
     (lib_id "Device:R")
     (at 358.14 40.64 0)
@@ -1372,7 +1386,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "0R"
+    (property "Value" "1k"
       (at 359.41 36.83 0)
       (effects
         (font
@@ -1396,13 +1410,13 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "S-82N1B.md: PS active high, tie to VSS"
+    (property "Source" "ABLIC S-82N1B ext. parts table: R3 PS input protection 1k; PS tied low"
       (at 358.14 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C17168"
+    (property "LCSC" "C11702"
       (at 358.14 40.64 0)
       (hide yes)
       (effects
@@ -1425,14 +1439,15 @@
       (width 0)
       (type default))
     (uuid "e043caf6-eb3f-5445-9557-9c717b2209ef"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 35.56 73.66 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "f7688ff5-2877-522f-84cf-0a33074cdcbc"))
+    (uuid "b9af4d9d-e9a8-51f8-bb5f-cb6e2a64ac29"))
   (wire
     (pts
       (xy 38.1 76.2)
@@ -1441,14 +1456,15 @@
       (width 0)
       (type default))
     (uuid "40e2b3a9-4ac3-5362-b706-c5b7913f804e"))
-  (label "DO_GATE"
+  (global_label "DO_GATE"
+    (shape passive)
     (at 35.56 76.2 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "0a7cec87-fb49-55f0-91bc-8f8c76c92534"))
+    (uuid "7aaf33bc-6705-569b-8a81-4cb7d7b443de"))
   (wire
     (pts
       (xy 53.34 73.66)
@@ -1474,14 +1490,15 @@
       (width 0)
       (type default))
     (uuid "75289f66-cd28-5d2f-868a-d4f35ff8e8d6"))
-  (label "CO_GATE"
+  (global_label "CO_GATE"
+    (shape passive)
     (at 55.88 76.2 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f601fffa-1dbf-5c1d-a524-24e75de663fe"))
+    (uuid "cfd80fee-c5b4-547a-8c47-99e3baac9b7a"))
   (symbol
     (lib_id "wallet_tracker:EFC4615R")
     (at 45.72 76.2 0)
@@ -1756,7 +1773,7 @@
     (at 193.04 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "1477786f-fc0d-5db0-85ed-c210a661e8b7")
@@ -1817,20 +1834,21 @@
       (width 0)
       (type default))
     (uuid "f95ef7ff-9c5f-5846-9848-f44c0618e08d"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 236.22 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "30744ad2-31bd-5e09-87c9-9dbd045a4004"))
+    (uuid "737a94e3-e6bc-5606-9c57-d07cb2610eb8"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 236.22 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "ec90949a-0889-5dac-b548-b6df4c873693")
@@ -1905,7 +1923,7 @@
     (at 281.94 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "223359bf-37ab-5a60-ab2e-41507de7569d")
@@ -1966,20 +1984,21 @@
       (width 0)
       (type default))
     (uuid "cdcc6643-607c-5a2a-b724-90342f3aa499"))
-  (label "PS_PIN"
+  (global_label "PS_PIN"
+    (shape passive)
     (at 325.12 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "aa72d54a-9b82-548b-a027-e8aefc6df82f"))
+    (uuid "84d5011c-6324-529f-a9b6-13dedc10d3c3"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 325.12 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "dd84da2c-b30c-51d3-aa9b-208d0a370df8")
@@ -2040,20 +2059,21 @@
       (width 0)
       (type default))
     (uuid "587a56ed-b62f-51ed-bcd8-b266410a5595"))
-  (label "DO_GATE"
+  (global_label "DO_GATE"
+    (shape passive)
     (at 373.38 76.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "13e94ca7-4ff6-5299-bf7f-21a4f8b8fe82"))
+    (uuid "ca666693-0610-543a-a0ee-271105e92ad5"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 373.38 73.66 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "77634a5e-aa4c-5aa4-be70-afadb69378c6")
@@ -2114,20 +2134,21 @@
       (width 0)
       (type default))
     (uuid "42be8376-5f2d-56f8-a2dd-b2144c72ffec"))
-  (label "CO_GATE"
+  (global_label "CO_GATE"
+    (shape passive)
     (at 38.1 109.22 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "213c61ac-8f13-5580-9efd-6fae4eb166b6"))
+    (uuid "6b970b5c-cb81-5b29-8a14-087a21ebbbba"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 38.1 106.68 0)
     (unit 1)
     (exclude_from_sim no)
-    (in_bom yes)
+    (in_bom no)
     (on_board yes)
     (dnp no)
     (uuid "40e5f8a0-3454-54c7-9a52-cf6439daaf28")
@@ -2188,14 +2209,15 @@
       (width 0)
       (type default))
     (uuid "2823a027-79bb-5e28-8a2e-f6a035cf07e3"))
-  (label "PROT_VDD"
+  (global_label "PROT_VDD"
+    (shape passive)
     (at 86.36 109.22 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "108aff4c-8d9c-5d2d-9dd9-fb666aaeda88"))
+    (uuid "11b88942-a799-5ff3-ada4-fd89c93ebe3a"))
   (symbol
     (lib_id "power:PWR_FLAG")
     (at 86.36 106.68 0)
@@ -2243,14 +2265,15 @@
       (width 0)
       (type default))
     (uuid "200d40b1-a6aa-5a0e-af31-8b4579644dc0"))
-  (label "BT_NEG"
+  (global_label "BT_NEG"
+    (shape passive)
     (at 134.62 109.22 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "c721c60f-9362-5254-bb05-d44f21a117bf"))
+    (uuid "9b0d8f72-c55b-5b59-9b7b-14114ba55cdc"))
   (symbol
     (lib_id "power:PWR_FLAG")
     (at 134.62 106.68 0)

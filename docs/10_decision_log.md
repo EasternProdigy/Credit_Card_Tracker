@@ -29,3 +29,11 @@
 - **Nordic QFN48 config 1 adopted for v1** (Dwayne approved): Nordic's 50 Ohm RF match, then our IFA L-match as a second stage with DNP full pi pads; 0603 4.7 uH DC/DC inductor; 2016 32 MHz crystal.
 - **R1 = 1.50 k (E96)** instead of 1.55 k, which isn't stocked or E96. R1 + RFOD = 1.70 k → IMAX 154 mA, hardware limit 185 mA (SLUSBC8C eq. 2). Still above the 66 mA charge plus the system load.
 - **v1 BOM substitutions (JLC stock):** L4/L5 LQP03TN3N5B02 (TN, Q≈14) for Nordic's LQP03HQ3N5B02 (not stocked); C7/C8 470 nF 50 V X5R. U3 S-82N1BAA and U4 TPS7A0233PDQNR are not in JLC stock; order them through JLC Global Sourcing or consign them.
+- **R6 (S-82N1B VM resistor) 2 k → 470 Ω.** ABLIC's external-parts table gives R2 = 300 to 750 Ω, typical 470 Ω. 2 k was outside the range in the rev 0.4 netlist. Found in improve pass 1.
+- **R_PS 0 Ω → 1 kΩ.** ABLIC R3 (PS input protection) is typically 1 kΩ. PS still tied low (normal operation).
+- **DECRF routing:** Nordic DevZone (thread 127617) warns that routing DECA/DECRF under XC1/XC2 couples noise into the HFXO and recommends 4-layer with an inner ground for QFAA. v1 2-layer: DECRF crosses XC at right angles only. On the 4-layer build (needed anyway for U1 via-in-pad), put DECRF on an inner signal layer under a ground layer.
+- **Y1 = Murata XRCGB32M000F1S1BR0** (ESR 50 Ω, ±10 ppm). The 80 Ω part was marginal against Nordic Fig. 17.
+- **L2 = Murata LQM18PN4R7MFRL** (4.7 µH, 620 mA, 550 mΩ). It meets Nordic's ≥ 120 mA / ≤ 650 mΩ; the value-only match had picked a 15 mA, 2.1 Ω part.
+- **C9d 4.7 µF 25 V 0603 added on RECT (v1).** TI's minimum is 4.7 µF, and 3 × 2.2 µF 0402 derate below that at 7 V. For v2, re-check the derated total with the real MPN curves.
+- **v1 layout split:** MCU+RF and Qi RX sit in the v2 electronics zone; charger, protector, LDO, jumpers, headers and test pads sit in the battery-pocket area (v1 only; the cell is off-board on J1/BT1).
+- **NT1 removed:** pin 32 (VSS_PA) is GND in the netlist; Nordic's pin 32 → EP-only topology is enforced in the layout by keepouts and a scripted trace.

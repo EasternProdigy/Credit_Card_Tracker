@@ -1382,105 +1382,6 @@
             (effects
               (font
                 (size 1.27 1.27))))))
-      (embedded_fonts no))
-    (symbol "Device:NetTie_2"
-      (pin_numbers
-        (hide yes))
-      (pin_names
-        (offset 0)
-        (hide yes))
-      (exclude_from_sim no)
-      (in_bom no)
-      (on_board yes)
-      (in_pos_files yes)
-      (duplicate_pin_numbers_are_jumpers no)
-      (property "Reference" "NT"
-        (at 0 1.27 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Value" "NetTie_2"
-        (at 0 -1.27 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Footprint" ""
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Datasheet" ""
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "Description" "Net tie, 2 pins"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "ki_keywords" "net tie short"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (property "ki_fp_filters" "Net*Tie*"
-        (at 0 0 0)
-        (show_name no)
-        (do_not_autoplace no)
-        (hide yes)
-        (effects
-          (font
-            (size 1.27 1.27))))
-      (symbol "NetTie_2_0_1"
-        (polyline
-          (pts
-            (xy -1.27 0)
-            (xy 1.27 0))
-          (stroke
-            (width 0.254)
-            (type default))
-          (fill
-            (type none))))
-      (symbol "NetTie_2_1_1"
-        (pin passive line
-          (at -2.54 0 0)
-          (length 2.54)
-          (name "1"
-            (effects
-              (font
-                (size 1.27 1.27))))
-          (number "1"
-            (effects
-              (font
-                (size 1.27 1.27)))))
-        (pin passive line
-          (at 2.54 0 180)
-          (length 2.54)
-          (name "2"
-            (effects
-              (font
-                (size 1.27 1.27))))
-          (number "2"
-            (effects
-              (font
-                (size 1.27 1.27))))))
       (embedded_fonts no)))
   (wire
     (pts
@@ -1575,14 +1476,15 @@
       (width 0)
       (type default))
     (uuid "a6b8c97c-34e5-5b31-abe2-2cff5f42a15c"))
-  (label "DCC"
+  (global_label "DCC"
+    (shape passive)
     (at 41.91 48.26 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "8a2f2dd0-72cc-5d7e-81d6-76e1fdbd602a"))
+    (uuid "573723a3-398d-528e-a5d1-de5b252ec86a"))
   (wire
     (pts
       (xy 44.45 50.8)
@@ -1591,14 +1493,15 @@
       (width 0)
       (type default))
     (uuid "66d05931-4fea-5f97-a039-4cb05d64a6f6"))
-  (label "DECD"
+  (global_label "DECD"
+    (shape passive)
     (at 41.91 50.8 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "4487bf41-8595-5b9c-8a51-a832a0542856"))
+    (uuid "e0550b04-de45-5190-be08-3b4b7050129f"))
   (wire
     (pts
       (xy 44.45 53.34)
@@ -1607,14 +1510,15 @@
       (width 0)
       (type default))
     (uuid "d73eece0-5ce3-5ba1-ad75-b9c2fb3fe7fb"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 41.91 53.34 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "7edd24b0-cc57-5b25-9e9c-68d076c3e47d"))
+    (uuid "a1ba991a-8800-5d74-a5ae-37237318b6ef"))
   (wire
     (pts
       (xy 44.45 55.88)
@@ -1623,14 +1527,15 @@
       (width 0)
       (type default))
     (uuid "d8d9dca0-f7ae-5ef8-97bd-7582df4ba162"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 41.91 55.88 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "8224f7ed-0f2c-50f7-9a94-ee7891eaf583"))
+    (uuid "28bbf793-6bf6-59fd-b27b-4fbeab87c638"))
   (wire
     (pts
       (xy 44.45 58.42)
@@ -1639,14 +1544,15 @@
       (width 0)
       (type default))
     (uuid "e875a953-e6c5-52a5-b184-8f41d3814087"))
-  (label "XC1"
+  (global_label "XC1"
+    (shape passive)
     (at 41.91 58.42 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "326af69f-b924-5fa6-8171-06554a24d90c"))
+    (uuid "80988feb-f64a-5c82-8db5-5cc634b37cce"))
   (wire
     (pts
       (xy 44.45 60.96)
@@ -1655,14 +1561,15 @@
       (width 0)
       (type default))
     (uuid "f836a130-0e0e-5654-a180-ed4e9b681a1d"))
-  (label "XC2"
+  (global_label "XC2"
+    (shape passive)
     (at 41.91 60.96 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "e1d1858d-4d96-5469-b4b1-6bd3d76e6f3a"))
+    (uuid "808f4323-f51e-5059-8d90-3ee6a9100428"))
   (wire
     (pts
       (xy 44.45 63.5)
@@ -1688,7 +1595,7 @@
       (width 0)
       (type default))
     (uuid "bc33af68-9b51-5262-9466-0a10b1ef4acc"))
-  (global_label "VSS_PA"
+  (global_label "GND"
     (shape passive)
     (at 41.91 66.04 180)
     (fields_autoplaced yes)
@@ -1696,7 +1603,7 @@
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "d3f7811f-d318-576c-a1c7-c951bd6cf2bc"))
+    (uuid "bdda7d8a-c704-5d58-aa7b-be782d43926b"))
   (wire
     (pts
       (xy 44.45 68.58)
@@ -1739,14 +1646,15 @@
       (width 0)
       (type default))
     (uuid "80f0c69a-d807-553e-9d1e-dd700609d159"))
-  (label "nRESET_IC"
+  (global_label "nRESET_IC"
+    (shape passive)
     (at 41.91 73.66 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "eeeea30f-4e25-5adf-9e9d-855b9d2e1181"))
+    (uuid "3cd10f01-40e8-5175-a4f6-5ec05f29cf0e"))
   (wire
     (pts
       (xy 87.63 35.56)
@@ -1755,14 +1663,15 @@
       (width 0)
       (type default))
     (uuid "a9c6f878-37e6-51e4-958d-71012b9710d6"))
-  (label "XL1"
+  (global_label "XL1"
+    (shape passive)
     (at 90.17 35.56 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "05a6ff5f-7efe-555d-8640-da29cf7d17ed"))
+    (uuid "81f142b0-1f75-58d3-93f9-488acbcc9c38"))
   (wire
     (pts
       (xy 87.63 38.1)
@@ -1771,14 +1680,15 @@
       (width 0)
       (type default))
     (uuid "b3be2c1b-df38-5805-b2bc-fb9c8c5ddc54"))
-  (label "XL2"
+  (global_label "XL2"
+    (shape passive)
     (at 90.17 38.1 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "84d5e4c4-ba35-5326-abe4-ad4dc8c7baa0"))
+    (uuid "e8f6282a-363e-5d67-ac7c-01626ca0e405"))
   (wire
     (pts
       (xy 87.63 40.64)
@@ -1838,14 +1748,15 @@
       (width 0)
       (type default))
     (uuid "da8fa151-ad17-596c-b83d-5602718ff57c"))
-  (label "nCHG_MCU"
+  (global_label "nCHG_MCU"
+    (shape passive)
     (at 90.17 48.26 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "ed808025-7d72-5334-9fe4-457ea1a8ee65"))
+    (uuid "5270cef5-95a5-5f44-a664-c892c6f3eeaf"))
   (wire
     (pts
       (xy 87.63 50.8)
@@ -2643,14 +2554,15 @@
       (width 0)
       (type default))
     (uuid "a0e7f34f-7558-5a26-9e59-57f77018251d"))
-  (label "DCC"
+  (global_label "DCC"
+    (shape passive)
     (at 35.56 140.97 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "0dc45252-ea9e-592e-9b21-60d62ab382e8"))
+    (uuid "dfeb5c5f-8f1f-581c-8016-aad3af5f76d8"))
   (wire
     (pts
       (xy 35.56 151.13)
@@ -2659,14 +2571,15 @@
       (width 0)
       (type default))
     (uuid "cb2c2443-5436-51f5-9ea2-9b5c7067ba76"))
-  (label "DECD"
+  (global_label "DECD"
+    (shape passive)
     (at 35.56 153.67 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "be16653a-3f1e-5448-930b-210175723c2b"))
+    (uuid "b1c2aed9-750b-5c32-ae15-3c25810e0a46"))
   (symbol
     (lib_id "Device:L")
     (at 35.56 147.32 0)
@@ -2700,19 +2613,19 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" ""
+    (property "MPN" "Murata LQM18PN4R7MFRL"
       (at 35.56 147.32 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1 (v1 0603, Dwayne)"
+    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87 L1: >=120 mA, <=650 mOhm (v1 0603, Dwayne)"
       (at 35.56 147.32 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C1034"
+    (property "LCSC" "C114862"
       (at 35.56 147.32 0)
       (hide yes)
       (effects
@@ -2735,14 +2648,15 @@
       (width 0)
       (type default))
     (uuid "0d244144-4580-5682-b05e-a14bfc0dfc0c"))
-  (label "DECD"
+  (global_label "DECD"
+    (shape passive)
     (at 76.2 140.97 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "8d9708bb-a126-5d5b-a927-a7e6159f7e86"))
+    (uuid "04ff290f-e7b5-58fb-b401-f8236cf5f4f0"))
   (wire
     (pts
       (xy 76.2 151.13)
@@ -2828,14 +2742,15 @@
       (width 0)
       (type default))
     (uuid "31213cac-e4ea-5d58-9e9d-1046f65b4da0"))
-  (label "DECD"
+  (global_label "DECD"
+    (shape passive)
     (at 119.38 142.24 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "d299a32e-3b65-5fd1-b93e-07918724d33d"))
+    (uuid "f55d2e07-63a9-5dea-a31d-985ea9e1f5dc"))
   (wire
     (pts
       (xy 119.38 149.86)
@@ -2844,14 +2759,15 @@
       (width 0)
       (type default))
     (uuid "b99e2c47-dadd-531c-9c22-48772bca8449"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 119.38 152.4 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "06f1c5bd-c074-5e46-bd14-ca3be53f102b"))
+    (uuid "3328829c-aebd-5949-a60b-58b578597e01"))
   (symbol
     (lib_id "Device:FerriteBead_Small")
     (at 119.38 147.32 0)
@@ -2920,14 +2836,15 @@
       (width 0)
       (type default))
     (uuid "f482a673-9592-520b-adcf-a8df27f2911f"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 160.02 140.97 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "483fd9c5-4f04-5544-97f5-10066d335dae"))
+    (uuid "0b742f89-fccc-5797-b9a5-f7c97f1443af"))
   (wire
     (pts
       (xy 160.02 151.13)
@@ -3013,14 +2930,15 @@
       (width 0)
       (type default))
     (uuid "04681f6d-7a3f-56da-a333-1950b1c19d94"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 203.2 140.97 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "1f5056f3-c666-5dca-9702-b92d93544923"))
+    (uuid "98f7dc18-7fcc-5757-81db-91c8688ad795"))
   (wire
     (pts
       (xy 203.2 151.13)
@@ -3106,14 +3024,15 @@
       (width 0)
       (type default))
     (uuid "f271042a-d471-5593-90f0-617faf822d70"))
-  (label "DECA"
+  (global_label "DECA"
+    (shape passive)
     (at 246.38 140.97 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "35a66051-0e6a-5dad-8dd4-afc6ebce5770"))
+    (uuid "a785f2d4-1e4e-5fc2-99c0-eb34c61f9e22"))
   (wire
     (pts
       (xy 246.38 151.13)
@@ -3199,14 +3118,15 @@
       (width 0)
       (type default))
     (uuid "ac06baef-7b35-550a-a615-0c29ab774f8c"))
-  (label "XC1"
+  (global_label "XC1"
+    (shape passive)
     (at 285.75 144.78 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "adfddeb9-6079-589e-acc5-22205c33d565"))
+    (uuid "681e4edf-a890-5a8f-9ed9-ed4f968d1974"))
   (wire
     (pts
       (xy 292.1 149.86)
@@ -3232,14 +3152,15 @@
       (width 0)
       (type default))
     (uuid "82435e34-60ba-51a1-9542-28647757375a"))
-  (label "XC2"
+  (global_label "XC2"
+    (shape passive)
     (at 298.45 144.78 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "3fccdb47-ad37-5174-bdc3-ab1ab198a2ab"))
+    (uuid "b28509ff-7b37-5fb3-8db7-723fb1c29c00"))
   (symbol
     (lib_id "Device:Crystal_GND24")
     (at 292.1 144.78 0)
@@ -3273,7 +3194,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" ""
+    (property "MPN" "Murata XRCGB32M000F1S1BR0"
       (at 292.1 144.78 0)
       (hide yes)
       (effects
@@ -3285,7 +3206,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C718072"
+    (property "LCSC" "C6938063"
       (at 292.1 144.78 0)
       (hide yes)
       (effects
@@ -3312,14 +3233,15 @@
       (width 0)
       (type default))
     (uuid "d4603739-999f-588a-a3ec-9aeda6271e4d"))
-  (label "XL1"
+  (global_label "XL1"
+    (shape passive)
     (at 334.01 144.78 180)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "004ac2e0-439f-594f-a186-c5c2e25fb982"))
+    (uuid "f7fe203b-38cd-5ca9-b59c-cc071783df23"))
   (wire
     (pts
       (xy 344.17 144.78)
@@ -3328,14 +3250,15 @@
       (width 0)
       (type default))
     (uuid "77502274-59e5-5739-a951-882b55fe33d8"))
-  (label "XL2"
+  (global_label "XL2"
+    (shape passive)
     (at 346.71 144.78 0)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "d26ca0ea-2190-563a-9b84-ebd0f842f850"))
+    (uuid "40b5a981-8164-59d3-a97d-04a91a290456"))
   (symbol
     (lib_id "Device:Crystal")
     (at 340.36 144.78 0)
@@ -3404,14 +3327,15 @@
       (width 0)
       (type default))
     (uuid "25b47247-19fc-5240-88e2-40ebd84d3f2a"))
-  (label "nRESET_IC"
+  (global_label "nRESET_IC"
+    (shape passive)
     (at 38.1 173.99 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "944768c5-7668-51cf-ade0-c86e7dd7fdb2"))
+    (uuid "5d29e62d-2d71-58ff-9ba3-96d7f9bf54bd"))
   (wire
     (pts
       (xy 38.1 184.15)
@@ -3497,14 +3421,15 @@
       (width 0)
       (type default))
     (uuid "0bb9a548-6777-5ba9-b98c-0ee5c038095c"))
-  (label "nRESET_IC"
+  (global_label "nRESET_IC"
+    (shape passive)
     (at 91.44 173.99 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "5c34e658-a722-50b8-b9dd-990cd26a6fcc"))
+    (uuid "8ba757bc-11ee-5ab9-8cb5-e79f09b749e2"))
   (wire
     (pts
       (xy 91.44 184.15)
@@ -3584,134 +3509,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 139.7 177.8)
-      (xy 137.16 177.8))
+      (xy 142.24 176.53)
+      (xy 142.24 173.99))
     (stroke
       (width 0)
       (type default))
-    (uuid "186cb1e8-a564-520f-af5f-4fa2dd69acd9"))
-  (global_label "VSS_PA"
-    (shape passive)
-    (at 137.16 177.8 180)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify right))
-    (uuid "820ee9c0-4c03-5feb-9718-e47caa2cb7aa"))
-  (wire
-    (pts
-      (xy 144.78 177.8)
-      (xy 147.32 177.8))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "0ac74da4-f607-5fe4-aa73-a72436b1119e"))
-  (global_label "GND"
-    (shape passive)
-    (at 147.32 177.8 0)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify left))
-    (uuid "d3483542-d035-5c81-8b83-6c65017b59ce"))
-  (symbol
-    (lib_id "Device:NetTie_2")
-    (at 142.24 177.8 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "c5f3be68-ef10-528e-ba9e-735e3c697d95")
-    (property "Reference" "NT1"
-      (at 146.05 175.26 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Value" "VSS_PA tie"
-      (at 146.05 177.8 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Datasheet" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "MPN" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Source" "Nordic nRF54L15 DS v1.0 Fig.180/Table 87: pin 32 joins pin 49 only, under the IC"
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "LCSC" ""
-      (at 142.24 177.8 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (pin "1"
-      (uuid "ce48a433-d804-5c3e-90ff-bbe0a8d1d86d"))
-    (pin "2"
-      (uuid "11883aa5-3c0c-55d5-ae07-3f96e67f0c74"))
-    (instances
-      (project "card_v1"
-        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/10196bc5-c4df-5d28-9295-d761dc1433f7"
-          (reference "NT1")
-          (unit 1)))))
-  (wire
-    (pts
-      (xy 193.04 176.53)
-      (xy 193.04 173.99))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "11d6ae72-4939-560e-aeba-524ed25d0533"))
+    (uuid "46ad5d3d-6691-50b5-abee-06ee26e7e448"))
   (global_label "nCHG"
     (shape passive)
-    (at 193.04 173.99 90)
+    (at 142.24 173.99 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "136e5ee9-5517-565a-8664-e775b1bcce70"))
+    (uuid "dcc34f57-135b-5504-abec-14037a78fb10"))
   (wire
     (pts
-      (xy 193.04 184.15)
-      (xy 193.04 186.69))
+      (xy 142.24 184.15)
+      (xy 142.24 186.69))
     (stroke
       (width 0)
       (type default))
-    (uuid "1ecac706-244c-5567-ad1a-b5c5f2a40b6e"))
-  (label "nCHG_MCU"
-    (at 193.04 186.69 270)
+    (uuid "59db15bd-de23-5537-a9f7-ea20134049bd"))
+  (global_label "nCHG_MCU"
+    (shape passive)
+    (at 142.24 186.69 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "24f6ec5c-f44a-5fe8-8a45-cb06a04f9585"))
+    (uuid "bd976195-a47b-5efe-87bb-f346c086a053"))
   (symbol
     (lib_id "Device:R")
-    (at 193.04 180.34 0)
+    (at 142.24 180.34 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3719,43 +3551,43 @@
     (dnp no)
     (uuid "0403e450-25e9-52c6-8dc6-ed1807687744")
     (property "Reference" "JP6"
-      (at 194.31 173.99 0)
+      (at 143.51 173.99 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "0R"
-      (at 194.31 176.53 0)
+      (at 143.51 176.53 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "v1: charger status link"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C17168"
-      (at 193.04 180.34 0)
+      (at 142.24 180.34 0)
       (hide yes)
       (effects
         (font
