@@ -10,7 +10,7 @@ JAR = os.path.expanduser('~/tools/freerouting-2.5.0.jar')
 b = pcbnew.LoadBoard(PCB); DSN = os.path.join(R, 'card_v1.dsn'); assert pcbnew.ExportSpecctraDSN(b, DSN)
 t = open(DSN).read()
 t = re.sub(r'\(net GND\s*\(pins[^)]*\)\s*\)', '', t); t = re.sub(r'(\(class \S+[^()]*?)\bGND\b', r'\1', t)
-t = t.replace('(via "Via[0-1]_500:250_um" "Via[0-1]_250:150_um")', '(via "Via[0-1]_500:250_um")')
+t = re.sub(r'\(via ("Via\[0-\d\]_500:250_um") "Via\[0-\d\]_250:150_um"\)', r'(via \1)', t)
 open(DSN, 'w').write(t)
 procs = [subprocess.Popen(['java', '-jar', JAR, '-de', DSN, '-do', os.path.join(R, f'run{i}.ses'), '-mp', passes, '-mt', '4'],
                           stdout=open(os.path.join(R, f'run{i}.log'), 'w'), stderr=subprocess.STDOUT) for i in range(N)]

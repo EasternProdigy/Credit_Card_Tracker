@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build hardware/v1/card_v1.kicad_pcb from design.py: outline, footprints + nets (linked to the
-schematic by deterministic UUIDs), placement, keepouts, design rules (JLC 2-layer), critical hand-routes.
+schematic by deterministic UUIDs), placement, keepouts, design rules (JLC 4-layer, Dwayne approved 2026-11-14), critical hand-routes.
+Stack: F.Cu signals + GND pour | In1.Cu solid GND (no tracks) | In2.Cu signals + GND pour | B.Cu signals + GND pour.
 Card coordinates (docs/04): origin bottom-left, y up. KiCad: K(x, y) = (100 + x, 153.98 - y).
 Run with the system python (pcbnew module): python3 hardware/v1/gen/gen_pcb.py [--no-routes]
 """
@@ -19,7 +20,7 @@ mm = pcbnew.FromMM
 def K(x, y): return pcbnew.VECTOR2I(mm(X0 + x), mm(Y0 - y))
 def card(v): return (pcbnew.ToMM(v.x) - X0, Y0 - pcbnew.ToMM(v.y))
 
-# ---------------------------------------------------------------- 50 ohm GCPW (0.4 mm FR4)
+# ---------------------------------------------------------------- 50 ohm GCPW, top over In1 GND
 def _K(k):
     a, b = 1.0, math.sqrt(1 - k * k)
     for _ in range(30): a, b = (a + b) / 2, math.sqrt(a * b)
@@ -30,14 +31,18 @@ def gcpw_z(w, g, h, er):
     q = _K(kp) / _K(k) * _K(k1) / _K(k1p)
     eeff = (1 + er * q) / (1 + q)
     return 60 * math.pi / math.sqrt(eeff) / (_K(k) / _K(kp) + _K(k1) / _K(k1p)), eeff
-RF_GAP, RF_H, RF_ER = 0.15, 0.33, 4.5   # JLC 0.4 mm 2-layer: ~0.33 mm dielectric, er ~4.5
-RF_W = min((round(w, 2) for w in [x / 100 for x in range(20, 80)]),
+# JLC 0.8 mm 4-layer impedance stackup, outer prepreg 3313: 0.0994 mm, Dk 4.1 (jlcpcb.com/impedance, read 2026-11-14)
+RF_GAP, RF_H, RF_ER = 0.15, 0.0994, 4.1
+RF_W = min((round(w, 2) for w in [x / 100 for x in range(10, 80)]),
            key=lambda w: abs(gcpw_z(w, RF_GAP, RF_H, RF_ER)[0] - 50))
 
 # ---------------------------------------------------------------- board + rules
 board = pcbnew.NewBoard(PCB)
+board.SetCopperLayerCount(4)
+board.SetLayerType(pcbnew.In1_Cu, pcbnew.LT_POWER)   # In1: GND plane (exported to Freerouting as a plane, not routed)
+CU4 = ('F.Cu', 'In1.Cu', 'In2.Cu', 'B.Cu')
 ds = board.GetDesignSettings()
-ds.SetBoardThickness(mm(0.4))
+ds.SetBoardThickness(mm(0.8))   # JLC's thinnest listed 4-layer impedance stackup; v1 thickness is free
 ds.m_TrackMinWidth = mm(0.09); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm(0.25)
 ds.m_MinThroughDrill = mm(0.15); ds.m_HoleClearance = mm(0.15); ds.m_CopperEdgeClearance = mm(0.3)
 ds.m_HoleToHoleMin = mm(0.25); ds.m_ViasMinAnnularWidth = mm(0.05)
@@ -278,9 +283,11 @@ def rule_area(name, pts, layers=('F.Cu', 'B.Cu'), tracks=True, vias=True, pour=T
     board.Add(z); return z
 def circle_pts(cx, cy, r, n=48): return [(cx + r * math.cos(2 * math.pi * i / n), cy + r * math.sin(2 * math.pi * i / n)) for i in range(n)]
 # antenna keep-out (docs/04): only IFA copper; footprints' own copper is allowed (pads=False keeps AE1 legal)
-rule_area('ANT_KEEPOUT', [(52.5, 2.0), (83.6, 2.0), (83.6, 10.2), (52.5, 10.2)], pour=True, tracks=True, vias=True)
+rule_area('ANT_KEEPOUT', [(52.5, 2.0), (83.6, 2.0), (83.6, 10.2), (52.5, 10.2)], layers=CU4, pour=True, tracks=True, vias=True)
 # coil: no copper on any layer inside D26, except its lands (lands sit outside the circle)
-rule_area('COIL_KEEPOUT', circle_pts(68.05, 38.98, 13.0), tracks=True, vias=True, pour=True)
+rule_area('COIL_KEEPOUT', circle_pts(68.05, 38.98, 13.0), layers=CU4, tracks=True, vias=True, pour=True)
+# In1 is the solid ground reference for the top layer (RF GCPW, HFXO). It is a 'power' layer, so Freerouting
+# treats it as a plane and never routes on it (a wire keep-out here made Freerouting flag every via as a violation).
 # Nordic Fig. 180: C25 ground only to pin 32 (top); keep the top pour away from C25's ground pad + pin 32
 g25 = padpos('C25', '2'); p32 = padpos('U5', '32')
 xs = [g25[0], p32[0]]; ys = [g25[1], p32[1]]
@@ -307,7 +314,7 @@ def pour(layer, pts, netname='GND', prio=0):
     for x, y in pts: o.Append(mm(X0 + x), mm(Y0 - y))
     board.Add(z); return z
 card_pts = [(0.4, 0.4), (W - 0.4, 0.4), (W - 0.4, H - 0.4), (0.4, H - 0.4)]
-pour('B.Cu', card_pts); pour('F.Cu', card_pts)
+pour('B.Cu', card_pts); pour('F.Cu', card_pts); pour('In1.Cu', card_pts); pour('In2.Cu', card_pts)
 
 # ---------------------------------------------------------------- hand routes (critical nets), vias
 TRK = []
@@ -344,7 +351,7 @@ def free(x, y, r, netname, clr=0.13):
             return False
     return True
 pp = padpos
-RFW = 0.30
+RFW = RF_W   # 50 ohm GCPW over In1 (0.20 mm on the 4-layer stack); was 0.30 on 2-layer
 # RF chain (Nordic Fig.180 order), straight and short
 segs = [(('U5', '31'), ('L3', '1'), 'RF_NRF'), (('L3', '2'), ('L4', '1'), 'RF_A'), (('L4', '2'), ('L5', '1'), 'RF_B'),
         (('L5', '2'), ('L6', '1'), 'RF_MATCHED'), (('L6', '2'), ('AE1', '1'), 'ANT_FEED')]
@@ -478,8 +485,33 @@ for gx in [2 + 4 * i for i in range(21)]:
         if free(gx, gy, 0.25, 'GND', 0.3): via('GND', gx, gy, locked=False)
 print('vias', len(VIAS), 'hand tracks', len(TRK))
 
+STACKUP = """		(stackup
+			(layer "F.SilkS" (type "Top Silk Screen"))
+			(layer "F.Paste" (type "Top Solder Paste"))
+			(layer "F.Mask" (type "Top Solder Mask") (thickness 0.01) (epsilon_r 3.8))
+			(layer "F.Cu" (type "copper") (thickness 0.035))
+			(layer "dielectric 1" (type "prepreg") (thickness 0.0994) (material "3313") (epsilon_r 4.1) (loss_tangent 0.02))
+			(layer "In1.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 2" (type "core") (thickness 0.4808) (material "FR4") (epsilon_r 4.6) (loss_tangent 0.02))
+			(layer "In2.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 3" (type "prepreg") (thickness 0.0994) (material "3313") (epsilon_r 4.1) (loss_tangent 0.02))
+			(layer "B.Cu" (type "copper") (thickness 0.035))
+			(layer "B.Mask" (type "Bottom Solder Mask") (thickness 0.01) (epsilon_r 3.8))
+			(layer "B.Paste" (type "Bottom Solder Paste"))
+			(layer "B.SilkS" (type "Bottom Silk Screen"))
+			(copper_finish "ENIG")
+			(dielectric_constraints no)
+		)
+"""
+# JLC 0.8 mm 4-layer: 1 oz outer, 0.5 oz inner, 3313 outer prepregs (jlcpcb.com/impedance); core = 0.8 mm minus the rest
+# (JLC's own diagrams don't always sum to the header thickness: confirm the core with JLC at order time).
+# ENIG: JLC requires ENIG/OSP for small vias; also flatter for the 0.4 mm BGA.
+
 if __name__ == '__main__':
     pcbnew.SaveBoard(PCB, board)
+    _t = open(PCB).read()
+    assert '(stackup' not in _t
+    _t = _t.replace('\t(setup\n', '\t(setup\n' + STACKUP, 1); open(PCB, 'w').write(_t)
     print(f'RF 50 ohm GCPW: w={RF_W} mm, gap={RF_GAP}, h={RF_H}, er={RF_ER} -> '
           f'{gcpw_z(RF_W, RF_GAP, RF_H, RF_ER)[0]:.1f} ohm; pin31 at ({ax:.2f},{ay:.2f}); '
           f'footprints {len(FP)}; nets {len(nets)}')

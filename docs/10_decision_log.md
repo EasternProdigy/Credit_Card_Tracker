@@ -37,3 +37,11 @@
 - **C9d 4.7 µF 25 V 0603 added on RECT (v1).** TI's minimum is 4.7 µF, and 3 × 2.2 µF 0402 derate below that at 7 V. For v2, re-check the derated total with the real MPN curves.
 - **v1 layout split:** MCU+RF and Qi RX sit in the v2 electronics zone; charger, protector, LDO, jumpers, headers and test pads sit in the battery-pocket area (v1 only; the cell is off-board on J1/BT1).
 - **NT1 removed:** pin 32 (VSS_PA) is GND in the netlist; Nordic's pin 32 → EP-only topology is enforced in the layout by keepouts and a scripted trace.
+
+## 2026-11-14 (afternoon): v1 goes 4-layer
+- **v1 stackup = JLC 4-layer, 0.8 mm, ENIG** (Dwayne approved 2026-11-14). F.Cu signals + GND pour | In1 solid GND plane (KiCad "power" layer, never routed) | In2 signals + GND pour | B.Cu signals + GND pour. Outer prepreg 3313, 0.0994 mm, Dk 4.1; inner copper 0.5 oz (jlcpcb.com/impedance). 0.8 mm is JLC's thinnest listed 4-layer impedance stackup; v1 thickness is free (CLAUDE.md).
+- **Why:** the BQ51003 DSBGA inner balls need via-in-pad, and JLC's BGA guide only allows a via opening on one side of a BGA pad for 4-layer ("Only one side with openings: Available"; 2-layer: unavailable). Also gives the nRF54L15 the inner ground Nordic DevZone 127617 recommends.
+- **Correction to the overnight note:** JLC does **not** resin-fill and cap (POFV) via-in-pad on 4-layer; that is default and free on 6-layer and up only. On 4-layer the U1 vias are open in the pad on top and tented on the bottom (board default tenting both sides), so some solder wicks into the 0.15 mm holes. Fallback if JLC's DFM rejects it or assembly yields voids: order 6-layer for free POFV.
+- **RF line:** 50 Ω GCPW over In1 is now 0.20 mm wide with a 0.15 mm gap (h 0.0994, Dk 4.1, script calc 49.9 Ω), was 0.49 mm over 0.33 mm on 2-layer.
+- **Keep-outs** for the antenna and the Qi coil now cover all four copper layers.
+- **Rules:** JLC multilayer 0.09/0.09 mm track/space, via hole to track 0.2 mm, standard via 0.5/0.25; U1 via-in-pad 0.25/0.15 (extra-cost via option at order time) (jlcpcb.com/capabilities/pcb-capabilities).
