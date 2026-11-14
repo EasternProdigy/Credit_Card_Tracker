@@ -14,10 +14,12 @@ Functional pin names only. Map them to pin or ball numbers from the datasheets b
 | C7/C8 | CLAMP1 to AC1, CLAMP2 to AC2 | 470 nF, 25 V | | |
 | C9a to C9c, C10 | RECT to PGND | 3 × 2.2 µF 16 V X5R 0402 (≤ 0.55 mm) + 100 nF | net `VRECT` | ≥ 4 µF effective at 7 V bias → about 25 mV ripple (simulated). TI rates RECT caps at 16 V; OVP is 15 V |
 | C11 | OUT to PGND | 4.7 µF 10 V X5R 0402 + 100 nF | net `V5_RX` | TI uses 10 µF + 0.1 µF at 500 mA; we run 150 mA |
-| R1 | ILIM to PGND, with RFOD | 1.55 kΩ | R1 + RFOD = 1.75 kΩ → IMAX = 262/1750 = 150 mA | |
-| RFOD | FOD to ILIM node per datasheet | 200 Ω start | | calibrate with TI SLUC577 |
-| R_TS | TS/CTRL to PGND | 10 kΩ | | no RX-side NTC; check the datasheet's TS-disable method |
-| | AD, AD-EN | to PGND | | no wired input |
+| R1 | ILIM → FOD node (TI SLUSBC8C Fig. 32) | 1.55 kΩ | R1 + RFOD = 1.75 kΩ → IMAX = 262/1750 = 150 mA | rev 0.6: was wired so ILIM floated |
+| RFOD (+ RFOD2 DNP) | FOD → PGND | 200 Ω start | | calibrate with TI SLUC577; TI asks for 2 footprints |
+| ROS1 (+ ROS2 DNP) | RECT → FOD (ROS2: OUT → FOD) | 20 kΩ | | TI default, SLUSBC8C p.28 |
+| R_TS | TS/CTRL to PGND | 10 kΩ | | datasheet p.5: no NTC → 10 kΩ to GND (O8 closed) |
+| | AD | to PGND | | no wired input (p.5: ground directly) |
+| | AD-EN | **no connect** | | push-pull output; p.5 says float if unused (rev 0.6 fix) |
 | | EN1, EN2 | to PGND | | enabled |
 | | CHG | NC (or test pad) | | |
 
@@ -35,9 +37,9 @@ Functional pin names only. Map them to pin or ball numbers from the datasheets b
 | Ref | Part | Value | Connections |
 |---|---|---|---|
 | BT1 | Grepow GRP0849049, 4.2 V, 135 mAh, 49 × 49 × 0.85 mm | | + → `VCELL`/`VBAT`; − → protection FETs |
-| U3 | ABLIC S-82N1B (SNT-6A), choose the 4.20 V detection variant | 600 nA typ | VDD (via 330 Ω + 0.1 µF), VSS, DO, CO, VM (via 2 kΩ), PS |
+| U3 | ABLIC S-82N1BAA-I6T1U7 (SNT-6A), VCU 4.310 V / VDL 2.800 V (no stock 4.20 V part; 4.20 V would trip at the charger's regulation point) | 600 nA typ | VDD (via 330 Ω + 0.1 µF), VSS, DO, CO, VM (via 2 kΩ), PS |
 | Q1 | dual N-MOSFET, common drain, ≤ 30 mΩ, CSP ≤ 0.4 mm tall | TBD | DO → discharge FET gate, CO → charge FET gate. Pack− = system `GND` |
-| | PS pin | | Wire per datasheet for normal operation. Option: route to a U5 GPIO for a ship mode (50 nA). |
+| | PS pin | | Active high, internal 5 MΩ pull-down. Tie to VSS via 0 Ω + test pad. A 3.3 V GPIO cannot reach VPSH = 0.9·VDD (3.78 V at 4.2 V), so no direct GPIO ship mode. |
 
 ## Block D: supply and battery sense (sheet `power_sense`)
 | Ref | Part | Value | Connections |

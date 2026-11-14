@@ -18,3 +18,10 @@
 | 2026-11-13 | Raspberry Pi server, Fedora backup; Traccar core; ntfy alerts | Self-hosted, works on GrapheneOS |
 | 2026-11-13 | Dwayne does placement and routing; Claude reviews | Owner preference |
 | 2026-11-13 | C1 = 3 × 0402 X7R 50 V (100 + 100 + 33 nF trim); C2 = 2 × 0402 C0G; RECT = 3 × 2.2 µF 16 V 0402 | TI: X7R is fine for the RX tank and C1 should be 3 caps in parallel. Simulated C1 stress ≤ 1.5 V pk; RECT ripple 25 mV at 4 µF. Every part ≤ 0.55 mm (`sims/c1_stress.py`) |
+
+## 2026-11-14 (rev 0.6, overnight run, from datasheets)
+- **BQ51003 AD-EN is now no-connect** (was PGND). It is a push-pull output; TI SLUSBC8C p.5 says float it if unused. Grounding it would fight the driver.
+- **BQ51003 ILIM/FOD rewired** to ILIM → R1 1.55k → FOD → RFOD 200R → PGND, per Fig. 32 and p.28. The rev 0.4 netlist left the ILIM ball unconnected. Added ROS1 20k RECT→FOD (TI default) and DNP ROS2 and RFOD2 for FOD calibration.
+- **S-82N1B variant: S-82N1BAA (VCU 4.310 V).** ABLIC lists no 4.20 V part, and a protector set at the charger's own 4.20 V would nuisance-trip. The protector is a backup above the charger.
+- **S-82N1B PS pin to VSS through a 0R and a test pad.** A GPIO ship mode doesn't work directly because VPSH = 0.9·VDD.
+- **v1 RF match follows Nordic's QFN48 config 1** (2.7 nH, 3.5 nH ×2, 1.5 pF, 2.0 pF), not the CSP values. Topology is pending the Nordic figure.

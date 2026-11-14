@@ -1,4 +1,4 @@
-# Wallet tracker card: functional netlist (rev 0.4, 2026-11-13)
+# Wallet tracker card: functional netlist (rev 0.6, 2026-11-14; U1 ILIM/FOD/AD_EN and U3 variant fixed against datasheets)
 # Pin names are FUNCTIONAL. Map them to pin or ball numbers in design/pinmaps/ before capture.
 # "v1" = rigid FR4 + QFN48 bring-up board; "v2" = flex + CSP card. Same netlist.
 
@@ -21,7 +21,7 @@ components:
   - ref: U1
     part: "TI BQ51003YFPR"
     pins: {AC1: AC1, AC2: AC2, BOOT1: BOOT1, BOOT2: BOOT2, RECT: VRECT, OUT: V5_RX, CLAMP1: CLAMP1, CLAMP2: CLAMP2,
-           COMM1: COMM1, COMM2: COMM2, ILIM: ILIM, FOD: FOD, TS_CTRL: TS_RX, AD: PGND, AD_EN: PGND, EN1: PGND, EN2: PGND,
+           COMM1: COMM1, COMM2: COMM2, ILIM: ILIM, FOD: FOD, TS_CTRL: TS_RX, AD: PGND, AD_EN: NC, EN1: PGND, EN2: PGND,
            CHG: NC_RXCHG, PGND: PGND}
   - {ref: C3, value: "10nF 25V", pins: {"1": BOOT1, "2": AC1}}
   - {ref: C4, value: "10nF 25V", pins: {"1": BOOT2, "2": AC2}}
@@ -34,9 +34,12 @@ components:
   - {ref: C9c, value: "2.2uF 16V X5R 0402", pins: {"1": VRECT, "2": PGND}}
   - {ref: C10, value: "100nF 25V", pins: {"1": VRECT, "2": PGND}}
   - {ref: C11, value: "4.7uF 10V X5R 0402", pins: {"1": V5_RX, "2": PGND}}
-  - {ref: R1, value: "1.55k 1%", pins: {"1": ILIM_N, "2": PGND}, note: "ILIM/FOD resistor network per BQ51003 datasheet; total 1.75k -> IMAX 150 mA"}
-  - {ref: RFOD, value: "200R (calibrate)", pins: {"1": FOD, "2": ILIM_N}, note: "verify exact ILIM/FOD topology in datasheet"}
-  - {ref: R_TS, value: "10k", pins: {"1": TS_RX, "2": PGND}, note: "O8: confirm TS/CTRL handling without RX NTC"}
+  - {ref: R1, value: "1.55k 1%", pins: {"1": ILIM, "2": FOD}, note: "SLUSBC8C Fig.32: ILIM -> R1 -> FOD -> RFOD -> PGND; R1+RFOD = 1.75k -> IMAX 150 mA"}
+  - {ref: RFOD, value: "200R (calibrate)", pins: {"1": FOD, "2": PGND}, note: "SLUSBC8C p.28 (TI uses 196R)"}
+  - {ref: RFOD2, value: "DNP", pins: {"1": FOD, "2": PGND}, note: "second RFOD footprint for calibration, TI p.28"}
+  - {ref: ROS1, value: "20k", pins: {"1": VRECT, "2": FOD}, note: "TI default ROS1 RECT->FOD, SLUSBC8C p.28"}
+  - {ref: ROS2, value: "DNP", pins: {"1": V5_RX, "2": FOD}, note: "TI: ROS2 OUT->FOD open by default"}
+  - {ref: R_TS, value: "10k", pins: {"1": TS_RX, "2": PGND}, note: "SLUSBC8C p.5: no NTC -> 10k to GND (O8 closed)"}
 
   # ---------------- B: charger
   - ref: U2
@@ -50,7 +53,7 @@ components:
   # ---------------- C: cell + protection
   - {ref: BT1, part: "Grepow GRP0849049 4.2V 135mAh 49x49x0.85", pins: {"+": VCELL, "-": BT_NEG}}
   - ref: U3
-    part: "ABLIC S-82N1B (4.20V OVP variant, O7)"
+    part: "ABLIC S-82N1BAA-I6T1U7 (VCU 4.310 V; no stock 4.20 V variant)"
     pins: {VDD: PROT_VDD, VSS: BT_NEG, DO: DO_GATE, CO: CO_GATE, VM: PROT_VM, PS: PS_PIN}
   - {ref: R5, value: "330R", pins: {"1": VCELL, "2": PROT_VDD}}
   - {ref: C29, value: "100nF", pins: {"1": PROT_VDD, "2": BT_NEG}}
