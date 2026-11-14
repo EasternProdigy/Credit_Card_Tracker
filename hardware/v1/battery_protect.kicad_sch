@@ -1292,7 +1292,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "2k"
+    (property "Value" "470R"
       (at 311.15 36.83 0)
       (effects
         (font
@@ -1316,13 +1316,13 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "docs/03_schematic_spec.md (PACK_NEG = GND)"
+    (property "Source" "ABLIC S-82N1B ext. parts table: R2 300-750, typ 470 ohm (rev 0.6; was 2k)"
       (at 309.88 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C4109"
+    (property "LCSC" "C25117"
       (at 309.88 40.64 0)
       (hide yes)
       (effects
@@ -1386,7 +1386,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "0R"
+    (property "Value" "1k"
       (at 359.41 36.83 0)
       (effects
         (font
@@ -1410,13 +1410,13 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "S-82N1B.md: PS active high, tie to VSS"
+    (property "Source" "ABLIC S-82N1B ext. parts table: R3 PS input protection 1k; PS tied low"
       (at 358.14 40.64 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C17168"
+    (property "LCSC" "C11702"
       (at 358.14 40.64 0)
       (hide yes)
       (effects

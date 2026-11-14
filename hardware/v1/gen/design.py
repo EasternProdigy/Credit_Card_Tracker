@@ -155,6 +155,7 @@ Cap('C7', S, '470nF 25V X5R', 'CLAMP1', 'AC1', src=TIQI + ' p.5 (0.47uF)')
 Cap('C8', S, '470nF 25V X5R', 'CLAMP2', 'AC2', src=TIQI + ' p.5 (0.47uF)')
 for r in ('C9a', 'C9b', 'C9c'):
     Cap(r, S, '2.2uF 16V X5R', 'VRECT', 'GND', src=SPEC)
+Cap('C9d', S, '4.7uF 25V X5R', 'VRECT', 'GND', 'C0603', src='SLUSBC8C p.5: RECT 4.7-22 uF; 3x2.2uF 0402 derate to ~3.5-4 uF at 7 V (v1 add, pass 1)')
 Cap('C10', S, '100nF 25V X7R', 'VRECT', 'GND', src=SPEC)
 Cap('C11', S, '4.7uF 10V X5R', 'V5_RX', 'GND', src=SPEC)
 Cap('C11b', S, '100nF 25V X7R', 'V5_RX', 'GND', src=SPEC + ' (+100 nF on OUT)')
@@ -194,8 +195,8 @@ add('U3', S, 'custom:S-82N1BAA', 'S-82N1BAA-I6T1U7', None,
     mpn='ABLIC S-82N1BAA-I6T1U7', src='design/pinmaps/S-82N1B.md')
 R('R5', S, '330R', 'VCELL', 'PROT_VDD', src=SPEC)
 Cap('C29', S, '100nF 10V X7R', 'PROT_VDD', 'BT_NEG', src=SPEC)
-R('R6', S, '2k', 'PROT_VM', 'GND', src=SPEC + ' (PACK_NEG = GND)')
-R('R_PS', S, '0R', 'PS_PIN', 'BT_NEG', dev=True, src='S-82N1B.md: PS active high, tie to VSS')
+R('R6', S, '470R', 'PROT_VM', 'GND', src='ABLIC S-82N1B ext. parts table: R2 300-750, typ 470 ohm (rev 0.6; was 2k)')
+R('R_PS', S, '1k', 'PS_PIN', 'BT_NEG', dev=True, src='ABLIC S-82N1B ext. parts table: R3 PS input protection 1k; PS tied low')
 add('Q1', S, 'custom:EFC4615R', 'EFC4615R-TR', None,
     {'1': 'BT_NEG', '2': 'DO_GATE', '3': 'CO_GATE', '4': 'GND'},
     mpn='onsemi EFC4615R-TR', src='design/pinmaps/EFC4615R.md')
@@ -247,7 +248,7 @@ add('FB1', S, 'Device:FerriteBead_Small', '120R@100MHz', 'L0201', {'1': 'DECD', 
 Cap('C19', S, '2.2uF X6T', 'DECA', 'GND', 'C0201', src=NORD + ' C2')
 Cap('C24', S, '10nF X7R', 'DECA', 'GND', 'C0201', src=NORD + ' C12')
 Cap('C30', S, '2.2nF X7R', 'DECA', 'GND', 'C0201', src=NORD + ' C5')
-add('Y1', S, 'Device:Crystal_GND24', '32MHz CL8pF', 'X2016', {'1': 'XC1', '3': 'XC2', '2': 'GND', '4': 'GND'},
+add('Y1', S, 'Device:Crystal_GND24', '32MHz CL8pF', 'X2016', {'1': 'XC1', '3': 'XC2', '2': 'GND', '4': 'GND'}, mpn='Murata XRCGB32M000F1S1BR0',
     src=NORD + ' X2 (2016, CL 8 pF, +/-40 ppm)')
 add('Y2', S, 'Device:Crystal', '32.768kHz CL9pF', 'X2012', {'1': 'XL1', '2': 'XL2'},
     src=NORD + ' X1 (2012, CL 9 pF, +/-20 ppm)')

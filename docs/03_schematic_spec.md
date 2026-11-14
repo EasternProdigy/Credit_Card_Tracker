@@ -37,7 +37,7 @@ Functional pin names only. Map them to pin or ball numbers from the datasheets b
 | Ref | Part | Value | Connections |
 |---|---|---|---|
 | BT1 | Grepow GRP0849049, 4.2 V, 135 mAh, 49 × 49 × 0.85 mm | | + → `VCELL`/`VBAT`; − → protection FETs |
-| U3 | ABLIC S-82N1BAA-I6T1U7 (SNT-6A), VCU 4.310 V / VDL 2.800 V (no stock 4.20 V part; 4.20 V would trip at the charger's regulation point) | 600 nA typ | VDD (via 330 Ω + 0.1 µF), VSS, DO, CO, VM (via 2 kΩ), PS |
+| U3 | ABLIC S-82N1BAA-I6T1U7 (SNT-6A), VCU 4.310 V / VDL 2.800 V (no stock 4.20 V part; 4.20 V would trip at the charger's regulation point) | 600 nA typ | VDD (via 330 Ω + 0.1 µF), VSS, DO, CO, VM (via **470 Ω**, ABLIC range 300 to 750 Ω; rev 0.4 had 2 kΩ), PS (via 1 kΩ, ABLIC R3) |
 | Q1 | dual N-MOSFET, common drain, ≤ 30 mΩ, CSP ≤ 0.4 mm tall | TBD | DO → discharge FET gate, CO → charge FET gate. Pack− = system `GND` |
 | | PS pin | | Active high, internal 5 MΩ pull-down. Tie to VSS via 0 Ω + test pad. A 3.3 V GPIO cannot reach VPSH = 0.9·VDD (3.78 V at 4.2 V), so no direct GPIO ship mode. |
 

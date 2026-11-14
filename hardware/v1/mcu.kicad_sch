@@ -3194,7 +3194,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "MPN" ""
+    (property "MPN" "Murata XRCGB32M000F1S1BR0"
       (at 292.1 144.78 0)
       (hide yes)
       (effects
@@ -3206,7 +3206,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C718072"
+    (property "LCSC" "C6938063"
       (at 292.1 144.78 0)
       (hide yes)
       (effects

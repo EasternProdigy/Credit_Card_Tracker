@@ -2934,20 +2934,20 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "2133a466-0585-5128-8c23-08cec193f5a7")
-    (property "Reference" "C10"
+    (uuid "9027e461-f205-5a4a-861e-b08fa5a02d6a")
+    (property "Reference" "C9d"
       (at 168.91 128.27 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "100nF 25V X7R"
+    (property "Value" "4.7uF 25V X5R"
       (at 168.91 130.81 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
       (at 167.64 134.62 0)
       (hide yes)
       (effects
@@ -2965,26 +2965,26 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "docs/03_schematic_spec.md"
+    (property "Source" "SLUSBC8C p.5: RECT 4.7-22 uF; 3x2.2uF 0402 derate to ~3.5-4 uF at 7 V (v1 add, pass 1)"
       (at 167.64 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C307331"
+    (property "LCSC" "C69335"
       (at 167.64 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (pin "1"
-      (uuid "07988d7f-100e-5142-adb6-9c05166f5526"))
+      (uuid "bfb1f223-698f-5cf0-a512-7cd5f2ca0976"))
     (pin "2"
-      (uuid "235afe5c-eb23-5655-9230-b0fb45a15d22"))
+      (uuid "f6510609-f8de-59a5-a8c1-e570f2ab1856"))
     (instances
       (project "card_v1"
         (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
-          (reference "C10")
+          (reference "C9d")
           (unit 1)))))
   (wire
     (pts
@@ -2994,7 +2994,7 @@
       (width 0)
       (type default))
     (uuid "a6c9efac-e24a-5f0f-b8d8-fce6e246e381"))
-  (global_label "V5_RX"
+  (global_label "VRECT"
     (shape passive)
     (at 210.82 128.27 90)
     (fields_autoplaced yes)
@@ -3002,7 +3002,7 @@
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "64d123bc-ad7b-5511-b929-423b6f5e1904"))
+    (uuid "33799e8a-0b23-5e63-b068-2d496a98ff9b"))
   (wire
     (pts
       (xy 210.82 138.43)
@@ -3028,14 +3028,14 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "ee413def-ef0b-590b-8f49-0f1fe19d53dc")
-    (property "Reference" "C11"
+    (uuid "2133a466-0585-5128-8c23-08cec193f5a7")
+    (property "Reference" "C10"
       (at 212.09 128.27 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "4.7uF 10V X5R"
+    (property "Value" "100nF 25V X7R"
       (at 212.09 130.81 0)
       (effects
         (font
@@ -3065,20 +3065,20 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C23733"
+    (property "LCSC" "C307331"
       (at 210.82 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (pin "1"
-      (uuid "28e88321-6e8f-5c5d-93e1-1e991b082351"))
+      (uuid "07988d7f-100e-5142-adb6-9c05166f5526"))
     (pin "2"
-      (uuid "94ba2074-8dbc-5767-b3fd-15d091aea579"))
+      (uuid "235afe5c-eb23-5655-9230-b0fb45a15d22"))
     (instances
       (project "card_v1"
         (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
-          (reference "C11")
+          (reference "C10")
           (unit 1)))))
   (wire
     (pts
@@ -3122,14 +3122,14 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "55ee88b6-8975-5f96-a4b0-8158a1f8d3b4")
-    (property "Reference" "C11b"
+    (uuid "ee413def-ef0b-590b-8f49-0f1fe19d53dc")
+    (property "Reference" "C11"
       (at 257.81 128.27 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "100nF 25V X7R"
+    (property "Value" "4.7uF 10V X5R"
       (at 257.81 130.81 0)
       (effects
         (font
@@ -3153,14 +3153,108 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "docs/03_schematic_spec.md (+100 nF on OUT)"
+    (property "Source" "docs/03_schematic_spec.md"
       (at 256.54 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" "C307331"
+    (property "LCSC" "C23733"
       (at 256.54 134.62 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (pin "1"
+      (uuid "28e88321-6e8f-5c5d-93e1-1e991b082351"))
+    (pin "2"
+      (uuid "94ba2074-8dbc-5767-b3fd-15d091aea579"))
+    (instances
+      (project "card_v1"
+        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
+          (reference "C11")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 299.72 130.81)
+      (xy 299.72 128.27))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "25e73492-720e-5b3a-a453-710a28269569"))
+  (global_label "V5_RX"
+    (shape passive)
+    (at 299.72 128.27 90)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "323d1478-15d0-5727-8be1-304efdfad85e"))
+  (wire
+    (pts
+      (xy 299.72 138.43)
+      (xy 299.72 140.97))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "1d8a22e7-6ad1-53af-a96d-de0e2a431395"))
+  (global_label "GND"
+    (shape passive)
+    (at 299.72 140.97 270)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right))
+    (uuid "78297a9c-b356-5be8-b633-bc49b5e0508b"))
+  (symbol
+    (lib_id "Device:C")
+    (at 299.72 134.62 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "55ee88b6-8975-5f96-a4b0-8158a1f8d3b4")
+    (property "Reference" "C11b"
+      (at 300.99 128.27 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Value" "100nF 25V X7R"
+      (at 300.99 130.81 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 299.72 134.62 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Datasheet" ""
+      (at 299.72 134.62 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "MPN" ""
+      (at 299.72 134.62 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Source" "docs/03_schematic_spec.md (+100 nF on OUT)"
+      (at 299.72 134.62 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "LCSC" "C307331"
+      (at 299.72 134.62 0)
       (hide yes)
       (effects
         (font
@@ -3176,41 +3270,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 299.72 130.81)
-      (xy 299.72 128.27))
+      (xy 342.9 130.81)
+      (xy 342.9 128.27))
     (stroke
       (width 0)
       (type default))
-    (uuid "25e73492-720e-5b3a-a453-710a28269569"))
+    (uuid "92ffb0b5-f749-5f71-8f8e-c425a44220ee"))
   (global_label "ILIM"
     (shape passive)
-    (at 299.72 128.27 90)
+    (at 342.9 128.27 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9a4f9a77-9dff-5c83-b967-318c636b7570"))
+    (uuid "971b7901-b3c5-5ace-928f-34e8c22886b0"))
   (wire
     (pts
-      (xy 299.72 138.43)
-      (xy 299.72 140.97))
+      (xy 342.9 138.43)
+      (xy 342.9 140.97))
     (stroke
       (width 0)
       (type default))
-    (uuid "1d8a22e7-6ad1-53af-a96d-de0e2a431395"))
+    (uuid "5e4dd6c0-38ff-54f2-94fd-02879b428b08"))
   (global_label "FOD"
     (shape passive)
-    (at 299.72 140.97 270)
+    (at 342.9 140.97 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "776175f7-f0a6-53f7-a8c9-7ff36cc7034a"))
+    (uuid "17a7578f-19e5-59fb-90d3-a1e4e3b41a04"))
   (symbol
     (lib_id "Device:R")
-    (at 299.72 134.62 0)
+    (at 342.9 134.62 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3218,43 +3312,43 @@
     (dnp no)
     (uuid "ba3f3876-d7af-5051-bc2f-af76ac8c1f15")
     (property "Reference" "R1"
-      (at 300.99 128.27 0)
+      (at 344.17 128.27 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "1.5k 1%"
-      (at 300.99 130.81 0)
+      (at 344.17 130.81 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 299.72 134.62 0)
+      (at 342.9 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 299.72 134.62 0)
+      (at 342.9 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 299.72 134.62 0)
+      (at 342.9 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "SLUSBC8C p.28: R1+RFOD=1.70k -> IMAX 154 mA (1.55k is not E96; rev 0.6)"
-      (at 299.72 134.62 0)
+      (at 342.9 134.62 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C25867"
-      (at 299.72 134.62 0)
+      (at 342.9 134.62 0)
       (hide yes)
       (effects
         (font
@@ -3267,100 +3361,6 @@
       (project "card_v1"
         (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
           (reference "R1")
-          (unit 1)))))
-  (wire
-    (pts
-      (xy 340.36 130.81)
-      (xy 340.36 128.27))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "c1735046-cdc0-5187-b650-788292a33d8f"))
-  (global_label "FOD"
-    (shape passive)
-    (at 340.36 128.27 90)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify left))
-    (uuid "1fe6e719-5186-5100-9fa3-fec320629474"))
-  (wire
-    (pts
-      (xy 340.36 138.43)
-      (xy 340.36 140.97))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "29807cf2-6cdb-5ca8-8a77-b3676d6eabe3"))
-  (global_label "GND"
-    (shape passive)
-    (at 340.36 140.97 270)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify right))
-    (uuid "865eeac8-d617-56a2-8544-5b10d487c2bb"))
-  (symbol
-    (lib_id "Device:R")
-    (at 340.36 134.62 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "83b2b9f0-b9a4-5404-8212-1df30ae2c318")
-    (property "Reference" "RFOD"
-      (at 341.63 128.27 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Value" "200R 1%"
-      (at 341.63 130.81 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 340.36 134.62 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Datasheet" ""
-      (at 340.36 134.62 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "MPN" ""
-      (at 340.36 134.62 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Source" "SLUSBC8C p.28 (TI 196R), calibrate"
-      (at 340.36 134.62 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "LCSC" "C25087"
-      (at 340.36 134.62 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (pin "1"
-      (uuid "c3d7e8b5-2c3f-5af8-91fd-ad845b1b6a9d"))
-    (pin "2"
-      (uuid "1bfa0817-6574-5894-a018-6418d46391d2"))
-    (instances
-      (project "card_v1"
-        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
-          (reference "RFOD")
           (unit 1)))))
   (wire
     (pts
@@ -3403,15 +3403,15 @@
     (exclude_from_sim no)
     (in_bom yes)
     (on_board yes)
-    (dnp yes)
-    (uuid "b1752076-14c2-5a99-bce3-6723cc45db28")
-    (property "Reference" "RFOD2"
+    (dnp no)
+    (uuid "83b2b9f0-b9a4-5404-8212-1df30ae2c318")
+    (property "Reference" "RFOD"
       (at 36.83 163.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "DNP"
+    (property "Value" "200R 1%"
       (at 36.83 166.37 0)
       (effects
         (font
@@ -3435,14 +3435,108 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Source" "SLUSBC8C p.28: 2 RFOD footprints"
+    (property "Source" "SLUSBC8C p.28 (TI 196R), calibrate"
       (at 35.56 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "LCSC" ""
+    (property "LCSC" "C25087"
       (at 35.56 170.18 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (pin "1"
+      (uuid "c3d7e8b5-2c3f-5af8-91fd-ad845b1b6a9d"))
+    (pin "2"
+      (uuid "1bfa0817-6574-5894-a018-6418d46391d2"))
+    (instances
+      (project "card_v1"
+        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
+          (reference "RFOD")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 76.2 166.37)
+      (xy 76.2 163.83))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "02ba5375-61cf-5838-b3d4-f1c52f08c444"))
+  (global_label "FOD"
+    (shape passive)
+    (at 76.2 163.83 90)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e5d8ace8-3a50-5443-b81b-fe6ee583bf71"))
+  (wire
+    (pts
+      (xy 76.2 173.99)
+      (xy 76.2 176.53))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "504a51fe-5626-5171-8c9d-87958b65ec48"))
+  (global_label "GND"
+    (shape passive)
+    (at 76.2 176.53 270)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right))
+    (uuid "a576dde9-a326-5099-8cbf-1eef695d728f"))
+  (symbol
+    (lib_id "Device:R")
+    (at 76.2 170.18 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp yes)
+    (uuid "b1752076-14c2-5a99-bce3-6723cc45db28")
+    (property "Reference" "RFOD2"
+      (at 77.47 163.83 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Value" "DNP"
+      (at 77.47 166.37 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 76.2 170.18 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Datasheet" ""
+      (at 76.2 170.18 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "MPN" ""
+      (at 76.2 170.18 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Source" "SLUSBC8C p.28: 2 RFOD footprints"
+      (at 76.2 170.18 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "LCSC" ""
+      (at 76.2 170.18 0)
       (hide yes)
       (effects
         (font
@@ -3458,41 +3552,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 78.74 166.37)
-      (xy 78.74 163.83))
+      (xy 119.38 166.37)
+      (xy 119.38 163.83))
     (stroke
       (width 0)
       (type default))
-    (uuid "0e5efb31-4c31-5277-b4c7-09ad50bcaab9"))
+    (uuid "a62253c9-20f4-55a2-9163-b90272f22baf"))
   (global_label "VRECT"
     (shape passive)
-    (at 78.74 163.83 90)
+    (at 119.38 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "9c1a54a2-b46c-56da-86a2-3db5011d98d1"))
+    (uuid "0b8d26cc-2db0-5ad3-82e5-f9f02f55cbb8"))
   (wire
     (pts
-      (xy 78.74 173.99)
-      (xy 78.74 176.53))
+      (xy 119.38 173.99)
+      (xy 119.38 176.53))
     (stroke
       (width 0)
       (type default))
-    (uuid "013048f9-f36a-53d1-aa71-557ecbe0a317"))
+    (uuid "9e2c1f4c-f682-5274-b88a-3dd3750c84e3"))
   (global_label "FOD"
     (shape passive)
-    (at 78.74 176.53 270)
+    (at 119.38 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "c9a02f5d-2213-5345-8da5-78b8db7457c1"))
+    (uuid "f2a12491-d4ce-5941-b14d-e3c22c22f717"))
   (symbol
     (lib_id "Device:R")
-    (at 78.74 170.18 0)
+    (at 119.38 170.18 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3500,43 +3594,43 @@
     (dnp no)
     (uuid "c15ca0e3-05ef-5315-b7fc-98634ca6b2f8")
     (property "Reference" "ROS1"
-      (at 80.01 163.83 0)
+      (at 120.65 163.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "20k 1%"
-      (at 80.01 166.37 0)
+      (at 120.65 166.37 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 78.74 170.18 0)
+      (at 119.38 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 78.74 170.18 0)
+      (at 119.38 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 78.74 170.18 0)
+      (at 119.38 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "SLUSBC8C p.28 default"
-      (at 78.74 170.18 0)
+      (at 119.38 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C25765"
-      (at 78.74 170.18 0)
+      (at 119.38 170.18 0)
       (hide yes)
       (effects
         (font
@@ -3552,41 +3646,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 121.92 166.37)
-      (xy 121.92 163.83))
+      (xy 162.56 166.37)
+      (xy 162.56 163.83))
     (stroke
       (width 0)
       (type default))
-    (uuid "a241e5cd-2877-5d48-9351-9c2a86496d82"))
+    (uuid "e45d9b87-aeab-506d-8f63-149f1e5d5896"))
   (global_label "V5_RX"
     (shape passive)
-    (at 121.92 163.83 90)
+    (at 162.56 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "47ef0269-149a-56b6-89aa-b3b277480dea"))
+    (uuid "7b97d656-e853-50e8-a1b6-f12c85c6b797"))
   (wire
     (pts
-      (xy 121.92 173.99)
-      (xy 121.92 176.53))
+      (xy 162.56 173.99)
+      (xy 162.56 176.53))
     (stroke
       (width 0)
       (type default))
-    (uuid "f744b5b2-a38e-50c9-88f1-94bb46daf38d"))
+    (uuid "82113981-ba60-5d25-aa57-092c11bcf271"))
   (global_label "FOD"
     (shape passive)
-    (at 121.92 176.53 270)
+    (at 162.56 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "a5c25334-51c6-558f-98de-76276f712eed"))
+    (uuid "a305aca6-0c58-504b-ae1d-7098fb36b73f"))
   (symbol
     (lib_id "Device:R")
-    (at 121.92 170.18 0)
+    (at 162.56 170.18 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3594,43 +3688,43 @@
     (dnp yes)
     (uuid "30cbcc8a-9a06-51c8-a7f6-02ba138d1327")
     (property "Reference" "ROS2"
-      (at 123.19 163.83 0)
+      (at 163.83 163.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "DNP"
-      (at 123.19 166.37 0)
+      (at 163.83 166.37 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 121.92 170.18 0)
+      (at 162.56 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 121.92 170.18 0)
+      (at 162.56 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 121.92 170.18 0)
+      (at 162.56 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "SLUSBC8C p.28 (open)"
-      (at 121.92 170.18 0)
+      (at 162.56 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" ""
-      (at 121.92 170.18 0)
+      (at 162.56 170.18 0)
       (hide yes)
       (effects
         (font
@@ -3646,41 +3740,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 165.1 166.37)
-      (xy 165.1 163.83))
+      (xy 208.28 166.37)
+      (xy 208.28 163.83))
     (stroke
       (width 0)
       (type default))
-    (uuid "d26f711b-99b8-598f-986b-25a279e6d2d9"))
+    (uuid "779df4f9-7a63-53f2-b10d-c5a585c13b77"))
   (global_label "TS_RX"
     (shape passive)
-    (at 165.1 163.83 90)
+    (at 208.28 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "97d15032-84fc-5fd6-97a2-7079bfc1619a"))
+    (uuid "8f054dfd-d3b7-51be-a5b4-3824320e3368"))
   (wire
     (pts
-      (xy 165.1 173.99)
-      (xy 165.1 176.53))
+      (xy 208.28 173.99)
+      (xy 208.28 176.53))
     (stroke
       (width 0)
       (type default))
-    (uuid "1b839bfb-dc43-5241-bdab-2e950b0fd879"))
+    (uuid "178c817e-2851-5ec5-8840-7ef9929a2bdd"))
   (global_label "GND"
     (shape passive)
-    (at 165.1 176.53 270)
+    (at 208.28 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "3d7ccd15-457f-5bf4-875b-c5236c8ffd2c"))
+    (uuid "81ee1e6b-d244-5951-b93c-ac1c1cd4910d"))
   (symbol
     (lib_id "Device:R")
-    (at 165.1 170.18 0)
+    (at 208.28 170.18 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3688,43 +3782,43 @@
     (dnp no)
     (uuid "663bed7b-2ce3-5064-aa91-b3b7ce2fef8e")
     (property "Reference" "R_TS"
-      (at 166.37 163.83 0)
+      (at 209.55 163.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "10k 1%"
-      (at 166.37 166.37 0)
+      (at 209.55 166.37 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-      (at 165.1 170.18 0)
+      (at 208.28 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 165.1 170.18 0)
+      (at 208.28 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 165.1 170.18 0)
+      (at 208.28 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "SLUSBC8C p.5: no NTC -> 10k"
-      (at 165.1 170.18 0)
+      (at 208.28 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C25744"
-      (at 165.1 170.18 0)
+      (at 208.28 170.18 0)
       (hide yes)
       (effects
         (font
@@ -3740,41 +3834,41 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 210.82 166.37)
-      (xy 210.82 163.83))
+      (xy 254 166.37)
+      (xy 254 163.83))
     (stroke
       (width 0)
       (type default))
-    (uuid "fa13b625-43f2-5796-a987-e93594dffa2f"))
+    (uuid "5bbbe90f-6c58-5fb2-a68d-ccbb12fc6047"))
   (global_label "V5_RX"
     (shape passive)
-    (at 210.82 163.83 90)
+    (at 254 163.83 90)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "d91cd9a5-4847-59e2-9d11-2f1940328d33"))
+    (uuid "7c7f7d96-f6bc-5d29-8cf6-12eeffbb9216"))
   (wire
     (pts
-      (xy 210.82 173.99)
-      (xy 210.82 176.53))
+      (xy 254 173.99)
+      (xy 254 176.53))
     (stroke
       (width 0)
       (type default))
-    (uuid "ed0e9b90-0648-577f-9d57-ada2cc70b1bb"))
+    (uuid "7ce39fd2-5fba-52bd-8f91-22a7ddbe5857"))
   (global_label "V5_CHG"
     (shape passive)
-    (at 210.82 176.53 270)
+    (at 254 176.53 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "99938a39-0efd-51bb-9f11-6664dfaccae8"))
+    (uuid "7fef1480-f5ec-5985-8805-2d0fbb83b2e7"))
   (symbol
     (lib_id "Device:R")
-    (at 210.82 170.18 0)
+    (at 254 170.18 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
@@ -3782,43 +3876,43 @@
     (dnp no)
     (uuid "2451b262-baa8-5a3c-869a-c416b80efa6b")
     (property "Reference" "JP1"
-      (at 212.09 163.83 0)
+      (at 255.27 163.83 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "0R"
-      (at 212.09 166.37 0)
+      (at 255.27 166.37 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-      (at 210.82 170.18 0)
+      (at 254 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 210.82 170.18 0)
+      (at 254 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 210.82 170.18 0)
+      (at 254 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "v1: Qi->charger section link"
-      (at 210.82 170.18 0)
+      (at 254 170.18 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" "C21189"
-      (at 210.82 170.18 0)
+      (at 254 170.18 0)
       (hide yes)
       (effects
         (font
@@ -3834,24 +3928,24 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 256.54 165.1)
-      (xy 256.54 167.64))
+      (xy 297.18 165.1)
+      (xy 297.18 167.64))
     (stroke
       (width 0)
       (type default))
-    (uuid "9e72ae17-b30e-50b9-bcfe-ac51b202db52"))
+    (uuid "570ed26d-f662-5342-865d-4f740b9bd5ed"))
   (global_label "VRECT"
     (shape passive)
-    (at 256.54 167.64 270)
+    (at 297.18 167.64 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "a6025a33-5845-5ae2-9a2e-4dee83c90a07"))
+    (uuid "5077b44a-1522-5e4d-b9f7-3f8c07230608"))
   (symbol
     (lib_id "Connector:TestPoint")
-    (at 256.54 165.1 0)
+    (at 297.18 165.1 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom no)
@@ -3859,43 +3953,43 @@
     (dnp no)
     (uuid "4626295e-2aa5-5dd8-ae61-e365a0df6565")
     (property "Reference" "TP1"
-      (at 257.81 162.56 0)
+      (at 298.45 162.56 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "VRECT"
-      (at 257.81 165.1 0)
+      (at 298.45 165.1 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-      (at 256.54 165.1 0)
+      (at 297.18 165.1 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 256.54 165.1 0)
+      (at 297.18 165.1 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 256.54 165.1 0)
+      (at 297.18 165.1 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "v1 dev board: test pad"
-      (at 256.54 165.1 0)
+      (at 297.18 165.1 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" ""
-      (at 256.54 165.1 0)
+      (at 297.18 165.1 0)
       (hide yes)
       (effects
         (font
@@ -3909,88 +4003,13 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 299.72 165.1)
-      (xy 299.72 167.64))
-    (stroke
-      (width 0)
-      (type default))
-    (uuid "184a8c3c-ea2e-5b25-b965-d40cff0d477b"))
-  (global_label "V5_RX"
-    (shape passive)
-    (at 299.72 167.64 270)
-    (fields_autoplaced yes)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify right))
-    (uuid "00ee8fd4-7c3d-5c12-9949-4f433cc6680c"))
-  (symbol
-    (lib_id "Connector:TestPoint")
-    (at 299.72 165.1 0)
-    (unit 1)
-    (exclude_from_sim no)
-    (in_bom no)
-    (on_board yes)
-    (dnp no)
-    (uuid "24125a40-6136-566b-ae0c-7ae2379c9a25")
-    (property "Reference" "TP2"
-      (at 300.99 162.56 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Value" "V5_RX"
-      (at 300.99 165.1 0)
-      (effects
-        (font
-          (size 1.27 1.27))
-        (justify left)))
-    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-      (at 299.72 165.1 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Datasheet" ""
-      (at 299.72 165.1 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "MPN" ""
-      (at 299.72 165.1 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Source" "v1 dev board: test pad"
-      (at 299.72 165.1 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "LCSC" ""
-      (at 299.72 165.1 0)
-      (hide yes)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (pin "1"
-      (uuid "98d03177-700b-55f1-a163-f9b17ae153a8"))
-    (instances
-      (project "card_v1"
-        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
-          (reference "TP2")
-          (unit 1)))))
-  (wire
-    (pts
       (xy 342.9 165.1)
       (xy 342.9 167.64))
     (stroke
       (width 0)
       (type default))
     (uuid "1441d03c-0c30-5378-9337-d1c89cf630f4"))
-  (global_label "AC1"
+  (global_label "V5_RX"
     (shape passive)
     (at 342.9 167.64 270)
     (fields_autoplaced yes)
@@ -3998,7 +4017,7 @@
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "b1ba2eb3-fa1b-503e-9a4f-d9f952eaa594"))
+    (uuid "87a170b3-32a9-5ffa-bc02-f767baea48d7"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 342.9 165.1 0)
@@ -4007,14 +4026,14 @@
     (in_bom no)
     (on_board yes)
     (dnp no)
-    (uuid "6cb99f8c-fd43-5af1-953b-ef628527bc63")
-    (property "Reference" "TP3"
+    (uuid "24125a40-6136-566b-ae0c-7ae2379c9a25")
+    (property "Reference" "TP2"
       (at 344.17 162.56 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "AC1"
+    (property "Value" "V5_RX"
       (at 344.17 165.1 0)
       (effects
         (font
@@ -4051,11 +4070,11 @@
         (font
           (size 1.27 1.27))))
     (pin "1"
-      (uuid "a8cc9ad4-e5b1-5007-b575-13a37c7368bf"))
+      (uuid "98d03177-700b-55f1-a163-f9b17ae153a8"))
     (instances
       (project "card_v1"
         (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
-          (reference "TP3")
+          (reference "TP2")
           (unit 1)))))
   (wire
     (pts
@@ -4065,7 +4084,7 @@
       (width 0)
       (type default))
     (uuid "58da4b71-6045-5087-ba96-0c42c9da428f"))
-  (global_label "AC2"
+  (global_label "AC1"
     (shape passive)
     (at 35.56 203.2 270)
     (fields_autoplaced yes)
@@ -4073,7 +4092,7 @@
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "08bc989f-cab9-5161-9c31-ef599d14800f"))
+    (uuid "dcacb178-086b-5a3d-b0c4-894f03aa2661"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 35.56 200.66 0)
@@ -4082,14 +4101,14 @@
     (in_bom no)
     (on_board yes)
     (dnp no)
-    (uuid "31c0acdd-6ad6-5eeb-bcce-eda374c7ac28")
-    (property "Reference" "TP4"
+    (uuid "6cb99f8c-fd43-5af1-953b-ef628527bc63")
+    (property "Reference" "TP3"
       (at 36.83 198.12 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Value" "AC2"
+    (property "Value" "AC1"
       (at 36.83 200.66 0)
       (effects
         (font
@@ -4126,6 +4145,81 @@
         (font
           (size 1.27 1.27))))
     (pin "1"
+      (uuid "a8cc9ad4-e5b1-5007-b575-13a37c7368bf"))
+    (instances
+      (project "card_v1"
+        (path "/99d9383c-4fa2-5112-89de-79f17ee5fe91/38e2c43f-2673-5bc8-80a8-211bb6424b40"
+          (reference "TP3")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 76.2 200.66)
+      (xy 76.2 203.2))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "383b5e43-eaeb-59c2-8058-1f6d053705fa"))
+  (global_label "AC2"
+    (shape passive)
+    (at 76.2 203.2 270)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right))
+    (uuid "d3f4508a-7cd1-5ff3-aea5-9e5545a50d79"))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 76.2 200.66 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "31c0acdd-6ad6-5eeb-bcce-eda374c7ac28")
+    (property "Reference" "TP4"
+      (at 77.47 198.12 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Value" "AC2"
+      (at 77.47 200.66 0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 76.2 200.66 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Datasheet" ""
+      (at 76.2 200.66 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "MPN" ""
+      (at 76.2 200.66 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Source" "v1 dev board: test pad"
+      (at 76.2 200.66 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "LCSC" ""
+      (at 76.2 200.66 0)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (pin "1"
       (uuid "ef75d18f-a0a8-5ae9-a8bc-3542e8bd74eb"))
     (instances
       (project "card_v1"
@@ -4134,24 +4228,24 @@
           (unit 1)))))
   (wire
     (pts
-      (xy 78.74 200.66)
-      (xy 78.74 203.2))
+      (xy 119.38 200.66)
+      (xy 119.38 203.2))
     (stroke
       (width 0)
       (type default))
-    (uuid "498bc4d6-b0ad-5aec-a618-b0def9309143"))
+    (uuid "57743195-e76a-54ed-a256-b93dee25fbfb"))
   (global_label "RXCHG"
     (shape passive)
-    (at 78.74 203.2 270)
+    (at 119.38 203.2 270)
     (fields_autoplaced yes)
     (effects
       (font
         (size 1.27 1.27))
       (justify right))
-    (uuid "3821ac77-723a-5fb3-b8ac-e1871f66a527"))
+    (uuid "14d9d10a-d50f-53e2-a809-b3030ed5d6dc"))
   (symbol
     (lib_id "Connector:TestPoint")
-    (at 78.74 200.66 0)
+    (at 119.38 200.66 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom no)
@@ -4159,43 +4253,43 @@
     (dnp no)
     (uuid "6314e844-9c37-5f7a-8725-4bdaeccddae1")
     (property "Reference" "TP5"
-      (at 80.01 198.12 0)
+      (at 120.65 198.12 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Value" "RXCHG"
-      (at 80.01 200.66 0)
+      (at 120.65 200.66 0)
       (effects
         (font
           (size 1.27 1.27))
         (justify left)))
     (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-      (at 78.74 200.66 0)
+      (at 119.38 200.66 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Datasheet" ""
-      (at 78.74 200.66 0)
+      (at 119.38 200.66 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "MPN" ""
-      (at 78.74 200.66 0)
+      (at 119.38 200.66 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "Source" "v1 dev board: test pad"
-      (at 78.74 200.66 0)
+      (at 119.38 200.66 0)
       (hide yes)
       (effects
         (font
           (size 1.27 1.27))))
     (property "LCSC" ""
-      (at 78.74 200.66 0)
+      (at 119.38 200.66 0)
       (hide yes)
       (effects
         (font

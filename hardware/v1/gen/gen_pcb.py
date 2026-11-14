@@ -38,8 +38,8 @@ RF_W = min((round(w, 2) for w in [x / 100 for x in range(20, 80)]),
 board = pcbnew.NewBoard(PCB)
 ds = board.GetDesignSettings()
 ds.SetBoardThickness(mm(0.4))
-ds.m_TrackMinWidth = mm(0.1); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm(0.25)
-ds.m_MinThroughDrill = mm(0.15); ds.m_HoleClearance = mm(0.2); ds.m_CopperEdgeClearance = mm(0.3)
+ds.m_TrackMinWidth = mm(0.09); ds.m_MinClearance = mm(0.1); ds.m_ViasMinSize = mm(0.25)
+ds.m_MinThroughDrill = mm(0.15); ds.m_HoleClearance = mm(0.15); ds.m_CopperEdgeClearance = mm(0.3)
 ds.m_HoleToHoleMin = mm(0.25); ds.m_ViasMinAnnularWidth = mm(0.05)
 nc = ds.m_NetSettings
 nc.ClearNetclassPatternAssignments()
@@ -193,7 +193,7 @@ P('ROS1', 76.5, 14.7, 'E'); P('ROS2', 74.4, 14.7, 'E')
 for i, ref in enumerate(['C9a', 'C9b', 'C9c']):
     P(ref, 79.3 + i * 1.05, 22.35, 'S')
 P('C11', 79.4, 19.65, 'W'); P('C11b', 79.4, 18.65, 'W')
-P('JP1', 82.3, 19.2, 'N')
+P('JP1', 82.3, 19.2, 'N'); P('C9d', 82.9, 22.75, 'S')
 for i, ref in enumerate(['TP3', 'TP4', 'TP1', 'TP2', 'TP5']):
     P(ref, 72.2 + i * 2.15, 12.0)
 
@@ -388,7 +388,7 @@ via('GND', y1g2[0] + 0.85, y1g2[1]); track('GND', [y1g2, (y1g2[0] + 0.85, y1g2[1
 # DECRF (pin 33): boxed in by C25 ground and the crystal; small via (4-layer class) and bottom run to the DECA node
 p33 = pp('U5', '33'); va = (p33[0] + 0.05, 16.25); vb = (c30[0] - 0.15, c30[1] - 0.5)
 track('DECA', [p33, (p33[0], 16.4), va], 0.15); via('DECA', va[0], va[1], 0.3, 0.15)
-track('DECA', [va, (61.4, va[1]), (vb[0], vb[1] - 0.9), vb], 0.2, 'B.Cu')
+track('DECA', [va, (va[0], 16.62), (61.6, 16.62), (vb[0], vb[1] - 0.5), vb], 0.2, 'B.Cu')   # crosses XC1/XC2 at right angles only (DevZone 127617)
 via('DECA', vb[0], vb[1], 0.3, 0.15); track('DECA', [vb, c30], 0.2)
 # VDD_NRF trunk on B.Cu: JP4 -> J3 (PPK2) -> J4 (SWD VTref) -> TP17, and JP4 -> C22 / pin 22 at the MCU
 jp4, j3, j4, tp17, c22, p22 = pp('JP4', '2'), pp('J3', '2'), pp('J4', '1'), pp('TP17', '1'), pp('C22', '1'), pp('U5', '22')
@@ -403,12 +403,32 @@ track('VDD_NRF', [v4, (v4[0] - 1.0, v4[1] + 1.0), (vt[0] + 0.0, vt[1] - 8.0), vt
 track('VDD_NRF', [vj, (51.3, vj[1]), (vc[0], vj[1] + 3.42), vc], 0.3, 'B.Cu')
 c20g = pp('C20', '2'); via('GND', c20g[0], c20g[1] + 0.7); track('GND', [c20g, (c20g[0], c20g[1] + 0.7)], 0.25)
 c31g = pp('C31', '2'); via('GND', c31g[0] - 0.62, c31g[1]); track('GND', [c31g, (c31g[0] - 0.62, c31g[1])], 0.25)
+# VDD_NRF local ring: each VDD pin to its decap on top, decaps dropped to a B.Cu ring around U5
+p10, p36, c20a, c23a, c17a = pp('U5', '10'), pp('U5', '36'), pp('C20', '1'), pp('C23', '1'), pp('C17', '1')
+track('VDD_NRF', [(p10[0], p10[1] + 0.1), (p10[0], c20a[1] - 0.3), c20a], 0.2)
+track('VDD_NRF', [(p36[0], 16.6), c23a], 0.2)   # pin 36 + C23: no room for a via on 2 layers -> manual/4-layer link (see MORNING_REPORT)
+track('VDD_NRF', [(p48[0] + 0.15, p48[1]), (p48[0] + 0.55, p48[1]), (p48[0] + 0.65, c21[1]), c21], 0.2)
+track('VDD_NRF', [(p47[0] + 0.15, p47[1]), (p47[0] + 0.4, p47[1] + 0.15), (p48[0] + 0.55, p48[1])], 0.15)
+track('VDD_NRF', [c21, (c21[0], c21[1] + 0.55), (c17a[0], c17a[1] - 0.25), c17a], 0.2)
+v20 = (c20a[0] - 0.8, c20a[1] + 0.22); via('VDD_NRF', *v20); track('VDD_NRF', [c20a, v20], 0.2)
+v21 = (c21[0] - 0.45, c21[1] + 0.9); via('VDD_NRF', *v21); track('VDD_NRF', [(c21[0], c21[1] + 0.55), v21], 0.2)
+track('VDD_NRF', [vc, (vc[0], v20[1] - 1.45), v20], 0.25, 'B.Cu')
+track('VDD_NRF', [v20, (v20[0] + 0.3, v20[1] + 0.3), (v21[0] - 0.6, v20[1] + 0.3), v21], 0.25, 'B.Cu')
+# U1 same-net ball strings (deterministic; TI: lowest resistance on AC and OUT)
+for balls, n_ in ((('B1', 'B2'), 'AC2'), (('B3', 'B4'), 'AC1'),
+                  (('A1', 'A2', 'A3', 'A4'), 'GND'), (('C2', 'C3'), 'VRECT')):
+    track(n_, [pp('U1', b_) for b_ in balls], 0.2)
+# U1 AD/EN1/EN2 (G4, G3, G2) are GND: string them and drop a via outside the array
+g4 = pp('U1', 'G4'); track('GND', [pp('U1', 'G2'), pp('U1', 'G3'), g4], 0.2)
+via('GND', g4[0] + 0.6, g4[1] + 0.4); track('GND', [g4, (g4[0] + 0.6, g4[1] + 0.4)], 0.2)
+# U4 (DQN) thermal pad to GND pin 2 on top; TI: no via under the DQN thermal pad
+track('GND', [pp('U4', '5'), pp('U4', '2')], 0.2)
 # EP ground vias (QFN48 thermal/ground, 3 x 3, 0.25 drill)
 for i in (-1, 0, 1):
     for j in (-1, 0, 1):
         via('GND', UX + i * 1.2, UY + j * 1.2)
 # U1 via-in-pad on the 5 enclosed balls (JLC 4-layer BGA guide: 0.15 drill / 0.25 copper)
-for ball, n_ in (('C2', 'VRECT'), ('C3', 'VRECT'), ('E2', 'CLAMP2'), ('E3', 'CLAMP1'), ('F2', 'FOD')):
+for ball, n_ in (('C2', 'VRECT'), ('C3', 'VRECT'), ('E2', 'CLAMP2'), ('E3', 'CLAMP1'), ('F2', 'FOD'), ('D2', 'V5_RX')):
     x_, y_ = pp('U1', ball); via(n_, x_, y_, 0.25, 0.15)
 # GND via beside every GND pad of small parts (pours on both layers), searching outward
 GND_SKIP = {'C25', 'C26', 'AE1', 'U5', 'U1', 'TP23', 'TP24', 'TP25'}
