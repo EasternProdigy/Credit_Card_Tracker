@@ -25,3 +25,5 @@
 - **S-82N1B variant: S-82N1BAA (VCU 4.310 V).** ABLIC lists no 4.20 V part, and a protector set at the charger's own 4.20 V would nuisance-trip. The protector is a backup above the charger.
 - **S-82N1B PS pin to VSS through a 0R and a test pad.** A GPIO ship mode doesn't work directly because VPSH = 0.9·VDD.
 - **v1 RF match follows Nordic's QFN48 config 1** (2.7 nH, 3.5 nH ×2, 1.5 pF, 2.0 pF), not the CSP values. Topology is pending the Nordic figure.
+- **Q1 = onsemi EFC4615R-TR** (LCSC C605382). Common drain, 0.37 mm tall, 33 mOhm typical source-to-source at 3.1 V gate, 1000 in stock at JLC. Backup: EFC4626R (0.20 mm, 45 mOhm, 150 in stock). Discharge overcurrent then trips at about 0.9 to 1.2 A.
+- **Nordic QFN48 config 1 adopted for v1** (Dwayne approved): Nordic's 50 Ohm RF match, then our IFA L-match as a second stage with DNP full pi pads; 0603 4.7 uH DC/DC inductor; 2016 32 MHz crystal.

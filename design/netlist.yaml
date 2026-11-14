@@ -59,8 +59,8 @@ components:
   - {ref: C29, value: "100nF", pins: {"1": PROT_VDD, "2": BT_NEG}}
   - {ref: R6, value: "2k", pins: {"1": PROT_VM, "2": PACK_NEG}}
   - ref: Q1
-    part: "Dual NMOS common-drain CSP (O6)"
-    pins: {S1: BT_NEG, G1: DO_GATE, S2: PACK_NEG, G2: CO_GATE, D: Q1_DRAIN}
+    part: "onsemi EFC4615R-TR (LCSC C605382), common drain, 0.37 mm"
+    pins: {S1: BT_NEG, G1: DO_GATE, S2: PACK_NEG, G2: CO_GATE}
   - {ref: NT1, part: "net tie", pins: {"1": PACK_NEG, "2": GND}}
   - {ref: NT2, part: "net tie", pins: {"1": VCELL, "2": VBAT}}
 
