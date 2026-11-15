@@ -438,7 +438,7 @@
 		(path "/38e2c43f-2673-5bc8-80a8-211bb6424b40/dce8e513-903d-516f-ba60-e01cd3cb55fa")
 		(sheetname "qi_rx")
 		(sheetfile "qi_rx.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.14058 0.51)
@@ -3765,7 +3765,7 @@
 		(path "/38e2c43f-2673-5bc8-80a8-211bb6424b40/30cbcc8a-9a06-51c8-a7f6-02ba138d1327")
 		(sheetname "qi_rx")
 		(sheetfile "qi_rx.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.153641 0.38)
@@ -10034,7 +10034,7 @@
 		(path "/35976e68-aac0-5f4b-af3e-9bbd7082547a/114672a5-2650-5d3f-bf7f-58acaa718ffb")
 		(sheetname "power_sense")
 		(sheetfile "power_sense.kicad_sch")
-		(attr through_hole dnp)
+		(attr through_hole exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -1.38)
@@ -10301,7 +10301,7 @@
 		(path "/0700cb01-a2c7-5049-a890-388c85bb0339/71957458-47c8-5d20-bbe3-6c6209c03c8f")
 		(sheetname "debug_nfc")
 		(sheetfile "debug_nfc.kicad_sch")
-		(attr through_hole dnp)
+		(attr through_hole exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -1.38)
@@ -11791,7 +11791,7 @@
 		(path "/1f9557c9-c6a9-5847-877d-90f4f4105d5c/f54bdc0e-6024-5a44-a2e9-9e60532eba6b")
 		(sheetname "rf_antenna")
 		(sheetfile "rf_antenna.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_pos_files exclude_from_bom)
 		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -11950,7 +11950,7 @@
 		(path "/2a13a99b-5dc4-5c82-9bbb-896e2bedce96/7bd51926-d6a7-5def-b166-6aa9b3094d81")
 		(sheetname "battery_protect")
 		(sheetfile "battery_protect.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.5 -2)
@@ -12229,7 +12229,7 @@
 		(path "/3ad1681f-80c6-51ff-bd7f-ad65b0804f63/3086dd21-48ed-5ed6-813f-55bfe9f98ed0")
 		(sheetname "charger")
 		(sheetfile "charger.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.153641 0.38)
@@ -17584,7 +17584,7 @@
 		(path "/1f9557c9-c6a9-5847-877d-90f4f4105d5c/0954f973-b459-50f3-ba1b-2d5bbf57f49c")
 		(sheetname "rf_antenna")
 		(sheetfile "rf_antenna.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
 			(start -0.7 -0.35)
@@ -18268,7 +18268,7 @@
 		(path "/38e2c43f-2673-5bc8-80a8-211bb6424b40/4d024d55-f112-542a-8eeb-050170ec8aa2")
 		(sheetname "qi_rx")
 		(sheetfile "qi_rx.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.14058 0.51)
@@ -19426,7 +19426,7 @@
 		(path "/0700cb01-a2c7-5049-a890-388c85bb0339/026842da-6732-524a-a367-96cfd9502c98")
 		(sheetname "debug_nfc")
 		(sheetfile "debug_nfc.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.107836 -0.36)
@@ -20390,7 +20390,7 @@
 		(path "/38e2c43f-2673-5bc8-80a8-211bb6424b40/7ef82d65-35f5-5073-a5ed-1472dd05b04a")
 		(sheetname "qi_rx")
 		(sheetfile "qi_rx.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
 			(center 0 -15)
@@ -21206,7 +21206,7 @@
 		(path "/38e2c43f-2673-5bc8-80a8-211bb6424b40/b1752076-14c2-5a99-bce3-6723cc45db28")
 		(sheetname "qi_rx")
 		(sheetfile "qi_rx.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.153641 -0.38)
@@ -21813,7 +21813,7 @@
 		(path "/0700cb01-a2c7-5049-a890-388c85bb0339/ac91e2cb-60d8-5430-8adf-d418ba062452")
 		(sheetname "debug_nfc")
 		(sheetfile "debug_nfc.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.107836 -0.36)
@@ -23591,7 +23591,7 @@
 		(path "/2a13a99b-5dc4-5c82-9bbb-896e2bedce96/d518ded5-eec0-5f86-99b2-96ab8e06e870")
 		(sheetname "battery_protect")
 		(sheetfile "battery_protect.kicad_sch")
-		(attr through_hole dnp)
+		(attr through_hole exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -1.38)

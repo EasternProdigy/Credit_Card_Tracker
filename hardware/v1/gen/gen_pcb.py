@@ -93,6 +93,7 @@ for c in D.C:
     f.SetSheetname(c['sheet']); f.SetSheetfile(c['sheet'] + '.kicad_sch')
     if c['dnp']: f.SetDNP(True)
     if c['sym'] == 'Connector:TestPoint': f.SetExcludedFromBOM(True)
+    if c['dnp'] or c['ref'] in D.NOFAB: f.SetExcludedFromBOM(True); f.SetExcludedFromPosFiles(True)
     for k, v in (('MPN', c['mpn']), ('Source', c['src']), ('LCSC', lcsc.get(c['ref'], ''))):
         f.SetField(k, v or ''); f.GetField(k).SetVisible(False)
     padnames = {p.GetNumber() for p in f.Pads()}

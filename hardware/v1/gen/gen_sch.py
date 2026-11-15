@@ -152,7 +152,7 @@ def build_sheet(sheet, comps, lcsc, page_w=400):
             props.append([S('property'), 'LCSC', lcsc.get(ref, ''), [S('at'), sx, sy, 0], HIDE, FONT])
         dnp = bool(c.get('dnp'))
         sym = [S('symbol'), [S('lib_id'), full], [S('at'), sx, sy, 0], [S('unit'), 1],
-               [S('exclude_from_sim'), S('no')], [S('in_bom'), S('no' if (c.get('flag') or c['sym'] == 'Connector:TestPoint') else 'yes')],
+               [S('exclude_from_sim'), S('no')], [S('in_bom'), S('no' if (c.get('flag') or c['sym'] == 'Connector:TestPoint' or dnp or ref in D.NOFAB) else 'yes')],
                [S('on_board'), S('no' if c.get('flag') else 'yes')], [S('dnp'), S('yes' if dnp else 'no')],
                [S('uuid'), U('sym', ref)]] + props
         for num in sorted({p[0] for p in pins}):

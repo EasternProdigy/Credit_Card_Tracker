@@ -115,6 +115,10 @@ FP = {
 }
 
 # ---------------------------------------------------------------- components
+# Parts JLC assembly does not place: AE1 is printed copper, BT1 is bare cell tabs, L1 is a flying-lead coil
+# (hand-soldered). Excluded from the KiCad BOM and position files with the DNP parts (2026-11-15 pre-order pass).
+NOFAB = {'AE1', 'BT1', 'L1'}
+
 # dict(ref, sheet, sym, value, fp, pins{pin:net}, dnp, mpn, src, dev)
 # sym: 'Device:R' etc. or 'custom:<name>'
 C = []
