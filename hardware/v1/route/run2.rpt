@@ -1,8 +1,8 @@
 ** Drc report for run2.kicad_pcb **
-** Created on 2026-11-14T19:02:04 **
+** Created on 2026-11-15T00:37:23 **
 ** Report includes: Errors, Warnings **
 
-** Found 16 DRC violations **
+** Found 14 DRC violations **
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
@@ -51,23 +51,13 @@
     @(147.6000 mm, 113.9800 mm): Footprint Q1
 [track_dangling]: Track has unconnected end
     Local override; warning
-    @(162.5225 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9162 mm
-[via_dangling]: Via is not connected or connected on only one layer
-    Local override; warning
-    @(162.1000 mm, 135.5800 mm): Via [LED1] on F.Cu - B.Cu
-[track_dangling]: Track has unconnected end
-    Local override; warning
-    @(161.7313 mm, 129.6285 mm): Track [LED1] on B.Cu, length 0.6337 mm
+    @(162.5220 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9160 mm
 
-** Found 2 unconnected pads **
+** Found 1 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
     @(148.0200 mm, 131.2800 mm): Track [V5_CHG] on F.Cu, length 1.5200 mm
-    @(162.5225 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9162 mm
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(161.3419 mm, 129.2391 mm): Track [LED1] on B.Cu, length 0.5507 mm
-    @(161.6500 mm, 135.5800 mm): Track [LED1] on F.Cu, length 0.4500 mm
+    @(162.5220 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9160 mm
 
 ** Found 0 Footprint errors **
 

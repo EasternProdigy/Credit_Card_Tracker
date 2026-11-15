@@ -1,71 +1,7 @@
-2026-11-14 18:58:36.736 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
-2026-11-14 18:58:37.098 INFO   Hardware: 16 CPU cores, 399 CPU score, 3820 MB RAM
-2026-11-14 18:58:37.099 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
-2026-11-14 18:58:38.207 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
-2026-11-14 18:58:38.297 INFO   Opening '/home/williammezitis/Desktop/PCB/Credit_Card_Tracker/hardware/v1/gen/../route/card_v1.dsn'...
-2026-11-14 18:58:40.248 INFO   [05106D\8906FC] Loading board file 'card_v1.dsn'...
-2026-11-14 18:58:42.145 WARN   Design Warning: Board has 157 pre-existing clearance violation(s) in the loaded design (before routing):
-  - 157 unfixable violation(s) (cannot be resolved by Freerouting):
-      * 157 fixed trace/via clearance violations (first 5 shown):
-          - FixedVia#1298 [net DECA] <-> ObstacleArea#2
-          - FixedVia#1281 [net GND] <-> U5.49
-          - FixedVia#1280 [net GND] <-> C12.2
-          - FixedVia#1273 [net GND] <-> SW1.2
-          - FixedVia#1271 [net GND] <-> C30.2
-          ... and 152 more
-  - 0 potentially fixable violations
-Notice: Freerouting does not modify component placement, board outlines, or fixed items.
-Resolving these 157 unfixable violation(s) is the responsibility of the board author in their EDA tool (e.g. KiCad).
-2026-11-14 18:59:10.193 INFO   [05106D\8906FC] Starting routing of 'card_v1' on 4 threads...
-2026-11-14 18:59:10.567 INFO   [05106D\8906FC] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=4.
-2026-11-14 18:59:11.264 INFO   [05106D\8906FC] Fanout stage started on board 'e4603bd83f52f195a329556ce44783f9' with 212 of 315 SMD pins needing fanout (33 already connected, 70 netless).
-2026-11-14 18:59:25.738 INFO   [05106D\8906FC] Fanout pass #1 on board 'a972be3e8023b18369f0d53157eef4e7' completed in 14.34 seconds with 119 SMD pins fanouted, 63 not routed, 0 insert errors, +12 extra vias (0 SMD pins still to check in pass, ripup costs=100).
-2026-11-14 18:59:29.082 INFO   [05106D\8906FC] Fanout pass #2 on board 'a5fed85c0b7ecd6ecfbf722748ca5cca' completed in 3.31 seconds with 24 SMD pins fanouted, 40 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=200).
-2026-11-14 18:59:29.764 INFO   [05106D\8906FC] Fanout pass #3 on board 'a5fed85c0b7ecd6ecfbf722748ca5cca' completed in 0.64 seconds with 23 SMD pins fanouted, 10 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=300).
-2026-11-14 18:59:29.829 INFO   [05106D\8906FC] Fanout stage completed: started with 245 total SMD pins, completed in 18.47 seconds, escaped pins: 165/245 (67.3%), using 8.88 total CPU seconds, 1.70 GB total allocated, and 372.6 MB peak heap usage.
-2026-11-14 18:59:30.421 INFO   [05106D\8906FC] Auto-routing stage started on board 'a5fed85c0b7ecd6ecfbf722748ca5cca' with baseline score 518.25 for 62 unrouted items.
-2026-11-14 19:00:29.950 INFO   [05106D\8906FC] Auto-routing pass #1 on board 'a5fed85c0b7ecd6ecfbf722748ca5cca' was completed in 59.32 seconds with score 762.06 (30 unrouted and 157 violations), using 58.32 CPU seconds and the job allocated 14.26 GB of memory so far.
-2026-11-14 19:00:58.818 INFO   [05106D\8906FC] Auto-routing pass #2 on board 'e10dadd5dae543860c90f4f5496b82b2' was completed in 28.58 seconds with score 845.87 (19 unrouted and 157 violations), using 85.52 CPU seconds and the job allocated 21.68 GB of memory so far.
-2026-11-14 19:01:16.913 INFO   [05106D\8906FC] Auto-routing pass #3 on board '08b412dc019d835c063fe07bc1da33bf' was completed in 17.72 seconds with score 899.21 (12 unrouted and 157 violations), using 102.45 CPU seconds and the job allocated 26.16 GB of memory so far.
-2026-11-14 19:01:23.908 INFO   [05106D\8906FC] Auto-routing pass #4 on board '4197f3ce40fe92f5f66cee157328482b' was completed in 6.78 seconds with score 937.30 (7 unrouted and 157 violations), using 109.00 CPU seconds and the job allocated 27.84 GB of memory so far.
-2026-11-14 19:01:25.916 INFO   [05106D\8906FC] Auto-routing pass #5 on board 'a91e225c71def6e2c2886092ca55b11c' was completed in 1.71 seconds with score 944.92 (6 unrouted and 157 violations), using 110.88 CPU seconds and the job allocated 28.15 GB of memory so far.
-2026-11-14 19:01:27.759 INFO   [05106D\8906FC] Auto-routing pass #6 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.56 seconds with score 944.92 (6 unrouted and 157 violations), using 112.64 CPU seconds and the job allocated 28.45 GB of memory so far.
-2026-11-14 19:01:29.390 INFO   [05106D\8906FC] Auto-routing pass #7 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.55 seconds with score 944.92 (6 unrouted and 157 violations), using 113.61 CPU seconds and the job allocated 28.63 GB of memory so far.
-2026-11-14 19:01:30.721 INFO   [05106D\8906FC] Auto-routing pass #8 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.26 seconds with score 944.92 (6 unrouted and 157 violations), using 115.51 CPU seconds and the job allocated 28.98 GB of memory so far.
-2026-11-14 19:01:32.376 INFO   [05106D\8906FC] Auto-routing pass #9 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.58 seconds with score 944.92 (6 unrouted and 157 violations), using 116.45 CPU seconds and the job allocated 29.13 GB of memory so far.
-2026-11-14 19:01:33.947 INFO   [05106D\8906FC] Auto-routing pass #10 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.50 seconds with score 944.92 (6 unrouted and 157 violations), using 118.36 CPU seconds and the job allocated 29.43 GB of memory so far.
-2026-11-14 19:01:35.118 INFO   [05106D\8906FC] Auto-routing pass #11 on board 'ad4a427cbd65d85a6c29c552fe569478' was completed in 1.11 seconds with score 944.92 (6 unrouted and 157 violations), using 119.34 CPU seconds and the job allocated 29.62 GB of memory so far.
-2026-11-14 19:01:36.793 INFO   [05106D\8906FC] Auto-routing pass #12 on board '95475f9436491d6f3e67f96b97940ca2' was completed in 1.31 seconds with score 944.92 (6 unrouted and 157 violations), using 121.30 CPU seconds and the job allocated 30.02 GB of memory so far.
-2026-11-14 19:01:38.422 INFO   [05106D\8906FC] Auto-routing pass #13 on board '95475f9436491d6f3e67f96b97940ca2' was completed in 1.56 seconds with score 944.92 (6 unrouted and 157 violations), using 122.24 CPU seconds and the job allocated 30.18 GB of memory so far.
-2026-11-14 19:01:39.881 INFO   [05106D\8906FC] Auto-routing pass #14 on board '95475f9436491d6f3e67f96b97940ca2' was completed in 1.38 seconds with score 944.92 (6 unrouted and 157 violations), using 124.17 CPU seconds and the job allocated 30.50 GB of memory so far.
-2026-11-14 19:01:40.159 INFO   [05106D\8906FC] Last-mile rip-up removed 4 blocking trace(s) or via(s) around 6 remaining connection(s).
-2026-11-14 19:01:42.710 INFO   [05106D\8906FC] Auto-routing pass #15 on board '0b3c6d3979bfae769bb614e749b05dbd' was completed in 2.31 seconds with score 944.92 (6 unrouted and 157 violations), using 127.09 CPU seconds and the job allocated 31.03 GB of memory so far.
-2026-11-14 19:01:44.379 INFO   [05106D\8906FC] Auto-routing pass #16 on board '9ad857d554ce58f3e4dd034a868afa2d' was completed in 1.38 seconds with score 944.92 (6 unrouted and 157 violations), using 128.05 CPU seconds and the job allocated 31.20 GB of memory so far.
-2026-11-14 19:01:45.526 INFO   [05106D\8906FC] Auto-routing pass #17 on board '9ad857d554ce58f3e4dd034a868afa2d' was completed in 1.10 seconds with score 944.92 (6 unrouted and 157 violations), using 129.98 CPU seconds and the job allocated 31.58 GB of memory so far.
-2026-11-14 19:01:46.772 INFO   [05106D\8906FC] Auto-routing pass #18 on board '9ad857d554ce58f3e4dd034a868afa2d' was completed in 1.20 seconds with score 944.92 (6 unrouted and 157 violations), using 130.95 CPU seconds and the job allocated 31.78 GB of memory so far.
-2026-11-14 19:01:47.023 INFO   [05106D\8906FC] Last-mile rip-up removed 2 blocking trace(s) or via(s) around 6 remaining connection(s).
-2026-11-14 19:01:47.074 INFO   [05106D\8906FC] The router's best score (944.92) has not improved by more than 0.5 points since pass #8. Stopping the auto-router after 18 passes (6 items still unconnected).
-The following connections could not be routed -- please review your design (e.g. check pad clearances, trace width rules, and available routing space):
-  Net 'V5_CHG' (1 unrouted connection):
-    - C12-1  ->  via
-  Net 'DECA' (1 unrouted connection):
-    - C24-1  ->  C19-1
-  Net 'LED1' (1 unrouted connection):
-    - via  ->  U5-39
-  Net 'DECD' (1 unrouted connection):
-    - C18-1  ->  FB1-1
-  Net 'RF_A' (1 unrouted connection):
-    - C25-1  ->  L3-2
-  Net 'RF_B' (1 unrouted connection):
-    - C26-1  ->  L5-1
-  Net 'RF_MATCHED' (1 unrouted connection):
-    - C27-1  ->  L5-2
-  Net 'ANT_FEED' (1 unrouted connection):
-    - C28-1  ->  L6-2
-2026-11-14 19:01:48.227 INFO   [05106D\8906FC] Auto-routing stage completed: started with 141 unrouted nets, completed in 158.03 seconds, final score: 944.92 (6 unrouted and 157 violations), using 131.84 total CPU seconds, 31.98 GB total allocated, and 706.0 MB peak heap usage.
-2026-11-14 19:01:48.352 INFO   [05106D\8906FC] Starting optimization on 4 threads...
-2026-11-14 19:01:48.652 INFO   [05106D\8906FC] Skipping optimization stage: the board has 6 unrouted connection(s) (optimizer only runs on completely routed boards).
-2026-11-14 19:01:48.888 INFO   [05106D\8906FC] Optimization was completed in 0.54 seconds with the score of 944.92 (6 unrouted and 157 violations).
-2026-11-14 19:01:48.912 WARN   [05106D\8906FC] Invalid traces after autoroute: 39 traces not 45 degree
-2026-11-14 19:01:49.255 INFO   Saving '/home/williammezitis/Desktop/PCB/Credit_Card_Tracker/hardware/v1/gen/../route/run0.ses'...
-2026-11-14 19:01:49.309 INFO   Saved 74728 bytes to '/home/williammezitis/Desktop/PCB/Credit_Card_Tracker/hardware/v1/gen/../route/run0.ses'.
+2026-11-15 00:37:48.665 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-15 00:37:48.980 INFO   Hardware: 16 CPU cores, 398 CPU score, 3820 MB RAM
+2026-11-15 00:37:48.981 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-15 00:37:50.040 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-15 00:37:50.080 INFO   Opening '/home/williammezitis/Desktop/PCB/Credit_Card_Tracker/hardware/v1/gen/../route/card_v1.dsn'...
+2026-11-15 00:37:51.210 INFO   [BD4A5A\5FD3D3] Loading board file 'card_v1.dsn'...
+2026-11-15 00:37:51.982 WARN   DSN file 'card_v1.dsn' was loaded with 2 warning(s).
