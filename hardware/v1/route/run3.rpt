@@ -1,5 +1,5 @@
 ** Drc report for run3.kicad_pcb **
-** Created on 2026-11-15T00:37:25 **
+** Created on 2026-11-15T00:41:08 **
 ** Report includes: Errors, Warnings **
 
 ** Found 14 DRC violations **
@@ -56,7 +56,7 @@
 ** Found 1 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(148.0200 mm, 131.2800 mm): Pad 1 [V5_CHG] of C12 on F.Cu
+    @(148.0200 mm, 131.2800 mm): Track [V5_CHG] on F.Cu, length 1.5200 mm
     @(162.5220 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9160 mm
 
 ** Found 0 Footprint errors **
