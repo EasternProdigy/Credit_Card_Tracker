@@ -20,12 +20,13 @@ R = sys.argv[1]
 rows = [r for r in csv.DictReader(open(f'{R}/bom_v1_jlc.csv')) if r['DNP'] == 'no']
 with open(f'{R}/jlc/card_v1_bom_jlc.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Comment', 'Designator', 'Footprint', 'LCSC', 'MPN'])
-    for r in rows: w.writerow([r['Comment'], r['Designator'], r['Footprint'], r['LCSC'], r['MPN']])
+    asc = lambda t: t.encode('ascii', 'ignore').decode().strip()   # LCSC MPNs can carry CJK text; JLC's parser chokes
+    for r in rows: w.writerow([asc(r['Comment']), r['Designator'], asc(r['Footprint']), r['LCSC'], asc(r['MPN'])])
 with open(f'{R}/jlc/card_v1_cpl_jlc.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Designator', 'Val', 'Package', 'Mid X', 'Mid Y', 'Rotation', 'Layer'])
     placed = {d.strip() for r in rows for d in r['Designator'].split(',')}
     for r in csv.DictReader(open(f'{R}/card_v1_cpl.csv')):
         if r['Ref'] not in placed: continue          # e.g. TP19, a bare test pad: nothing to place
-        w.writerow([r['Ref'], r['Val'], r['Package'], r['PosX'] + 'mm', r['PosY'] + 'mm', r['Rot'], r['Side']])
+        w.writerow([r['Ref'], r['Val'], r['Package'], r['PosX'] + 'mm', r['PosY'] + 'mm', r['Rot'], r['Side'].capitalize()])
 print('jlc bom lines', len(rows))
 PY
