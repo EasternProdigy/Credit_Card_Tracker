@@ -53,3 +53,10 @@
 - **4.7 kΩ UART series resistors**, so an unpowered side is never back-fed by more than 0.57 mA. Cable VCC is not connected.
 - **Coil footprint changed to the Würth hole pattern** (2 × Ø1.2 mm, 5.0 mm). The overnight SMD lands were a guess. The keep-out radius grew from 13.0 to 13.45 mm, because the coil is Ø26.3 ± 0.3 mm (the old keep-out was smaller than the coil).
 - **Routing helpers:** small 0.3/0.15 escape vias are placed automatically for the new QFN pins (`postroute_v1.py`, `ESCAPES`); the tact-switch twin pads are linked under the body.
+
+## 2026-11-15: legend text size, and the v1 DRC rules file was not being applied
+- **Legend text ≥1.0 mm high, stroke ≥0.15 mm** on both silkscreens. JLC capabilities page, Legend table: text under 1.0 mm "will be unidentifiable". Enforced in `card_v1.kicad_dru` (`jlc_legend_front`, `jlc_legend_back`); artwork comes from `hardware/v1/gen/silk_v1.py`.
+- **`card_v1.kicad_dru` had been ignored by every DRC run.** Rule `thermal_spokes` (`min_resolved_spokes`) is invalid in KiCad 10, and kicad-cli silently drops the whole file. Removed. The net exemptions in `jlc_std_via` and `rf_gcpw_gap` used `A.Net`/`B.Net` (net number) and are now `A.NetName`/`B.NetName`. With the rules live, v1 has 0 errors.
+- **How to check the DRU loads:** append a rule forcing `via_diameter` min 3 mm and run DRC. A live file gives ~200 hits; a dead one gives none.
+- **J6 UART labels are from the board's side** (RXI/TXO), not the FTDI cable's (TXD/RXD), so any USB-UART adapter wires correctly.
+

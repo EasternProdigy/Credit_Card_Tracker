@@ -6,18 +6,28 @@
 # Exceptions at U5 (0.3/0.15): the DECRF/DECA vias and the pin 36 VDD via beside C23, the NFC1 / P1_06 escape vias at the top pad row,
 # and the C18 ground via between the DCC and DECD traces.
 (rule "jlc_std_via"
-  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.Net != 'DECA' && A.Net != 'NFC1' && A.Net != 'P1_06' && A.Net != 'LED0' && A.Net != 'LED1' && A.Net != 'BTN0' && A.Net != 'BTN1' && !(A.Net == 'GND' && A.intersectsCourtyard('C18')) && !(A.Net == 'VDD_NRF' && A.intersectsCourtyard('U5'))")
+  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.NetName != 'DECA' && A.NetName != 'NFC1' && A.NetName != 'P1_06' && A.NetName != 'LED0' && A.NetName != 'LED1' && A.NetName != 'BTN0' && A.NetName != 'BTN1' && !(A.NetName == 'GND' && A.intersectsCourtyard('C18')) && !(A.NetName == 'VDD_NRF' && A.intersectsCourtyard('U5'))")
   (constraint hole_size (min 0.25mm))
   (constraint via_diameter (min 0.5mm))
   (constraint annular_width (min 0.125mm)))
 (rule "rf_gcpw_gap"
-  (condition "A.NetClass == 'RF50' && B.Net == 'GND'")
+  (condition "A.NetClass == 'RF50' && B.NetName == 'GND'")
   (constraint clearance (min 0.15mm)))
 (rule "u1_via_in_pad_hole_clearance"
   (condition "A.intersectsCourtyard('U1') || B.intersectsCourtyard('U1')")
   (constraint hole_clearance (min 0.15mm)))
-(rule "thermal_spokes"
-  (constraint min_resolved_spokes (min 1)))
+# (removed 2026-11-15: rule "thermal_spokes" used min_resolved_spokes, which KiCad 10 rejects; one bad rule
+#  makes kicad-cli silently drop this whole file. Zone thermal spokes are set on the zones themselves.)
 (rule "jlc_hole_clearance"
   (condition "!A.intersectsCourtyard('U1') && !B.intersectsCourtyard('U1')")
   (constraint hole_clearance (min 0.2mm)))
+# JLC legend minimums (jlcpcb.com/capabilities/pcb-capabilities, Legend table, read 2026-11-15):
+# text under 1.0 mm high "will be unidentifiable"; stroke >= 0.15 mm.
+(rule "jlc_legend_front"
+  (layer "F.Silkscreen")
+  (constraint text_height (min 1.0mm))
+  (constraint text_thickness (min 0.15mm)))
+(rule "jlc_legend_back"
+  (layer "B.Silkscreen")
+  (constraint text_height (min 1.0mm))
+  (constraint text_thickness (min 0.15mm)))
