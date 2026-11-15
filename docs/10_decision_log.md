@@ -60,3 +60,8 @@
 - **How to check the DRU loads:** append a rule forcing `via_diameter` min 3 mm and run DRC. A live file gives ~200 hits; a dead one gives none.
 - **J6 UART labels are from the board's side** (RXI/TXO), not the FTDI cable's (TXD/RXD), so any USB-UART adapter wires correctly.
 
+## 2026-11-15: correction, JLC offers filled + capped vias on 4-layer
+- JLC's order page for this 4-layer board (Dwayne's screenshot, 2026-11-15) lists **Via Covering: Epoxy Filled & Capped** and **Copper paste Filled & Capped**. The 2026-11-14 note that POFV is 6-layer+ only is wrong for the current order form.
+- **Decision:** order v1 with **Epoxy Filled & Capped**, so the U1 via-in-pad is filled and plated over. This removes the solder-wicking risk in O22. The 0.225 mm BGA land vs JLC's 0.25 mm minimum is still for JLC's DFM to confirm ("Confirm Production file: Yes").
+- Order settings: 0.8 mm, ENIG, Specify Stackup JLC04081H-3313, layer sequence F/In1/In2/B, min via 0.15/(0.25/0.3), Standard PCBA, Confirm Parts Placement: Yes.
+
