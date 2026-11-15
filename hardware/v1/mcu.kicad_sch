@@ -1780,21 +1780,63 @@
   (no_connect
     (at 87.63 55.88)
     (uuid "76336ae2-a9bb-5d60-b113-a094b1ea3edf"))
-  (no_connect
-    (at 87.63 58.42)
-    (uuid "46374209-c4d9-5ca3-aea8-1b0bb4ae8a3e"))
+  (wire
+    (pts
+      (xy 87.63 58.42)
+      (xy 90.17 58.42))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "17913fe2-9b33-5561-8817-4368ad77b997"))
+  (global_label "BTN1"
+    (shape passive)
+    (at 90.17 58.42 0)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "fae46b0b-ca57-5ed6-8527-2fe664a168e2"))
   (no_connect
     (at 87.63 60.96)
     (uuid "e548ef64-c483-55b9-8605-d8c6bc3c68f9"))
-  (no_connect
-    (at 87.63 63.5)
-    (uuid "6021cb20-74c6-5d1e-9d51-6155d907f152"))
+  (wire
+    (pts
+      (xy 87.63 63.5)
+      (xy 90.17 63.5))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "e9177e34-ec0a-5e25-a463-d8ba4f88c2c0"))
+  (global_label "LED1"
+    (shape passive)
+    (at 90.17 63.5 0)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "36c9f386-d3af-5409-8db7-bb60675b1857"))
   (no_connect
     (at 87.63 66.04)
     (uuid "2ec3fb68-fcf8-583d-81f7-060838903233"))
-  (no_connect
-    (at 87.63 68.58)
-    (uuid "9a768d14-7f46-5a31-9891-a4b95584eadb"))
+  (wire
+    (pts
+      (xy 87.63 68.58)
+      (xy 90.17 68.58))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "a4075857-12c7-506f-98e3-52b2663edcb9"))
+  (global_label "BTN0"
+    (shape passive)
+    (at 90.17 68.58 0)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "5a78e194-29ae-54c1-8d08-7bb35e3ec371"))
   (no_connect
     (at 87.63 71.12)
     (uuid "40a6c8e5-75eb-5207-a5e8-8de7f7adff88"))
@@ -1816,9 +1858,23 @@
   (no_connect
     (at 87.63 86.36)
     (uuid "9f448366-9113-5f40-9c79-b3c4f0121e86"))
-  (no_connect
-    (at 87.63 88.9)
-    (uuid "7ab24e31-e43d-5d2c-9f4a-142bb26594e8"))
+  (wire
+    (pts
+      (xy 87.63 88.9)
+      (xy 90.17 88.9))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "e50cdbb5-fc63-5693-b449-4a5bb712f03e"))
+  (global_label "LED0"
+    (shape passive)
+    (at 90.17 88.9 0)
+    (fields_autoplaced yes)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e97e82cb-e007-53c4-b6c0-65906ec885c3"))
   (wire
     (pts
       (xy 87.63 91.44)
@@ -1853,7 +1909,7 @@
       (width 0)
       (type default))
     (uuid "a5b46a1d-1b15-5a99-80b2-9b3430bfa2c5"))
-  (global_label "P0_00"
+  (global_label "UART_TX"
     (shape passive)
     (at 90.17 101.6 0)
     (fields_autoplaced yes)
@@ -1861,7 +1917,7 @@
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "58bc864d-279e-5bd4-be37-3d9b87ff5138"))
+    (uuid "b4548e5a-b305-563d-87ff-558f88f53060"))
   (wire
     (pts
       (xy 87.63 104.14)
@@ -1870,7 +1926,7 @@
       (width 0)
       (type default))
     (uuid "9f4a84cb-3d6e-5571-b58e-b9f5c498b50d"))
-  (global_label "P0_01"
+  (global_label "UART_RX"
     (shape passive)
     (at 90.17 104.14 0)
     (fields_autoplaced yes)
@@ -1878,7 +1934,7 @@
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "cdc2f61c-5da5-507f-bfd8-e2e163e8fdde"))
+    (uuid "ea12d23b-b9d4-5d38-ac62-fd7e5f1a8c3a"))
   (no_connect
     (at 87.63 106.68)
     (uuid "deaa8553-2470-5f85-900e-cf84cd7245a4"))

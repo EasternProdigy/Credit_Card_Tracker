@@ -25,7 +25,7 @@
         (effects
           (font
             (size 1.27 1.27))))
-      (property "Footprint" "wallet_tracker:Wurth_760308101309_Lands"
+      (property "Footprint" "wallet_tracker:Wurth_760308101309_THT"
         (at 0 0 0)
         (hide yes)
         (effects
@@ -775,7 +775,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Footprint" "wallet_tracker:Wurth_760308101309_Lands"
+    (property "Footprint" "wallet_tracker:Wurth_760308101309_THT"
       (at 43.18 35.56 0)
       (hide yes)
       (effects

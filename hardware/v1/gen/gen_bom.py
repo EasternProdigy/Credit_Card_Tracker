@@ -78,6 +78,9 @@ SPECIAL = {
                                                  ('%120Ω@100MHz%',))]),
     '32MHz CL8pF': lambda: by_mpn('XRCGB32M000F1S1BR0'),   # ESR 50 ohm (pass 1: the 80 ohm part was marginal vs Nordic Fig. 17)
     '32.768kHz CL9pF': lambda: rank([r for r in rows("subcategory like '%Crystal%' and description like '%32.768kHz%' and description like '%9pF%' and (package like '%2012%' or description like '%2012%')", ())]),
+    'Red': lambda: by_mpn('KT-0603R'), 'Yellow': lambda: by_mpn('NCD0603Y2'),
+    'BTN0': lambda: by_mpn('TS-1187A-B-A-B'), 'BTN1': lambda: by_mpn('TS-1187A-B-A-B'), 'RESET': lambda: by_mpn('TS-1187A-B-A-B'),
+    'UART FTDI': lambda: rank([r for r in rows("subcategory like '%Pin Header%' and description like '%1x6P%' and description like '%2.54mm%' and description like '%Through Hole%'", ())]),
     'SWD 10p 1.27': lambda: rank([r for r in rows("subcategory like '%Pin Header%' and description like '%1.27mm%' and description like '%2x5%' and description like '%SMD%'", ())]),
 }
 

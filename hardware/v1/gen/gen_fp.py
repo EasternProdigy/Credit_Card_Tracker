@@ -55,11 +55,15 @@ fp('Battery_Tabs_2x3mm', 'Cell tab lands 2x3 mm, 5 mm pitch',
    [pad('1', 'rect', -2.5, 0, 2.0, 3.0), pad('2', 'rect', 2.5, 0, 2.0, 3.0),
     rect('F.CrtYd', -3.75, -1.75, 3.75, 1.75), line('F.SilkS', -2.5, -2.0, -2.5, -2.4, 0.15)])
 
-# Wurth 760308101309 coil: generic hand-solder lands (lead geometry NOT verified, O20).
+# Wurth 760308101309 coil (datasheet rev 002.000, 2025-09-03, p.1): coil D26.3 +/-0.3 mm, ID 16.96, 0.49 +/-0.2 thick,
+# two D0.25 mm flying leads 25 +/-1 mm long, tinned 5 +/-2 mm. Recommended hole pattern: 2 x D1.2 mm, 5.0 mm apart.
+# Pads D2.0 mm (0.4 mm ring) for hand soldering the leads. Coil outline drawn 15 mm above the holes (it lies on the board).
 cy = -15.0
-fp('Wurth_760308101309_Lands', 'Wurth 760308101309 D26 Qi coil; lands generic 1.5x2.5, verify lead positions (O20)',
-   [pad('1', 'rect', -2.0, 0, 1.5, 2.5), pad('2', 'rect', 2.0, 0, 1.5, 2.5),
-    circle('F.Fab', 0, cy, 13.0, 0.1), circle('F.CrtYd', 0, cy, 13.25), rect('F.CrtYd', -3.0, -1.5, 3.0, 1.5)])
+th = lambda n, x: [S('pad'), n, S('thru_hole'), S('circle'), [S('at'), x, 0], [S('size'), 2.0, 2.0], [S('drill'), 1.2],
+                   [S('layers'), '*.Cu', '*.Mask']]
+fp('Wurth_760308101309_THT', 'Wurth 760308101309 D26.3 Qi RX coil, lead holes 2 x D1.2 mm, 5.0 mm pitch (datasheet hole pattern)',
+   [th('1', -2.5), th('2', 2.5), circle('F.Fab', 0, cy, 13.15, 0.1), circle('F.SilkS', 0, cy, 13.45, 0.12),
+    circle('F.CrtYd', 0, cy, 13.5), rect('F.CrtYd', -3.75, -1.25, 3.75, 1.25)], attr='through_hole')
 
 # Printed IFA, geometry from sims/antenna_floorplan.py: short at feed-3 mm, height 6 mm, arm 20 mm from feed, 0.5 mm trace.
 # Origin = feed point on the ground edge; antenna extends +y (away from the ground).

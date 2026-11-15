@@ -45,3 +45,11 @@
 - **RF line:** 50 Ω GCPW over In1 is now 0.20 mm wide with a 0.15 mm gap (h 0.0994, Dk 4.1, script calc 49.9 Ω), was 0.49 mm over 0.33 mm on 2-layer.
 - **Keep-outs** for the antenna and the Qi coil now cover all four copper layers.
 - **Rules:** JLC multilayer 0.09/0.09 mm track/space, via hole to track 0.2 mm, standard via 0.5/0.25; U1 via-in-pad 0.25/0.15 (extra-cost via option at order time) (jlcpcb.com/capabilities/pcb-capabilities).
+
+## 2026-11-14 (afternoon, later): v1 dev I/O and coil footprint
+- **Dev I/O added at Dwayne's request ("as much as possible a dev board"):** 2 LEDs, 2 user buttons, a reset button and an FTDI-order UART header. Details and values are in `docs/03_schematic_spec.md` (v1 dev-board additions) and `design/values_calc.py`.
+- **Pins:** buttons and UART follow the nRF54L15 DK (Zephyr `nrf54l15dk_common.dtsi` / `-pinctrl.dtsi`, read 2026-11-14): sw0 P1.13, sw1 P1.09, uart30 TX P0.00 / RX P0.01. The LEDs moved off the DK pins (P2.09 / P1.10) to P2.06 / P1.11 because escapes for pins 20 and 38 are blocked by the VDD via at C22 and the DECA cap column.
+- **No UART RTS/CTS:** logs don't need flow control, and dropping it frees two congested QFN escapes.
+- **4.7 kΩ UART series resistors**, so an unpowered side is never back-fed by more than 0.57 mA. Cable VCC is not connected.
+- **Coil footprint changed to the Würth hole pattern** (2 × Ø1.2 mm, 5.0 mm). The overnight SMD lands were a guess. The keep-out radius grew from 13.0 to 13.45 mm, because the coil is Ø26.3 ± 0.3 mm (the old keep-out was smaller than the coil).
+- **Routing helpers:** small 0.3/0.15 escape vias are placed automatically for the new QFN pins (`postroute_v1.py`, `ESCAPES`); the tact-switch twin pads are linked under the body.

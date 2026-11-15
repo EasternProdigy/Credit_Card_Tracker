@@ -1,12 +1,8 @@
 ** Drc report for run1.kicad_pcb **
-** Created on 2026-11-14T14:34:45 **
+** Created on 2026-11-14T19:02:01 **
 ** Report includes: Errors, Warnings **
 
-** Found 15 DRC violations **
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(158.4000 mm, 134.1800 mm): Footprint U5
-    @(162.3000 mm, 137.3800 mm): Footprint C23
+** Found 16 DRC violations **
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
@@ -14,51 +10,64 @@
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
-    @(154.4000 mm, 135.5800 mm): Footprint C22
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(158.4000 mm, 134.1800 mm): Footprint U5
-    @(158.6000 mm, 138.3800 mm): Footprint L3
+    @(162.3000 mm, 137.3800 mm): Footprint C23
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
     @(158.4000 mm, 134.1800 mm): Footprint U5
     @(156.8500 mm, 130.1300 mm): Footprint C20
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
-    @(159.2800 mm, 138.6300 mm): Footprint C25
+    @(158.4000 mm, 134.1800 mm): Footprint U5
     @(158.6000 mm, 138.3800 mm): Footprint L3
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
-    @(159.2800 mm, 138.6300 mm): Footprint C25
+    @(158.4000 mm, 134.1800 mm): Footprint U5
+    @(154.4000 mm, 135.5800 mm): Footprint C22
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
     @(158.6000 mm, 139.8300 mm): Footprint L4
+    @(159.2800 mm, 138.6300 mm): Footprint C25
 [courtyards_overlap]: Courtyards overlap
     Rule: board setup constraints courtyard; error
-    @(182.9000 mm, 131.2300 mm): Footprint C9d
-    @(181.8200 mm, 131.6300 mm): Footprint C9c
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(164.6500 mm, 132.8800 mm): Footprint L2
-    @(168.0500 mm, 130.0000 mm): Footprint L1
-[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
-    Local override; warning
-    @(158.6000 mm, 143.4800 mm): Footprint AE1
-[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
-    Local override; warning
-    @(147.6000 mm, 113.9800 mm): Footprint Q1
-[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
-    Local override; warning
-    @(159.7500 mm, 143.1050 mm): Footprint TP19
-[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
-    Local override; warning
-    @(138.5000 mm, 106.4800 mm): Footprint BT1
+    @(159.2800 mm, 138.6300 mm): Footprint C25
+    @(158.6000 mm, 138.3800 mm): Footprint L3
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
     @(144.0000 mm, 113.9800 mm): Footprint U3
 [lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
     Local override; warning
+    @(158.6000 mm, 143.4800 mm): Footprint AE1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
+    Local override; warning
+    @(138.5000 mm, 106.4800 mm): Footprint BT1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
+    Local override; warning
+    @(159.7500 mm, 143.1050 mm): Footprint TP19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
+    Local override; warning
     @(168.0500 mm, 130.0000 mm): Footprint L1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'wallet_tracker'
+    Local override; warning
+    @(147.6000 mm, 113.9800 mm): Footprint Q1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(162.5225 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9162 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(162.1000 mm, 135.5800 mm): Via [LED1] on F.Cu - B.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(161.7313 mm, 129.6285 mm): Track [LED1] on B.Cu, length 0.6337 mm
 
-** Found 0 unconnected pads **
+** Found 2 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(148.0200 mm, 131.2800 mm): Track [V5_CHG] on F.Cu, length 1.5200 mm
+    @(162.5225 mm, 138.1880 mm): Track [V5_CHG] on In2.Cu, length 0.9162 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(161.3419 mm, 129.2391 mm): Track [LED1] on B.Cu, length 0.5507 mm
+    @(161.6500 mm, 135.5800 mm): Track [LED1] on F.Cu, length 0.4500 mm
 
 ** Found 0 Footprint errors **
 

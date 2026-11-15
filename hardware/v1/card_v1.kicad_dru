@@ -6,7 +6,7 @@
 # Exceptions at U5 (0.3/0.15): the DECRF/DECA vias and the pin 36 VDD via beside C23, the NFC1 / P1_06 escape vias at the top pad row,
 # and the C18 ground via between the DCC and DECD traces.
 (rule "jlc_std_via"
-  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.Net != 'DECA' && A.Net != 'NFC1' && A.Net != 'P1_06' && !(A.Net == 'GND' && A.intersectsCourtyard('C18')) && !(A.Net == 'VDD_NRF' && A.intersectsCourtyard('U5'))")
+  (condition "A.Type == 'Via' && !A.intersectsCourtyard('U1') && A.Net != 'DECA' && A.Net != 'NFC1' && A.Net != 'P1_06' && A.Net != 'LED0' && A.Net != 'LED1' && A.Net != 'BTN0' && A.Net != 'BTN1' && !(A.Net == 'GND' && A.intersectsCourtyard('C18')) && !(A.Net == 'VDD_NRF' && A.intersectsCourtyard('U5'))")
   (constraint hole_size (min 0.25mm))
   (constraint via_diameter (min 0.5mm))
   (constraint annular_width (min 0.125mm)))

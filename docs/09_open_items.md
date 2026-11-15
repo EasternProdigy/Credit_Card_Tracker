@@ -21,7 +21,7 @@
 | O17 | Grepow cell protection board present or not | Avoid double protection, thickness | Ask Grepow |
 | O18 | ~~nRF54L15 QFN48 config-1 schematic wiring~~ **CLOSED 2026-11-14** (Dwayne supplied datasheet v1.0) (cap-to-pin, FB1 position, RF match order) | Blocks the v1 MCU sheet | Download Nordic's QFN48 reference design files by browser into `design/ref/` (site blocks scripts) |
 | O19 | BQ51003 YFP package height | Height budget | TI YFP0028 drawing |
-| O20 | Würth 760308101309 lead/land geometry | v1 coil lands are generic 1.5 x 2.5 mm pads 4 mm apart | Würth datasheet (blocked to scripts) or measure the sample |
+| O20 | ~~Würth 760308101309 lead/land geometry~~ **Closed 2026-11-14:** Würth datasheet rev 002.000 p.1. Flying Ø0.25 mm leads, 25 mm long; recommended hole pattern 2 × Ø1.2 mm, 5.0 mm apart (v1 now uses it); coil Ø26.3 ± 0.3 × 0.49 mm; 10 µH ± 10 %, DCR 350 mΩ typ / 450 mΩ max, 1.5 A rated | v1 coil footprint | Done |
 | O21 | onsemi EFC4615R recommended land (0.30 mm NSMD assumed) | Assembly yield | onsemi SOLDERRM or app note |
 | O22 | v1 board stackup: BQ51003 DSBGA needs via-in-pad (0.15/0.25). **Decided 2026-11-14: JLC 4-layer 0.8 mm.** Still open: JLC DFM must accept unfilled via-in-pad (POFV is 6-layer+ only) and the 0.225 mm BGA land (JLC min 0.25) | v1 order | JLC DFM check; fallback 6-layer |
 | O23 | ~~Four hand-fix opens on the routed v1~~ **Closed 2026-11-14:** 4-layer reroute, 0 unconnected, 0 DRC errors (`hardware/v1/review/drc_final.rpt`) | v1 DRC clean | Done |

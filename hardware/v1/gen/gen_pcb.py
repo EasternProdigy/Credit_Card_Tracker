@@ -183,7 +183,7 @@ P('C22', 54.4, 18.4, 'E')
 P('JP6', 53.3, 13.9, 'N'); P('JP5', 53.3, 11.8, 'N')
 
 # Qi receiver
-P('L1', 68.05, 38.98 - 15.0, 0)      # lands at (66.05 / 70.05, 23.98)
+P('L1', 68.05, 38.98 - 15.0, 0)      # lead holes at (65.55 / 70.55, 23.98), coil D26.3 above
 for i, ref in enumerate(['C1a', 'C1b', 'C1c', 'C1d']):
     P(ref, 66.45 + i * 1.55, 20.0, 'N')       # COIL1 on top
 for i, ref in enumerate(['C2a', 'C2b', 'C2c']):
@@ -219,12 +219,20 @@ P('JP4', 43.5, 10.0, 'W'); P('J3', 36.5, 10.0, 90)
 # debug
 P('J4', 37.5, 26.0, 90)
 P('J5', 26.0, 8.0, 0)
+# dev I/O (left edge, battery-pocket area on v1): UART header, LEDs, buttons
+P('J6', 6.0, 40.0, 0)                  # pins 1..6 run down: y 40.0, 37.46, 34.92, 32.38, 29.84, 27.30
+for ref, k in (('R33', 3), ('R32', 4)):
+    P(ref, 9.6, 40.0 - 2.54 * k, 'W')  # each series R right beside its header pin
+P('R30', 14.2, 26.0, 'W'); P('D1', 17.0, 26.0, 0)
+P('R31', 14.2, 23.5, 'W'); P('D2', 17.0, 23.5, 0)
+P('SW1', 9.0, 14.0, 0); P('SW2', 17.0, 14.0, 0)
+P('SW3', 37.5, 18.0, 0)                 # reset button right under the SWD header (J4 pin 10 = nRESET)
 tps = [c['ref'] for c in D.C if c['ref'].startswith('TP') and c['ref'] not in ('TP19', 'TP1', 'TP2', 'TP3', 'TP4', 'TP5')]
 for i, ref in enumerate(tps):
     P(ref, 25.0 + (i % 3) * 2.6, 46.0 - (i // 3) * 2.8)
 
 # ---------------------------------------------------------------- courtyard resolver
-BIG = lambda r: r[0] in 'UJY' or r in ('AE1', 'L1', 'BT1', 'Q1')
+BIG = lambda r: r[0] in 'UJY' or r in ('AE1', 'L1', 'BT1', 'Q1', 'SW1', 'SW2', 'SW3')
 def cbox(f):
     c = f.GetCourtyard(pcbnew.F_CrtYd)
     if c.OutlineCount() == 0: return None
@@ -267,6 +275,11 @@ def silk(txt, x, y, sz=0.8):
     t.SetTextSize(pcbnew.VECTOR2I(mm(sz), mm(sz))); t.SetTextThickness(mm(0.15)); board.Add(t)
 for ref in ('J1', 'BT1'):
     px_, py_ = padpos(ref, '1'); silk('+', px_ - (1.8 if ref == 'BT1' else 0), py_ + 2.0)
+for ref, lbl in (('SW1', 'BTN0'), ('SW2', 'BTN1'), ('SW3', 'RESET'), ('D1', 'LED0'), ('D2', 'LED1')):
+    cx_, cy_ = card(FP[ref].GetPosition()); silk(lbl, cx_ + (0 if ref[0] == 'S' else 2.6), cy_ + (3.6 if ref[0] == 'S' else 0), 0.8)
+for k, lbl in enumerate(('GND', 'CTS', 'NC', 'TXD', 'RXD', 'RTS')):   # FTDI cable side names
+    silk(lbl, 2.5, 40.0 - 2.54 * k, 0.8)
+silk('UART 3V3', 6.0, 42.4, 0.8)
 for ref, lbl in (('J2', 'PPK BAT'), ('J3', 'PPK 3V3'), ('J4', 'SWD')):
     cx_, cy_ = card(FP[ref].GetPosition()); silk(lbl, cx_ - (4.5 if ref == 'J4' else 0), cy_ + 3.0)
 
@@ -284,8 +297,8 @@ def rule_area(name, pts, layers=('F.Cu', 'B.Cu'), tracks=True, vias=True, pour=T
 def circle_pts(cx, cy, r, n=48): return [(cx + r * math.cos(2 * math.pi * i / n), cy + r * math.sin(2 * math.pi * i / n)) for i in range(n)]
 # antenna keep-out (docs/04): only IFA copper; footprints' own copper is allowed (pads=False keeps AE1 legal)
 rule_area('ANT_KEEPOUT', [(52.5, 2.0), (83.6, 2.0), (83.6, 10.2), (52.5, 10.2)], layers=CU4, pour=True, tracks=True, vias=True)
-# coil: no copper on any layer inside D26, except its lands (lands sit outside the circle)
-rule_area('COIL_KEEPOUT', circle_pts(68.05, 38.98, 13.0), layers=CU4, tracks=True, vias=True, pour=True)
+# coil: no copper on any layer under the D26.3 +/-0.3 coil (Wurth p.1): r 13.15 + 0.3 tol
+rule_area('COIL_KEEPOUT', circle_pts(68.05, 38.98, 13.45), layers=CU4, tracks=True, vias=True, pour=True)
 # In1 is the solid ground reference for the top layer (RF GCPW, HFXO). It is a 'power' layer, so Freerouting
 # treats it as a plane and never routes on it (a wire keep-out here made Freerouting flag every via as a violation).
 # Nordic Fig. 180: C25 ground only to pin 32 (top); keep the top pour away from C25's ground pad + pin 32
@@ -456,6 +469,11 @@ for i in (-1, 0, 1):
 # U1 via-in-pad on the 5 enclosed balls (JLC 4-layer BGA guide: 0.15 drill / 0.25 copper)
 for ball, n_ in (('C2', 'VRECT'), ('C3', 'VRECT'), ('E2', 'CLAMP2'), ('E3', 'CLAMP1'), ('F2', 'FOD'), ('D2', 'V5_RX')):
     x_, y_ = pp('U1', ball); via(n_, x_, y_, 0.25, 0.15)
+# tact switches: the two pad 1s (and pad 2s) are joined inside the switch, but KiCad wants copper: link them under the body
+for ref in ('SW1', 'SW2', 'SW3'):
+    for num in ('1', '2'):
+        ps = [p for p in FP[ref].Pads() if p.GetNumber() == num]
+        track(ps[0].GetNetname(), [card(ps[0].GetPosition()), card(ps[1].GetPosition())], 0.25)
 # GND via beside every GND pad of small parts (pours on both layers), searching outward
 GND_SKIP = {'C25', 'C26', 'AE1', 'U5', 'U1', 'TP23', 'TP24', 'TP25'}
 for ref, f in FP.items():
@@ -491,7 +509,7 @@ for gx in [2 + 4 * i for i in range(21)]:
     for gy in [12 + 4 * j for j in range(11)]:
         inside_coil = math.hypot(gx - 68.05, gy - 38.98) < 13.6
         if inside_coil or (52.0 < gx < 84 and gy < 26.5) or gy < 10.8: continue
-        if free(gx, gy, 0.25, 'GND', 0.3): via('GND', gx, gy, locked=False)
+        if free(gx, gy, 0.25, '', 0.3): via('GND', gx, gy, locked=False)   # '' = every pad blocks (a GND THT pad got a via)
 print('vias', len(VIAS), 'hand tracks', len(TRK))
 
 STACKUP = """		(stackup

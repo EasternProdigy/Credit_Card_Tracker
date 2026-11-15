@@ -23,7 +23,7 @@ SHEETS = [  # (file stem, title)
     ('power_sense', 'D: LDO, battery sense, PPK2 3.3 V break'),
     ('mcu', 'E: nRF54L15 QFN48 (Nordic config 1)'),
     ('rf_antenna', 'F: Nordic 50 ohm match + IFA L-match'),
-    ('debug_nfc', 'G: SWD, test pads, NFC (DNP)'),
+    ('debug_nfc', 'G: SWD, UART, LEDs, buttons, test pads, NFC (DNP)'),
 ]
 
 # ---------------------------------------------------------------- custom symbols
@@ -89,7 +89,7 @@ CUSTOM_SYMBOLS = {
         ('23', 'P0.00', 'bidirectional', 'R'), ('24', 'P0.01', 'bidirectional', 'R'),
         ('27', 'P0.02', 'bidirectional', 'R'), ('28', 'P0.03', 'bidirectional', 'R'),
         ('29', 'P0.04', 'bidirectional', 'R')]),
-    'Wurth_760308101309': dict(ref='L', fp='wallet_tracker:Wurth_760308101309_Lands',
+    'Wurth_760308101309': dict(ref='L', fp='wallet_tracker:Wurth_760308101309_THT',
         ds='https://www.we-online.com/en/components/products/WE-WPCC-RECEIVER', pins=[
         ('1', '1', 'passive', 'L'), ('2', '2', 'passive', 'R')]),
     'IFA_Printed': dict(ref='AE', fp='wallet_tracker:IFA_2G4_arm20_h6', ds='sims/antenna_floorplan.py',
@@ -105,6 +105,8 @@ FP = {
     'L0201': 'Inductor_SMD:L_0201_0603Metric', 'L0603': 'Inductor_SMD:L_0603_1608Metric',
     'TP': 'TestPoint:TestPoint_Pad_D1.0mm', 'TPRF': 'wallet_tracker:TestPoint_Pad_D0.6mm',
     'HDR2': 'Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical',
+    'HDR6': 'Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical',
+    'TACT': 'Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A', 'LED0603': 'LED_SMD:LED_0603_1608Metric',
     'SWD': 'Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD',
     'JST2': 'Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal',
     'TABS': 'wallet_tracker:Battery_Tabs_2x3mm',
@@ -132,7 +134,7 @@ NORD = 'Nordic nRF54L15 DS v1.0 Fig.180/Table 87'
 
 # ---- A: Qi receiver ------------------------------------------------------
 S = 'qi_rx'
-add('L1', S, 'custom:Wurth_760308101309', '10uH Qi RX coil', 'wallet_tracker:Wurth_760308101309_Lands',
+add('L1', S, 'custom:Wurth_760308101309', '10uH Qi RX coil', 'wallet_tracker:Wurth_760308101309_THT',
     {'1': 'COIL1', '2': 'AC2'}, mpn='Wurth 760308101309', src=SPEC)
 Cap('C1a', S, '100nF 50V X7R', 'COIL1', 'AC1', 'C0603', src=SPEC + ' (v1: 0603, Dwayne)')
 Cap('C1b', S, '100nF 50V X7R', 'COIL1', 'AC1', 'C0603', src=SPEC + ' (v1: 0603)')
@@ -230,9 +232,14 @@ u5 = {'10': 'VDD_NRF', '22': 'VDD_NRF', '36': 'VDD_NRF', '47': 'VDD_NRF', '48': 
       '46': 'DCC', '45': 'DECD', '43': 'DECA', '33': 'DECA', '34': 'XC1', '35': 'XC2',
       '31': 'RF_NRF', '32': 'GND', '25': 'SWDIO', '26': 'SWDCLK', '30': 'nRESET_IC',
       '44': 'GND', '49': 'GND', '1': 'XL1', '2': 'XL2', '3': 'NFC1', '4': 'NFC2',
-      '5': 'VBAT_SENSE_MCU', '6': 'nCHG_MCU', '7': 'P1_06', '18': 'SWO', '23': 'P0_00', '24': 'P0_01'}
-for p in ('8', '9', '37', '38', '39', '40', '41', '42', '11', '12', '13', '14', '15', '16', '17',
-          '19', '20', '21', '27', '28', '29'):
+      '5': 'VBAT_SENSE_MCU', '6': 'nCHG_MCU', '7': 'P1_06', '18': 'SWO', '23': 'UART_TX', '24': 'UART_RX',
+      # dev I/O, nRF54L15 DK conventions (Zephyr nrf54l15dk_common.dtsi / -pinctrl.dtsi, read 2026-11-14):
+      # sw0 P1.13, sw1 P1.09 (active low, pull-up); uart30 TX P0.00 RX P0.01. LEDs differ from the DK (led0 P2.09 /
+      # led1 P1.10): their escapes are blocked on this layout, so LED0 = P2.06 (pin 17), LED1 = P1.11 (pin 39), active high.
+      # (DK RTS P0.02 / CTS P0.03 not wired: logs need no flow control, and it saves two congested escapes)
+      '17': 'LED0', '39': 'LED1', '41': 'BTN0', '37': 'BTN1'}
+for p in ('8', '9', '38', '40', '42', '11', '12', '13', '14', '15', '16', '20',
+          '19', '21', '27', '28', '29'):
     u5[p] = None
 add('U5', S, 'custom:nRF54L15-QFAA', 'nRF54L15-QFAA', None, u5, mpn='Nordic nRF54L15-QFAA-R7',
     src='design/pinmaps/nRF54L15_QFN48.md')
@@ -280,8 +287,34 @@ add('J4', S, 'Connector_Generic:Conn_02x05_Odd_Even', 'SWD 10p 1.27', 'SWD',
      '8': None, '9': 'GND', '10': 'nRESET'}, dev=True, mpn='Cortex Debug 10-pin',
     src='ARM Cortex 10-pin debug pinout')
 for r, n in (('TP20', 'SWDIO'), ('TP21', 'SWDCLK'), ('TP22', 'nRESET'), ('TP23', 'GND'), ('TP24', 'GND'),
-             ('TP25', 'GND'), ('TP26', 'P0_00'), ('TP27', 'P0_01'), ('TP28', 'P1_06'), ('TP29', 'SWO')):
+             ('TP25', 'GND'), ('TP26', 'UART_TX'), ('TP27', 'UART_RX'), ('TP28', 'P1_06'), ('TP29', 'SWO')):
     TP(r, S, n)
+# ---- dev I/O (v1 only): 2 LEDs, 2 user buttons, reset button, UART header ----------------
+# LED current: GPIO standard drive IOH,SD >= 1 mA at VDD-0.4 V (nRF54L15 datasheet v1.0 p.899);
+# (3.3 V - 1.8 V Vf (KT-0603R min) ) / 1 k = 1.5 mA, inside standard drive (design/values_calc.py).
+R('R30', S, '1k', 'LED0', 'LED0_A', dev=True, src='LED0 series R, values_calc.py')
+add('D1', S, 'Device:LED', 'Red', 'LED0603', {'1': 'GND', '2': 'LED0_A'}, dev=True, mpn='KENTO KT-0603R',
+    src='LED0 = P2.06 (pin 17), active high')
+R('R31', S, '1k', 'LED1', 'LED1_A', dev=True, src='LED1 series R, values_calc.py')
+add('D2', S, 'Device:LED', 'Yellow', 'LED0603', {'1': 'GND', '2': 'LED1_A'}, dev=True, mpn='NationStar NCD0603Y2',
+    src='LED1 = P1.11 (pin 39), active high')
+# buttons to GND, internal pull-up (RPU 12-16 kOhm, datasheet p.899): DK sw0/sw1 polarity
+add('SW1', S, 'Switch:SW_Push', 'BTN0', 'TACT', {'1': 'BTN0', '2': 'GND'}, dev=True, mpn='XKB TS-1187A-B-A-B',
+    src='DK sw0 = P1.13 active low, pull-up')
+add('SW2', S, 'Switch:SW_Push', 'BTN1', 'TACT', {'1': 'BTN1', '2': 'GND'}, dev=True, mpn='XKB TS-1187A-B-A-B',
+    src='DK sw1 = P1.09 active low, pull-up')
+# reset button on the debugger side of R7 (Nordic R1 1k): pressing pulls nRESET low; same node the SWD header uses
+add('SW3', S, 'Switch:SW_Push', 'RESET', 'TACT', {'1': 'nRESET', '2': 'GND'}, dev=True, mpn='XKB TS-1187A-B-A-B',
+    src='ARM debug nRESET is open-drain to GND; button does the same')
+# UART: FTDI TTL-232R-3V3 6-pin order (1 GND, 2 CTS# in, 3 VCC, 4 TXD out, 5 RXD in, 6 RTS# out).
+# Pin 3 (cable VCC, often 5 V) is left unconnected so a cable never powers the board; CTS#/RTS# (2, 6) unused.
+# 4.7 k series on every line: limits back-feed into an unpowered nRF / cable to (3.3-0.6)/4.7k = 0.57 mA,
+# and a crossed TX/TX to 0.7 mA; RC with ~10 pF is 47 ns vs 1 us bit at 1 Mbaud (values_calc.py).
+for r, a_, b_ in (('R32', 'UART_TX', 'J6_RXD'), ('R33', 'UART_RX', 'J6_TXD')):
+    R(r, S, '4.7k', a_, b_, dev=True, src='UART series R, values_calc.py')
+add('J6', S, 'Connector_Generic:Conn_01x06', 'UART FTDI', 'HDR6', {'1': 'GND', '2': None, '3': None,
+    '4': 'J6_TXD', '5': 'J6_RXD', '6': None}, dev=True, mpn='2.54 mm 1x6 header',
+    src='FTDI TTL-232R-3V3 pinout; DK uart30 pins')
 add('J5', S, 'Connector_Generic:Conn_01x02', 'NFC ant', 'HDR2', {'1': 'NFC1', '2': 'NFC2'}, dnp=True,
     dev=True, src='NFC loop antenna pads (DNP until v2.1)')
 Cap('C33', S, 'DNP', 'NFC1', 'GND', 'C0402', dnp=True, dev=True, src='NFC tuning cap, tune on bench')

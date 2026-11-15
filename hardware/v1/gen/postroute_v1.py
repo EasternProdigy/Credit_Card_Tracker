@@ -13,22 +13,24 @@ CLR, HCLR = mm(0.15), mm(0.2)
 b = pcbnew.LoadBoard(PCB); gnd = b.FindNet('GND')
 CU = [l for l in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu)]
 
-def others(layer):
+def others(layer, netcode=None):
+    nc = gnd.GetNetCode() if netcode is None else netcode
     for t in b.GetTracks():
-        if t.GetNetCode() != gnd.GetNetCode() and t.IsOnLayer(layer): yield t
+        if t.GetNetCode() != nc and t.IsOnLayer(layer): yield t
     for f in b.GetFootprints():
         for p in f.Pads():
-            if p.GetNetCode() != gnd.GetNetCode() and p.IsOnLayer(layer): yield p
+            if p.GetNetCode() != nc and p.IsOnLayer(layer): yield p
 
-def clear(item, layers):
+def clear(item, layers, skip=None):
+    nc = item.GetNetCode()
     for l in layers:
         s = item.GetEffectiveShape(l)
-        for o in others(l):
+        for o in others(l, nc):
             if o.GetEffectiveShape(l).Collide(s, CLR): return False
     if item.GetClass() == 'PCB_VIA':
         h = item.GetEffectiveHoleShape()
         for l in CU:
-            for o in others(l):
+            for o in others(l, nc):
                 if o.GetEffectiveShape(l).Collide(h, HCLR): return False
     return True
 
@@ -65,8 +67,34 @@ def place_near(p, locked=False):
                 return (p.GetParentFootprint().GetReference(), round(M(pos.x), 2), round(M(pos.y), 2))
     return None
 
+ESCAPES = [('U5', '17'), ('U5', '37'), ('U5', '39'), ('U5', '41')]   # dev I/O pins: 0.3/0.15 escape via + stub
+
+def escape(ref, num):
+    """0.3/0.15 via just outside a QFN pad, outward from the IC, with a short F.Cu stub; first spot that clears."""
+    f = b.FindFootprintByReference(ref); p = [q for q in f.Pads() if q.GetNumber() == num][0]
+    c, pc = f.GetPosition(), p.GetPosition()
+    d = pc - c; ax = abs(d.x) > abs(d.y)                                   # pad on a left/right side?
+    out = pcbnew.VECTOR2I((1 if d.x > 0 else -1) if ax else 0, 0 if ax else (1 if d.y > 0 else -1))
+    lat = pcbnew.VECTOR2I(0, 1) if ax else pcbnew.VECTOR2I(1, 0)
+    start = pcbnew.VECTOR2I(pc.x + out.x * mm(0.3), pc.y + out.y * mm(0.3))
+    for o in (0.75, 0.85, 1.0, 1.2, 1.4, 1.7, 2.0):
+        for l in (0, 0.2, -0.2, 0.4, -0.4, 0.6, -0.6, 0.8, -0.8):
+            pos = pcbnew.VECTOR2I(pc.x + out.x * mm(o) + lat.x * mm(l), pc.y + out.y * mm(o) + lat.y * mm(l))
+            v = pcbnew.PCB_VIA(b); v.SetPosition(pos); v.SetWidth(mm(0.3)); v.SetDrill(mm(0.15)); v.SetNet(p.GetNet())
+            mid = pcbnew.VECTOR2I(pc.x + out.x * mm(o - 0.25 if l else o), pc.y + out.y * mm(o - 0.25 if l else o))
+            segs = []
+            for a_, b_ in ((start, mid), (mid, pos)):
+                if a_ == b_: continue
+                t = pcbnew.PCB_TRACK(b); t.SetStart(a_); t.SetEnd(b_); t.SetWidth(mm(0.15)); t.SetLayer(pcbnew.F_Cu); t.SetNet(p.GetNet()); segs.append(t)
+            ok = clear(v, CU) and not in_via_keepout(v) and all(clear(t, [pcbnew.F_Cu], skip=f) for t in segs)
+            if ok:
+                for it in [v] + segs: it.SetLocked(True); b.Add(it)
+                return (ref + '.' + num, round(M(pos.x), 2), round(M(pos.y), 2))
+    return ('NO ESCAPE', ref + '.' + num)
+
 if '--preroute' in sys.argv:
-    SKIP = ('U', 'J', 'BT', 'AE', 'TP')
+    print('escape vias:', [escape(r, n) for r, n in ESCAPES])
+    SKIP = ('U', 'J', 'BT', 'AE')
     added = []
     for f in b.GetFootprints():
         if f.GetReference().startswith(SKIP) or f.GetReference() in ('C25', 'C26'): continue   # C25/C26: Nordic Fig. 180 ground rules

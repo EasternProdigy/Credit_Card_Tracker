@@ -80,6 +80,11 @@ Source of truth for v1: `hardware/v1/gen/design.py` (generates `hardware/v1/*.ki
 - **FOD calibration:** RFOD2 and ROS2 DNP (TI p.28).
 - **MCU:** Nordic QFN48 config 1 exactly (refs C17 to C31, L2, FB1, Y1, Y2, R7, NT1; see `design/pinmaps/nRF54L15_QFN48.md`). RF: Nordic 50 Ω match (L3, C25, L4, C26, L5, C27), then the antenna stage C32 (DNP shunt), L6 2.2 nH, C28 0.2 pF.
 - **Battery:** J1 JST SH 2-pin (optional) and BT1 tab lands; TH1 is an on-board 0402 NTC on v1, with R_TSD (DNP 10 k) to disable NTC sensing.
-- **Debug:** J4 10-pin 1.27 mm Cortex SWD (SWO on P2.07). Test pads TP1 to TP29 on every rail, the rectifier, AC1/AC2, the cell, SWD, the protector gates, spare GPIO (P0.00, P0.01, P1.06) and the antenna feed (0.6 mm pad).
+- **Debug:** J4 10-pin 1.27 mm Cortex SWD (SWO on P2.07). Test pads TP1 to TP29 on every rail, the rectifier, AC1/AC2, the cell, SWD, the protector gates, spare GPIO P1.06, UART TX/RX (P0.00, P0.01) and the antenna feed (0.6 mm pad).
 - **NFC:** J5 antenna pads and tuning caps C33/C34, all DNP.
+- **Dev I/O (added 2026-11-14 afternoon, Dwayne):**
+  - **LEDs, active high:** D1 red on LED0 = P2.06 (pin 17) and D2 yellow on LED1 = P1.11 (pin 39), each through 1 kΩ, about 0.9 to 1.6 mA in standard drive (nRF54L15 datasheet v1.0 p.899; `values_calc.py`). The DK uses P2.09 / P1.10, but those escapes are blocked on this layout, so firmware needs a two-line overlay.
+  - **Buttons:** SW1 BTN0 on P1.13 (DK sw0) and SW2 BTN1 on P1.09 (DK sw1), both active low to GND with the internal pull-up (12 to 16 kΩ). SW3 RESET pulls nRESET (the debugger side of R7) to GND. All three are XKB TS-1187A-B-A-B, 5.1 × 5.1 × 1.5 mm.
+  - **UART:** J6 is a 2.54 mm 1×6 header in FTDI TTL-232R-3V3 order (1 GND, 2 CTS# nc, 3 VCC nc, 4 TXD, 5 RXD, 6 RTS# nc). nRF TX is P0.00 and RX is P0.01 (DK uart30 pins), each through a 4.7 kΩ series resistor (R32, R33). That caps back-feed at 0.57 mA and gives 47 ns RC against a 1 µs bit at 1 Mbaud. Cable VCC is not connected, so a cable can never power the board. Use 3.3 V logic only.
+- **Coil land (rev 0.7):** L1 now uses the Würth datasheet hole pattern, 2 × Ø1.2 mm plated holes 5.0 mm apart (760308101309 rev 002.000 p.1). The coil (Ø26.3 ± 0.3 mm, 0.49 mm thick, Ø0.25 mm leads 25 mm long) lies on the board over a Ø26.9 mm all-layer copper keep-out.
 - **Height:** v1 is exempt from the 0.625 mm budget (0603, headers, QFN48 0.9 mm). v2 keeps it.

@@ -1,9 +1,9 @@
-(footprint "Wurth_760308101309_Lands"
+(footprint "Wurth_760308101309_THT"
   (version 20241229)
   (generator "gen_fp.py")
   (layer "F.Cu")
-  (descr "Wurth 760308101309 D26 Qi coil; lands generic 1.5x2.5, verify lead positions (O20)")
-  (attr smd)
+  (descr "Wurth 760308101309 D26.3 Qi RX coil, lead holes 2 x D1.2 mm, 5.0 mm pitch (datasheet hole pattern)")
+  (attr through_hole)
   (property "Reference" "REF**"
     (at 0 -1.5 0)
     (layer "F.SilkS")
@@ -11,24 +11,26 @@
       (font
         (size 0.5 0.5)
         (thickness 0.08))))
-  (property "Value" "Wurth_760308101309_Lands"
+  (property "Value" "Wurth_760308101309_THT"
     (at 0 1.5 0)
     (layer "F.Fab")
     (effects
       (font
         (size 0.5 0.5)
         (thickness 0.08))))
-  (pad "1" smd rect
-    (at -2 0)
-    (size 1.5 2.5)
-    (layers "F.Cu" "F.Paste" "F.Mask"))
-  (pad "2" smd rect
-    (at 2 0)
-    (size 1.5 2.5)
-    (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "1" thru_hole circle
+    (at -2.5 0)
+    (size 2 2)
+    (drill 1.2)
+    (layers "*.Cu" "*.Mask"))
+  (pad "2" thru_hole circle
+    (at 2.5 0)
+    (size 2 2)
+    (drill 1.2)
+    (layers "*.Cu" "*.Mask"))
   (fp_circle
     (center 0 -15)
-    (end 13 -15)
+    (end 13.15 -15)
     (stroke
       (width 0.1)
       (type solid))
@@ -36,15 +38,23 @@
     (layer "F.Fab"))
   (fp_circle
     (center 0 -15)
-    (end 13.25 -15)
+    (end 13.45 -15)
+    (stroke
+      (width 0.12)
+      (type solid))
+    (fill no)
+    (layer "F.SilkS"))
+  (fp_circle
+    (center 0 -15)
+    (end 13.5 -15)
     (stroke
       (width 0.05)
       (type solid))
     (fill no)
     (layer "F.CrtYd"))
   (fp_rect
-    (start -3 -1.5)
-    (end 3 1.5)
+    (start -3.75 -1.25)
+    (end 3.75 1.25)
     (stroke
       (width 0.05)
       (type solid))

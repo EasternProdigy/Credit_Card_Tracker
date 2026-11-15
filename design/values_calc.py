@@ -42,3 +42,15 @@ print(f"BQ51003 chosen R1 {R1_v} + RFOD {RFOD_v} = {R1_v+RFOD_v} ohm -> IMAX {26
 print(f"BQ25101 ICHG = {ICHG*1e3:.1f} mA = {ICHG*1e3/CELL_mAh:.2f}C ; ITERM ~ {0.1*ICHG*1e3:.1f} mA")
 print("TS voltage: " + ", ".join(f"{t} C -> {v_ts(t):.3f} V" for t in (0, 10, 25, 45, 60)))
 print(f"Divider drain = {I_div*1e6:.2f} uA ; VBAT_SENSE at 4.2 V = {4.2*R4/(R3+R4):.2f} V")
+
+# ---- v1 dev I/O (2026-11-14 afternoon)
+# LEDs: GPIO high (standard drive, nRF54L15 datasheet v1.0 p.899: IOH,SD >= 1 mA at VDD-0.4 V) -> R -> LED -> GND.
+# KT-0603R red Vf 1.8-2.4 V @ 20 mA (LCSC C2286); NCD0603Y2 yellow Vf 1.6-2.6 V @ 25 mA (LCSC C89811). At ~1-2 mA Vf ~1.7-1.8 V.
+VDD, R_LED, VF_LO, VF_HI = 3.3, 1000, 1.7, 2.0
+I_LED_max, I_LED_min = (VDD - VF_LO) / R_LED, (VDD - 0.4 - VF_HI) / R_LED
+print(f"LED: R {R_LED} ohm -> {I_LED_min*1e3:.2f} to {I_LED_max*1e3:.2f} mA (GPIO standard drive, IOH,SD min 1 mA at VDD-0.4)")
+# UART series resistors: back-feed into an unpowered nRF or cable through ESD diodes, and bit-time margin.
+R_UART, C_PIN = 4700, 10e-12
+print(f"UART: R {R_UART} ohm -> back-feed {(VDD-0.6)/R_UART*1e3:.2f} mA max; RC {R_UART*C_PIN*1e9:.0f} ns vs 1000 ns bit at 1 Mbaud, 8680 ns at 115200")
+# Buttons: internal pull-up RPU 12-16 kOhm (p.899) -> press current
+print(f"Button: press current {VDD/12e3*1e6:.0f} uA max (RPU 12-16 k, datasheet p.899); only while held")

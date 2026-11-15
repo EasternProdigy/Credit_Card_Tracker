@@ -175,7 +175,7 @@
     (fill
       (color 0 0 0 0))
     (uuid "0700cb01-a2c7-5049-a890-388c85bb0339")
-    (property "Sheetname" "G: SWD, test pads, NFC (DNP)"
+    (property "Sheetname" "G: SWD, UART, LEDs, buttons, test pads, NFC (DNP)"
       (at 205.4 89.3 0)
       (effects
         (font

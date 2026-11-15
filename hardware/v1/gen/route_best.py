@@ -22,6 +22,7 @@ for i in range(N):
     if not os.path.exists(ses): continue
     bb = pcbnew.LoadBoard(PCB); pcbnew.ImportSpecctraSES(bb, ses); pcbnew.ZONE_FILLER(bb).Fill(bb.Zones())
     out = os.path.join(R, f'run{i}.kicad_pcb'); pcbnew.SaveBoard(out, bb)
+    for ext in ('.kicad_pro', '.kicad_dru'): shutil.copy(PCB[:-10] + ext, out[:-10] + ext)   # judge with the real rules
     rpt = os.path.join(R, f'run{i}.rpt')
     subprocess.run(['kicad-cli', 'pcb', 'drc', '-o', rpt, out], capture_output=True)
     txt = open(rpt).read()
@@ -34,4 +35,4 @@ for i in range(N):
 shutil.copy(best[1], PCB); shutil.copy(best[2], os.path.join(R, 'best_drc.rpt'))
 print('kept', os.path.basename(best[1]))
 for f in os.listdir(R):
-    if f.startswith('run') and f.endswith(('.kicad_pcb', '.kicad_pro', '.kicad_prl')): os.remove(os.path.join(R, f))
+    if f.startswith('run') and f.endswith(('.kicad_pcb', '.kicad_pro', '.kicad_prl', '.kicad_dru')): os.remove(os.path.join(R, f))
