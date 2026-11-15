@@ -19,14 +19,17 @@ import csv, sys
 R = sys.argv[1]
 rows = [r for r in csv.DictReader(open(f'{R}/bom_v1_jlc.csv')) if r['DNP'] == 'no']
 with open(f'{R}/jlc/card_v1_bom_jlc.csv', 'w', newline='') as f:
-    w = csv.writer(f); w.writerow(['Comment', 'Designator', 'Footprint', 'LCSC', 'MPN'])
-    asc = lambda t: t.encode('ascii', 'ignore').decode().strip()   # LCSC MPNs can carry CJK text; JLC's parser chokes
-    for r in rows: w.writerow([asc(r['Comment']), r['Designator'], asc(r['Footprint']), r['LCSC'], asc(r['MPN'])])
+    # JLC BOM template columns. U3/U4 have no LCSC number; their Comment is the MPN for Global Sourcing.
+    w = csv.writer(f); w.writerow(['Comment', 'Designator', 'Footprint', 'JLCPCB Part #'])
+    asc = lambda t: t.encode('ascii', 'ignore').decode().strip()   # keep the file pure ASCII for JLC's parser
+    for r in rows: w.writerow([asc(r['Comment']), r['Designator'], asc(r['Footprint']), r['LCSC']])
 with open(f'{R}/jlc/card_v1_cpl_jlc.csv', 'w', newline='') as f:
-    w = csv.writer(f); w.writerow(['Designator', 'Val', 'Package', 'Mid X', 'Mid Y', 'Rotation', 'Layer'])
+    # Exactly JLC's sample CPL (JLCSMT_Sample_CPL1.xlsx): Designator, Mid X, Mid Y, Layer, Rotation; rotation 0-359.
+    w = csv.writer(f); w.writerow(['Designator', 'Mid X', 'Mid Y', 'Layer', 'Rotation'])
     placed = {d.strip() for r in rows for d in r['Designator'].split(',')}
     for r in csv.DictReader(open(f'{R}/card_v1_cpl.csv')):
         if r['Ref'] not in placed: continue          # e.g. TP19, a bare test pad: nothing to place
-        w.writerow([r['Ref'], r['Val'], r['Package'], r['PosX'] + 'mm', r['PosY'] + 'mm', r['Rot'], r['Side'].capitalize()])
+        rot = round(float(r['Rot'])) % 360
+        w.writerow([r['Ref'], f"{float(r['PosX']):.4f}mm", f"{float(r['PosY']):.4f}mm", r['Side'].capitalize(), rot])
 print('jlc bom lines', len(rows))
 PY
